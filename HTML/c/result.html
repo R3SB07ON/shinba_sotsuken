@@ -1,0 +1,105 @@
+<!--
+入力：
+・各パラメータのスコア
+＋予防編であるか対応編であるか
++タスクの達成数（予）
+
+出力：
+・各パラメータのグラフ
++タスク消化率（予）
+
+アクション：
+・「各パラメータのスコア」、「何に引っかかったか」等の情報をコピーする
+・パラメータをもとに表を出力
++タスク消化率の算出（予）
++予防か対応かに応じてリンク文字のテキストと遷移先の変更、タスク消化率の項目削除
+ -->
+<!--
+引数[game=1]:予防編
+result.html?game1
+引数[game=2]:対応編
+result.html?game2
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>結果</title>
+    <link rel="stylesheet" href="../../CSS/c/result.css">
+
+    <script src = "../../JavaScript/c/parameter.js"></script>
+    <script src = "../../JavaScript/c/result.js"></script>
+    <!--グラフ制作-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+  </head>
+  <body>
+
+    <!--予防編の結果画面-->
+    <div id = result1>
+      <div>
+        <p>
+          お疲れさまでした。<br>
+          画面下の文字列をコピーして、<br>
+          下記のリンクをクリックしてください。
+        </p>
+        <!--
+          <input class="copy" type="button" value="結果のコピー" onclick="cl();">
+        -->
+      </div>
+
+      <div class = linktext>
+        <!-- Formsのリンクを記載する -->
+        <a href="https://www.google.co.jp/webhp?tab=rw" target="_blank">予防編アンケートはこちら</a>
+      </div>
+      <div class="graph1">
+        <canvas id="para1"></canvas>
+      </div>
+      <div class="side">
+        <div class="comment">
+          お疲れさまでした。
+          <p id = achieve>タスク達成率</p>
+        </div>
+        <div class="graph2">
+          <canvas id="para2"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!--対応編の結果画面-->
+    <div id = result2>
+      <div>
+        <p>
+          お疲れさまでした。<br>
+          画面下の文字列をコピーして、<br>
+          下記のリンクをクリックしてください。
+        </p>
+        <!--
+          <input class="copy" type="button" value="結果のコピー" onclick="cl();">
+        -->
+      </div>
+
+      <div class = linktext>
+        <!-- Formsのリンクを記載する -->
+        <a href="https://www.google.co.jp/webhp?tab=rw" target="_blank">対応編アンケートはこちら</a>
+      </div>
+      <div class="graph1">
+        <canvas id="para3"></canvas>
+      </div>
+      <div class = "side">
+        <div class="comment">
+          お疲れさまでした。
+        </div>
+        <div class="graph2">
+          <canvas id="para4"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!--クリップボード用テキストエリア-->
+    <div id="copyarea">
+      <p id="copytext" name="name" rows="8" cols="80">初期値</textarea>
+    </div>
+
+  </body>
+</html>
