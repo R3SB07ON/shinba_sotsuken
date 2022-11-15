@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-mogemoge
-=======
-hogehoge
->>>>>>> hogehoge
