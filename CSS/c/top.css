@@ -1,0 +1,23 @@
+.toptext{
+  border: 5px solid;
+
+}
+
+.p_button{
+  position: absolute;
+  top: 30%;
+  left: 20%;
+}
+
+.r_button{
+  position: absolute;
+  top: 30%;
+  right: 20%;
+}
+
+.linktext{
+  font-size: 1.2em;
+  text-align: center;
+  position: relative;
+  top: 150px;
+}

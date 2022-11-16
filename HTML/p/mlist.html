@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>メール一覧画面</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../CSS/p/mlist.css">
+        <script src = "../../JavaScript/c/parameter.js"></script>
+		<script src = "../../JavaScript/p/mail.js"></script>
+        
+        
+    </head>
+    <body>
+
+		
+		<h1>メール一覧</h1>
+		
+		<a href="../../HTML/p/mcreate.html"><button type="button" class="bbb">メール作成</button></a><br>
+        <a href="../../HTML/p/dustbin.html"><button type="button" class="bbb">ゴミ箱</button></a><br>
+        <a href="../../HTML/p/pedit.html?mail"><button type="button" class="bbb">パスワード編集</button></a><br>
+
+
+
+        <table class="sample" id="mailTable">
+			<script>
+				setMailParam();
+				mailSet("inbox");
+			</script>
+			<!--
+            <tr>
+                <td><a href="mbrowse.html">メール閲覧画面1</a><button type="button" class="aaa">削除</button></td>
+            </tr>
+            -->
+
+         </table>
+    </body>
+</html>
+
+<!-- <th><input type="checkbox"></th> チェックボックス外しました-->

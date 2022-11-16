@@ -1,0 +1,15 @@
+.mokuji{
+    position: relative; left: 50%; top: 10%;
+}
+.button1{
+    position: absolute; left: 40%; top: 20%;
+}
+.button2{
+    position: absolute; left: 60%; top:20%;
+}
+.button3{
+    position: absolute; left: 40%; top: 40%;
+}
+.button4{
+    position: absolute; left: 60%; top: 40%;
+}

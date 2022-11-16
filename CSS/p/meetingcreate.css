@@ -1,0 +1,33 @@
+.meeting{
+    position: relative; left:43%; top:100px;
+}
+.roomid{
+    position: relative; left: 43%; top: 120px;
+}
+.passid{
+    position: relative; left: 43%; top: 140px;
+
+}
+div.kiroku{
+    position: relative; left: 43%; top: 150px;
+    font-size: 12px;
+}
+.creat{
+    position: relative; left: 47%; top: 170px;
+}
+.url{
+    position: relative; left: 42%; top: 190px;
+}
+
+
+input.sample{
+    width: auto;
+    background-color:#ffffff;
+    color:#ffffff;
+    outline:none;
+    box-shadow: none;
+    text-shadow: none;
+    border: #ffffff;
+    font-size: 17px;
+
+}
