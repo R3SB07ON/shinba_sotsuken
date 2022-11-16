@@ -5,6 +5,11 @@
 //遷移元毎パスワード管理機能
 let param = location.search;
 let key = "";
+
+let pswd = 0; //失敗のカウント
+let texttype = 0;
+let kigouflag = 0; //判定
+
 if(param == "?mail"){
     key = "p_mail";
 }else if(param == "?chat"){
@@ -14,74 +19,78 @@ if(param == "?mail"){
 }
 
 function setPass(){
-    if(document.getElementById("password").value.length >= 4){
+    if(document.getElementById("password").value.length >= 8 && document.getElementById("password").value.length < 30){
         if(document.getElementById("password").value == document.getElementById("password-1").value){
             localStorage.setItem(key,document.getElementById("password").value);
             alert("パスワードを設定しました");
             history.back();
         }else{
             alert("パスワードが一致していません");
+            pswd +=1;
+            if(pswd>=3) {
+                //3回以上失敗
+                alert("3回以上失敗")
+            }else {
+                
+            }
         }
     }else{
-        alert("パスワードが短すぎます")
+        alert("無効なパスワードです")
     }
     
 }
 
+//パスワード強度判定
+function text(){
 
+    
+    
+        if(document.getElementById("password").value.match(/[a-z]/)){
 
-if(texttype == 1){
+            texttype += 1;
 
-}else if(texttype ==2){
+        }
 
-}else if(texttype == 3){
+        if(document.getElementById("password").value.match(/[A-Z]/)){
 
+            texttype += 1;
+
+        }
+
+        if(document.getElementById("password").value.match(/[0-9]/)){
+
+            texttype += 1;
+
+        }
+
+        if(document.getElementById("password").value.match(/[!,%,&,@,#,$,^,*,?,_,~]/)){
+
+            texttype += 1;
+        }
+    
 }
 
-//パスワード強度判定
-$(document).ready(function() {
-    $('#password').keyup(function() {
-    $('#result').html(checkStrength($('#password').val()))
-    })
-    function checkStrength(password) {
-    var strength = 0
-    if (password.length < 8) {
-    $('#result').removeClass()
-    $('#result').addClass('short')
-    return '短すぎます'
-    }
-    if (password.length > 12) {
-        $('#result').removeClass()
-        $('#result').addClass('long')
-        return '長すぎます'
+function pass(){
+    if(document.getElementById("password").value == document.getElementById("password-1").value && 
+    document.getElementById("password").value.length>=8 && document.getElementById("password").value.length<30){
+
+        if(texttype == 1){
+            //1種類の文字数
+            alert("1")
+        }else if(texttype == 2){
+            //2種類の文字数
+            alert("2")
+        }else if(texttype == 3){
+            //3種類の文字数
+            alert("3")
+        }else if(texttype == 4){
+            kigouflag +=1;
+            // alert(kigouflag)
+            alert("4")
+        }else{
+
         }
-    if (password.length > 7) strength += 1
-    // If password contains both lower and uppercase characters, increase strength value.
-    // パスワードに小文字と大文字の両方が含まれる場合は、強度の値を上げてください。
-    if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) strength += 1
-    // If it has numbers and characters, increase strength value.
-    // 数字や文字がある場合は、強度値を上げる。
-    if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/)) strength += 1
-
-    // Calculated strength value, we can return messages
-    // 算出された強度値から、メッセージを返すことができる
-    // If value is less than 2
-    // 値が2未満の場合
-    if (strength < 2) {
-    $('#result').removeClass()
-    $('#result').addClass('Weak')
-    return '弱いパスワードです'
-    } else if (strength == 2) {
-    $('#result').removeClass()
-    $('#result').addClass('good')
-    return '良'
-    } else {
-    $('#result').removeClass()
-    $('#result').addClass('strong')
-    return '強力なパスワードです'
+    }else{
+        alert("パスワードを入力しなおしてください")
     }
-    }
-    });
-
-
-   
+}
