@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<title>パスワード強度確認機能テスト用ページ</title>
+<meta charset="UTF-8">
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet' type='text/css'>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script><!-- jQuery Library-->
+<link rel="stylesheet" href="../../CSS/p/passwd.css" />  <!-- Include Your CSS file here -->
+<script src="../../JavaScript/p/passwd.js"></script><!-- Include Your jQUery file here-->
+
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+        <h2>パスワード強度確認機能テスト</h2>
+        <hr>
+        </div>
+        <div id="content" align="center">
+        <h4>文字数は8文字以上で「英字の大文字(A~Z)」「英字の小文字(a~z)」「数字(0~9)」で構成してください。</h4>
+        <form id="register">
+            <label for="password"></label>
+            <input name="password" id="password" type="password" placeholder="パスワードを入力してください"/>&nbsp;&nbsp;
+            <span id="result"></span>
+        </form>
+
+        <form id="register">
+            <label for="password"></label>
+            <input name="password" id="password" type="password"  placeholder="パスワードを再入力してください"/>&nbsp;&nbsp;
+            <span id="result"></span>
+        </form>
+        <br>
+        <button >完了</button>
+        </div>
+        </div>
+        
+</body>
+</html>
+
+<!-- どの画面から飛んできたかチェックする機能が必要 -->

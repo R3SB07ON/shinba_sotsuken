@@ -96,8 +96,23 @@ function onLoad() {
         });
 
   //結果文字列出力
-  let resulttext = document.getElementById('copytext')
+  let resulttext = document.getElementById('copyTarget')
   for (let index = 0; index < paramList.length; index++) {
     resulttext.innerHTML += (paramList[index] + ':' + localStorage.getItem(index) + ',');
   } ;
+}
+
+
+function copyToClipboard() {
+  // コピー対象をJavaScript上で変数として定義する
+  var copyTarget = document.getElementById("copyTarget");
+
+  // コピー対象のテキストを選択する
+  copyTarget.select();
+
+  // 選択しているテキストをクリップボードにコピーする
+  document.execCommand("Copy");
+
+  // コピーをお知らせする
+  alert("シミュレーション結果をコピーしました");
 }

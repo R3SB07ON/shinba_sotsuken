@@ -1,0 +1,43 @@
+.icon{    /* 画像のサイズ調整 */
+  height: 100px;
+  width: 100px;
+  margin-bottom: 50px;
+}
+.iconarea{
+  border: solid;
+  width: 200px;
+  padding: 10px;
+  margin-top: 5px;
+  display: none;    /* //ページ読み込み時は非表示 */
+  top: 100px;
+  bottom: 0;
+  margin-right: auto;
+  margin: auto;
+  color:rgb(112, 112, 112);
+  position:relative;
+  top: 300px;
+  right: 40%;
+
+}
+.open{
+  position: absolute; bottom: 0%; left: 0%; 
+  height: 100px;
+  width: 100px;
+}
+.pop{
+  display:flex;
+  flex-flow: column;
+  justify-content:space-around;
+}
+
+
+.hoge{
+  margin-bottom: 50px;
+}
+
+div.imgt {
+  position:absolute;
+  top:30%;
+  left:40%;
+  padding: 0px;
+}

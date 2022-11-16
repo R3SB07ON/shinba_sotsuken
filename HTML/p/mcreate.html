@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>メール作成画面</title>
+        <link rel="stylesheet" href="../../CSS/p/mcreate.css">
+        <script src = "../../JavaScript/c/parameter.js"></script>
+        <style>
+            div{
+              margin-bottom: 15px;
+            }
+        </style>
+        
+    </head>
+    <body>
+      <button 
+      type="button"
+      onclick="location.href='./mcreate.html'">
+      メール作成
+      </button><br>
+      <button 
+      type="button"
+      onclick="location.href='./mlist.html'">
+      受信トレイ
+      </button><br>
+      <button 
+      type="button">
+      ゴミ箱
+      </button><br>
+      <button type="button"onclick="location.href='./pedit.html'">パスワード編集
+      </button><br>
+
+        <table class="sample">
+            <tr><th></th><th>新規メッセージ</th></tr>
+            <tr><th>宛先</th><td><input id="from" type="text" size="30"></td></tr>
+            <tr><th>CC</th><td><input type="text" size="30"></td></tr>
+            <tr><th>BCC</th><td><input type="text" size="30"></td></tr>
+            <tr><th>件名:</th><td><input type="text" size="50"></td></tr>
+            <tr><th></th><td><textarea cols="90" rows="30" placeholder="入力"></textarea></td></tr>
+
+         </table>
+         <div>
+              <div>
+                <input type="file" name="test">
+              </div>
+              <div>
+                <input type="submit" value="削除する">
+              </div>
+              <div>
+                <input type="submit" value="送信する">
+              </div>
+            </form>
+          </div>
+        
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="../../CSS/p/meetingcreate.css">
+    <script src = "../../JavaScript/c/parameter.js"></script>
+    <title>新規ミーティング</title>
+</head>
+<body>
+    <div><button onclick="history.back()">×</button></div>
+    <div class="meeting">
+        <h2>新規ミーティング</h2>
+    
+    
+    </div>
+    <div class="roomid">
+        <input type="text" value="SOTSUKENTARO" style="width: auto; height: 50px" readonly>
+    </div>
+    <div class="passid">
+
+        <input type="password" value="*************" style="width:auto; height: 50px"readonly>
+    </div>
+    
+    <!-- <div class="kiroku">
+        <input type="checkbox" checked>IDとPasswordを記録します
+    </div> -->
+
+
+
+            <!-- コピー対象要素とコピーボタン  -->
+            <div class="creat">
+                <button class= "creatbutton" onclick="copyToClipboard()">作成</button>
+            </div>
+            <div class="url">
+                <input class="sample" id="copyTarget" type="text" style="border-color:#ffffff" value="https://zoon.us/j/ocsjohoR4S" readonly >
+            </div>
+
+            
+            <!-- bodyタグ内の下部に以下を入力する  -->
+            <script>
+                
+                function copyToClipboard() {
+                    // コピー対象をJavaScript上で変数として定義する
+                    var copyTarget = document.getElementById("copyTarget");
+        
+                    // コピー対象のテキストを選択する
+                    copyTarget.select();
+        
+                    // 選択しているテキストをクリップボードにコピーする
+                    document.execCommand("Copy");
+        
+                    // コピーをお知らせする
+                    alert("ミーティングURLを作成しコピーしました！");
+                }
+            </script>
+
+</body>
+</html>
+
+
+

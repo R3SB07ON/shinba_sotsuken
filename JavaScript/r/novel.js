@@ -1,142 +1,4 @@
 
-
-/*
-const msg1 = [
-    ":0_0_1",
-    ":1_1_0",
-    "テスト",
-    "テストテスト",
-    "ああああああああ",
-   
-    ":3_0_4",
-    "こんな感じで進むよ",
-    "3行表示、↓1行当たり最大35文字？",
-    "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめも",
-
-    ":1_1_1",
-    "↑キャラクター差し替えテスト(怒り)",
-    "テキストの1文字目が「:」キャラ画像を差し替える",
-    "",
-
-    ":1_1_0",
-    ":3_0_0",
-    "@0",
-    "↑効果音テスト（タイプ音）",
-    "テキストの1文字目が「@」で効果音再生",
-    "",
-    
-    ":0_0_2",
-    ":1_1_3",
-    ":2_2_1",
-    "@1",
-    "",
-    "ショック、場面転換",
-    "",
-    
-    ":0_0_1",
-    ":2_0_0",
-    "選択肢テスト",
-    "テキストの1文字目が*なら選択肢と判断する",
-    "↓",
-    "*選択肢テスト1",
-    "*選択肢テスト2_msg2",
-    "*選択肢テスト3_msg3",
-    "*プロローグへ_prologue",
-    
-    ":2_2_0",
-    "選択肢クリック成功",
-    "",
-    "",
-
-    "1行だけの場合はこのように2行空白にする",
-    "",
-    "",
-
-    "",
-    "～～～～～完～～～～～",
-    ""
-];
-const msg2 = [
-    "分岐成功",
-    "p",
-
-    "",
-    "～～～～～完～～～～～",
-    "p"
-];
-const msg3 = [
-    "選択肢3を選択",
-    "",
-    "",
-
-    ":1_1_1",
-    "↑キャラクター差し替えテスト",
-    "テキストの1文字目が「:」キャラ画像を差し替える",
-    "",
-    
-    "",
-    "～～～～～完～～～～～",
-    ""
-];
-const msg4 = [
-    ":0_0_1",
-    ":1_1_0",
-    "テスト",
-    "テストテスト",
-    "ああああああああ",
-    "p",
-   
-    ":3_0_4",
-    "こんな感じで進むよ",
-    "3行表示、↓1行当たり最大35文字？",
-    "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめも",
-    "p",
-
-    ":1_1_1",
-    "スキップテスト",
-    "ショックまでとびます",
-    "p",
-    "#shock",
-
-    ":1_1_0",
-    ":3_0_0",
-    "@0",
-    "↑効果音テスト（タイプ音）",
-    "テキストの1文字目が「@」で効果音再生",
-    "p",
-    
-    "##shock",
-    ":0_0_2",
-    ":1_1_3",
-    ":2_2_1",
-    "@1",
-    "ショック、場面転換",
-    "p",
-    
-    ":0_0_1",
-    ":2_0_0",
-    "選択肢テスト",
-    "テキストの1文字目が*なら選択肢と判断する",
-    "p",
-    "*選択肢テスト1_#msg4fin",
-    "*選択肢テスト2_msg2",
-    "*選択肢テスト3_msg3",
-    "*プロローグへ_prologue",
-    
-    ":2_2_0",
-    "選択肢クリック成功",
-    "p",
-
-    "1行だけの場合",
-    "p",
-
-    "##msg4fin",
-    "",
-    "～～～～～完～～～～～",
-    "p"
-];
-*/
-
 const testmsg = [
     "+0,2",
     "+1,2",
@@ -182,8 +44,7 @@ let img_src_num = 0;
 
 //効果音の管理。パスは「./../../material/music/r/」　画像と同じく後付け。
 let audio_src = [
-    "type.mp3","glass.mp3","scene.mp3","beep.mp3","phone.mp3","phone2.mp3",
-    "click.mp3","7_punch.mp3"
+    "type.mp3","glass.mp3","scene.mp3","beep.mp3","phone.mp3","phone2.mp3"
 ];
 
 //クリックごとに画像切り替え、効果音、本文表示、選択肢の表示を行う。
@@ -191,9 +52,6 @@ function MouseClick(){
     //クリックが有効フラグのチェック。ここか選択肢表示時にクリックを無効化。SetMsgを実行すると解除。
     if (can_click == false) return;
     can_click = false;
-
-    //クリック効果音
-    PlaySE(6);
 
     //画像切り替え前に終了状態か確認
     if (num+1 >= msg.length)  return;
@@ -366,10 +224,6 @@ function ButtonPush(button,jump = ""){
 function SetCharacter(position_no,character_no,character_type_no){
     let position = "";
 
-    //まずはパスをセット
-    let img = new Image();
-    img.src = "./../../material/image/r/" + img_src[character_no][character_type_no];
-
     if (position_no == 0) {
         position = "window";
     } else if (position_no == 1) {
@@ -382,12 +236,12 @@ function SetCharacter(position_no,character_no,character_type_no){
 
     let position_element = document.getElementById(position);
    
-    //画像差し替え
+    //パスをセットして画像差し替え
     //背景の場合は専用の処理
     if(position == "window"){
-        position_element.style.backgroundImage = "url(" + img.src + ")";
+        position_element.style.backgroundImage = "url(./../../material/image/r/" + img_src[character_no][character_type_no] + ")";
     }else{
-        position_element.src = img.src;
+        position_element.src = "./../../material/image/r/" + (img_src[character_no][character_type_no]);
     }
      //[0][0]（消去命令）の場合は非表示にする
     if(character_no == 0 && character_type_no == 0){
@@ -402,18 +256,9 @@ function SetCharacter(position_no,character_no,character_type_no){
 function PlaySE(SE_no){
 
     let se = document.getElementById("sound-file");     //htmlのaudio要素を取得。ここから音を再生する
-
-    if(SE_no == 6){
-        se = document.getElementById("sound-file-click");
-    }
-
     se.src = "./../../material/music/r/" + audio_src[SE_no];                          //そこに引数指定の効果音を挿入する（パスもここでセット）
     se.currentTime = 0;                                 //連続の入力に対応する
-
-
-
-    se.onload = function(){}
-    se.play();    
+    se.play();
 
 }
 

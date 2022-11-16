@@ -1,38 +1,38 @@
 .linktext{
-    border: 5px solid;
-    margin: 10px;
-    text-align: center;
-  }
-  
-  .copy{
-    position: absolute;
-    top: 5%;
-    right: 10%;
-  }
-  
-  .graph1{
-    border: 5px solid;
-    width: auto;
-    height: auto;
-    margin: 10px;
-  }
-  
-  .graph2{
-    border: 5px solid;
-    position: relative;
-    bottom: auto;
-    width: 48%;
-    height: auto;
-    margin: 10px;
-  }
-  
-  .comment{
-    border: 5px solid;
-    width: 48%;
-    height: auto;
-    margin: 10px;
-  }
-  
-  .side{
-    display: flex;
-  }
+  border: 5px solid;
+  margin: 10px;
+  text-align: center;
+}
+
+.copy{
+  position: absolute;
+  top: 5%;
+  right: 10%;
+}
+
+.graph1{
+  border: 5px solid;
+  width: auto;
+  height: auto;
+  margin: 10px;
+}
+
+.graph2{
+  border: 5px solid;
+  position: relative;
+  bottom: auto;
+  width: 48%;
+  height: auto;
+  margin: 10px;
+}
+
+.comment{
+  border: 5px solid;
+  width: 48%;
+  height: auto;
+  margin: 10px;
+}
+
+.side{
+  display: flex;
+}
