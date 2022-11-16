@@ -103,16 +103,16 @@ function onLoad() {
 }
 
 
-function copyToClipboard() {
-  // コピー対象をJavaScript上で変数として定義する
-  var copyTarget = document.getElementById("copyTarget");
+// function copyToClipboard() {
+//   // コピー対象をJavaScript上で変数として定義する
+//   var copyTarget = document.getElementById("copyTarget");
 
-  // コピー対象のテキストを選択する
-  copyTarget.select();
+//   // コピー対象のテキストを選択する
+//   copyTarget.select();
 
-  // 選択しているテキストをクリップボードにコピーする
-  document.execCommand("Copy");
+//   // 選択しているテキストをクリップボードにコピーする
+//   document.execCommand("Copy");
 
-  // コピーをお知らせする
-  alert("シミュレーション結果をコピーしました");
-}
+//   // コピーをお知らせする
+//   alert("シミュレーション結果をコピーしました");
+// }
