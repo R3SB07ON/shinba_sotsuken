@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>ブラウザ画面</title>
+    <link rel="stylesheet" href="../../CSS/p/browser.css">
+    <script src = "../../JavaScript/c/parameter.js"></script>
+    <script src = "../../JavaScript/p/browser.js"></script>
+    <script src = "../../JavaScript/p/judge.js"></script>
+    <script src = "../../JavaScript/c/task.js"></script>
+    <script src = "../../JavaScript/p/other.js"></script>
+  </head>
+  <body>
+    <div class = "button">
+      <input type="button" value="ブックマーク一覧" onclick="window.open('./bookmark.html')">
+    </div>
+    <div class = "iconbox">
+      <input type="button" class="open" value="アプリケーション一覧" onclick="popup();">
+    </div>
+    <div class = "iconbox">
+      <div id="iconarea" class="iconarea">
+        <div>
+          <input type="image" class="icon" src="../../material/image/p/mail.png" alt="メール" onclick="window.open('./mlist.html')" >
+          <input type="image" class="icon" src="../../material/image/p/chat.png" alt="チャット" onclick="window.open('./chat.html')">
+          <input type="image" class="icon" src="../../material/image/p/file.png" alt="ファイル一覧" onclick="window.open('./filelist.html')">
+        </div>
+        <div>
+          <input type="image" class="icon" src="../../material/image/p/meeting.png" alt="web会議" onclick="window.open('./meeting.html')">
+          <input type="image" class="icon" src="../../material/image/p/close.png" alt="ブラウザを閉じる" onclick="window.open('./desktop.html')">
+        </div>
+      </div>
+    </div>
+
+    <div class = "search">
+        <img class ="img" src="../../material/image/p/logo.png" alt="検索エンジン_ロゴ">
+        <div class = box>
+            <input type="search" name="検索" id="searchtext" placeholder="キーワードを入力">
+            <input type="button" value="検索" onclick="judge();"> 
+        </div>
+    </div>
+       
+  </body>
+</html>
+

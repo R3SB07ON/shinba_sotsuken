@@ -1,0 +1,178 @@
+<!--
+  追加事項
+  ・検索結果のかさまし
+  ・良悪判断要素の追加
+
+  良悪判断基準
+  ・テキストがなんかおかしい（リンク文字の下のサイト内情報）
+  ・
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>検索結果一覧画面</title>
+    <link rel="stylesheet" href="../../CSS/p/searchlist.css">
+    <script src = "../../JavaScript/c/parameter.js"></script>
+    <script src = "../../JavaScript/p/searchlist.js"></script>
+    <script src = "../../JavaScript/p/judge.js"></script>
+    <script src = "../../JavaScript/p/other.js"></script>
+    <script src = "../../JavaScript/c/task.js"></script>
+  </head>
+  <body>
+    <input type="search" name="検索" id="searchtext" placeholder="キーワードを入力">
+    <input type="button" value="検索" onclick="judge();">
+
+    <!--ニュースの場合-->
+    <div id="result1" class="vr">
+      <div class = "linktext">
+        <p>https://www.e-news.com</p>
+        <a href="./newsg.html">トップページ｜総合ニュースE-NEWS</a><br>
+			<font size = "2">E-NEWS。来週のイベント、社会、ビジネス、国際、政治、スポーツ、芸能等のニュース速報、トピックス、</font><br>
+			<font size = "2">写真を配信。</font>
+		  <p>http://www.لقد تم خداعكnewnews.com</p>
+		<a href="./newse.html">メインメニュー｜業界最大級ニュースサイトWEB_NEWS</a><br>
+			<font size = "2">業界ニャースサイト全般; 金融; IT; パチンコ; العَرَبِيَّة; 建設; 自動車産業;</font><br>
+			<font size = "2">旅行・観光; 航空; 食品; 流通・小売; العَرَبِيَّة; 金融・銀行; 保険; ゲーム; 食品 ...</font>
+        <p>https://www.buisnessnews.com</p>
+        <a href="./ServiceUnavailable.html">働く大人のニュースサイト</a><br>
+			<font size = "2">新聞社のニュースサイト、新聞デジタルの働き方・就活ニュース｜働き方ニュース ...</font><br>
+			<font size = "2">働く高齢者18年連続増、65～69歳は「2人に1人」 総務省推計 有料会員記事.</font>
+        <p>https://www.kobun-books.com</p>
+        <a href="./notfound.html">報道の鬼・木谷健吾　その半生を追う｜構文出版</a><br>
+			<font size = "2">マスコミ・メディア・出版 > 映像制作・映像編集 マスコミ・メディア・出版 ... 主にニュース記</font><br>
+			<font size = "2">事の取材・執筆と、同僚記者の原稿のエディット、SNS運用などを担当して ...</font>
+		<p>https://www.japannews.com</p>
+		<a href="./ServiceUnavailable.html">日本で信頼できるニュースサイト集</a><br>
+			<font size = "2">日本で一番変化する街の今日のホットな話題を読むならばここ。 ... こちらのニュースサイトの</font><br>
+			<font size = "2">政治的立ち位置やどの程度信頼できるのか、その他ご自身の感想を教えて ...</font>
+		<p>https://www.sportjapan-news.com</p>
+		<a href="./notfound.html">OCSスポーツナビ</a><br>
+			<font size = "2">スポーツ総合サイト、スポーツナビ｡野球、サッカー、競馬をはじめ、最新のスポーツニュース</font><br>
+			<font size = "2">や速報、ライブ配信はもちろん、スポーツ全般の動画やコラム、注目イベント ...</font>
+		<p>https://www.ocsbunshun.com</p>
+		<a href="./notfound.html">最新文春WEBサイト</a><br>
+			<font size = "2">ocs文春が運営するニュースサイト。文春オンラインは世の中を驚かせるスクープから、毎日</font><br>
+			<font size = "2">の仕事や生活に役立つ話題までお届けする情報メディアです。</font>
+      </div>
+    </div>
+
+    <!--株価の場合-->
+    <div id="result2" class="vr">
+      <div class = "linktext">
+        <p>https://www.news-topsix.com</p>
+        <a href="./stockpriceg.html">東証一部上場銘柄</a><br>
+			<font size = "2">Wahoo!ファイナンスは、投資やマネーの総合情報サイトです。世界の市況、株価やIPO、株主優待など日本株情報</font><br>
+			<font size = "2">のほか、外国為替やFX、投資信託や米国株、ニュース、企業情報などを掲載し ...</font>
+        <p>http://www.م خداعكwo-top.com</p>
+        <a href="./stockpricee.html">株式会社sinba</a><br>
+			<font size = "2">日経平均株価の著作権はلقد تم خداعكに帰属します。株探に掲載される株価チャートは、そ</font><br>
+			<font size = "2">の銘柄の過去の株価推移を確認する用途で掲載しているものであり、 ...</font>
+        <p>https://www.nikkei.com</p>
+        <a href="./ServiceUnavailable.html">主要銘柄225</a><br>
+			<font size = "2">銘柄名（コード/市場）	業種	現値	前日比; 騰落率</font><br>
+			<font size = "2">日 水; (1332/東P)	水産・農林業	540	‑6; ‑1.10%</font><br>
+			<font size = "2">ＩＮＰＥＸ; (1605/東P)	鉱業	1,483	+26; +1.78%</font><br>
+			<font size = "2">コムシスＨＤ; (1721/東P)	建設業	2,460	+1; +0.04%</font>
+        <p>https://www.tblog.com/user/blog/404</p>
+        <a href="./notfound.html">【人生勝ち組！】必見！株で人生を変える10のメソッド【時代はFire】｜Tブログ</a><br>
+			<font size = "2">自分を変えたいなら、「投資」をしてみると良いかもしれません――。 ... なぜなら株というの</font><br>
+			<font size = "2">は未来を予測するものであり、基本的に前しか見ていない。 株式投資を中心に ...</font>
+		<p>https://www.stockprice-Ranking.com</p>
+		<a href="./ServiceUnavailable.html">世界の株価ランキング</a><br>
+			<font size = "2">No.	企業名	USD10億	国名</font><br>
+			<font size = "2">01	アップル; Apple	2,220.978	アメリカ</font><br>
+			<font size = "2">02	サウジアラムコ; Saudi Arabian Oil	2,096.765	サウジアラビア</font><br>
+			<font size = "2">03	マイクロソフト; Microsoft	1,736.943	アメリカ</font>
+		<p>https://www.worldcupmoney.com</p>
+		<a href="./notfound.html">ワールドカップと株価の”関係”は？</a><br>
+		<font size = "2">サッカーの祭典、ワールドカップ（W杯）が6月14日に開幕しました。7月15日の</font><br>
+		<font size = "2">決勝戦までの1ヵ月、サッカーファンにとっては、テレビの前で名選手の美 ...</font>
+		<p>https://www.aistockprice-predict</p>
+		<a href=".ServiceUnavailable.html">株価予想ツール|来週の株価を予想</a><br>
+			<font size = "2">今日の日経平均をAIで予想します。AIが朝7時20分に今日の日経平均が上昇するか下落するか配</font><br>
+			<font size = "2">信します。NYダウやドル円も今日の予想を配信しています。レンジ予想、週次 ...</font>
+      </div>
+    </div>
+
+    <!--ニュース＆株価の場合-->
+    <div id="result3" class="vr">
+      <div class = "linktext">
+        <p>https://www.e-news.com</p>
+        <a href="./newsg.html">トップページ｜総合ニュースE-NEWS</a><br>
+			<font size = "2">E-NEWS。来週のイベント、社会、ビジネス、国際、政治、スポーツ、芸能等のニュース速報、トピックス、</font><br>
+			<font size = "2">写真を配信。</font>
+        <p>http://www.لقد تم خداعكnewnews.com</p>
+        <a href="./newse.html">メインメニュー｜業界最大級ニュースサイトWEB_NEWS</a><br>
+			<font size = "2">業界ニャースサイト全般; 金融; IT; パチンコ; العَرَبِيَّة; 建設; 自動車産業;</font><br>
+			<font size = "2">旅行・観光; 航空; 食品; 流通・小売; العَرَبِيَّة; 金融・銀行; 保険; ゲーム; 食品 ...</font>
+        <p>https://www.buisnessnews.com</p>
+        <a href="./ServiceUnavailable.html">働く大人のニュースサイト</a><br>
+			<font size = "2">新聞社のニュースサイト、新聞デジタルの働き方・就活ニュース｜働き方ニュース ...</font><br>
+			<font size = "2">働く高齢者18年連続増、65～69歳は「2人に1人」 総務省推計 有料会員記事.</font>
+        <p>https://www.kobun-books.com</p>
+        <a href="./notfound.html">報道の鬼・木谷健吾　その半生を追う｜構文出版</a><br>
+			<font size = "2">マスコミ・メディア・出版 > 映像制作・映像編集 マスコミ・メディア・出版 ... 主にニュース記</font><br>
+			<font size = "2">事の取材・執筆と、同僚記者の原稿のエディット、SNS運用などを担当して ...</font>
+		<p>https://www.japannews.com</p>
+		<a href="./ServiceUnavailable.html">日本で信頼できるニュースサイト集</a><br>
+			<font size = "2">日本で一番変化する街の今日のホットな話題を読むならばここ。 ... こちらのニュースサイトの</font><br>
+			<font size = "2">政治的立ち位置やどの程度信頼できるのか、その他ご自身の感想を教えて ...</font>
+		<p>https://www.sportjapan-news.com</p>
+		<a href="./notfound.html">OCSスポーツナビ</a><br>
+			<font size = "2">スポーツ総合サイト、スポーツナビ｡野球、サッカー、競馬をはじめ、最新のスポーツニュース</font><br>
+			<font size = "2">や速報、ライブ配信はもちろん、スポーツ全般の動画やコラム、注目イベント ...</font>
+				<p>https://www.ocsbunshun.com</p>
+		<a href="./notfound.html">最新文春WEBサイト</a><br>
+			<font size = "2">ocs文春が運営するニュースサイト。文春オンラインは世の中を驚かせるスクープから、毎日</font><br>
+			<font size = "2">の仕事や生活に役立つ話題までお届けする情報メディアです。</font>
+        
+        <p>https://www.news-topsix.com</p>
+        <a href="./stockpriceg.html">東証一部上場銘柄</a><br>
+			<font size = "2">Wahoo!ファイナンスは、投資やマネーの総合情報サイトです。世界の市況、株価やIPO、株主優待など日本株情報</font><br>
+			<font size = "2">のほか、外国為替やFX、投資信託や米国株、ニュース、企業情報などを掲載し ...</font>
+        <p>http://www./م خداعكwo-top.com</p>
+        <a href="./stockpricee.html">株式会社しんば｜株価遷移表</a><br>
+			<font size = "2">日経平均株価の著作権は日本経済新聞社に帰属します。株探に掲載される株価チャートは、そ</font><br>
+			<font size = "2">の銘柄の過去の株価推移を確認する用途で掲載しているものであり、 ...</font>
+        <p>https://www.nikkei.com</p>
+        <a href="./ServiceUnavailable.html">主要銘柄225</a><br>
+			<font size = "2">銘柄名（コード/市場）	業種	現値	前日比; 騰落率</font><br>
+			<font size = "2">日 水; (1332/東P)	水産・農林業	540	‑6; ‑1.10%</font><br>
+			<font size = "2">ＩＮＰＥＸ; (1605/東P)	鉱業	1,483	+26; +1.78%</font><br>
+			<font size = "2">コムシスＨＤ; (1721/東P)	建設業	2,460	+1; +0.04%</font>
+        <p>https://www.tblog.com/user/blog/404</p>
+        <a href="./notfound.html">【人生勝ち組！】必見！株で人生を変える10のメソッド【時代はFire】｜Tブログ</a><br>
+			<font size = "2">自分を変えたいなら、「投資」をしてみると良いかもしれません――。 ... なぜなら株というの</font><br>
+			<font size = "2">は未来を予測するものであり、基本的に前しか見ていない。 株式投資を中心に ...</font>
+		<p>https://www.stockprice-Ranking.com</p>
+		<a href="./ServiceUnavailable.html">世界の株価ランキング</a><br>
+			<font size = "2">No.	企業名	USD10億	国名</font><br>
+			<font size = "2">01	アップル; Apple	2,220.978	アメリカ</font><br>
+			<font size = "2">02	サウジアラムコ; Saudi Arabian Oil	2,096.765	サウジアラビア</font><br>
+			<font size = "2">03	マイクロソフト; Microsoft	1,736.943	アメリカ</font>
+		<p>https://www.worldcupmoney.com</p>
+		<a href="./notfound.html">ワールドカップと株価の”関係”は？</a><br>
+			<font size = "2">サッカーの祭典、ワールドカップ（W杯）が6月14日に開幕しました。7月15日の</font><br>
+			<font size = "2">決勝戦までの1ヵ月、サッカーファンにとっては、テレビの前で名選手の美 ...</font>
+		<p>https://www.aistockprice-predict</p>
+		<a href=".ServiceUnavailable.html">株価予想ツール|来週の株価を予想</a><br>
+			<font size = "2">今日の日経平均をAIで予想します。AIが朝7時20分に今日の日経平均が上昇するか下落するか配</font><br>
+			<font size = "2">信します。NYダウやドル円も今日の予想を配信しています。レンジ予想、週次 ...</font>
+      </div>
+    </div>
+
+    <!--存在しない場合-->
+    <div id="result4" class="vr">
+      <div class="side">
+        <img src="../../material/image/p/searchilist.png" alt="謝罪">
+        <p class="text">
+          申し訳ございません。<br>
+          お探しのページは見つかりませんでした。<br>
+          検索文字が正しいかどうか、今一度ご確認ください。<br>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

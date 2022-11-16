@@ -1,0 +1,43 @@
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.move{
+    flex: 1;
+    overflow-y: auto;
+    background-color: aliceblue;
+}
+
+
+.chattext{
+    font-size: 32px;
+    word-break: break-word; /*改行*/
+    border: solid 5pt greenyellow;
+    background-color: greenyellow;
+    width: 500px;
+     
+}
+.mytext{
+    font-size: 32px;
+    word-break: break-word; /*改行*/
+    border: solid 5pt lightgreen;
+    background-color: lightgreen;
+    width: 500px;
+    text-align: right;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+
+.lock{
+    width: auto;
+    border-top: solid 5px skyblue;
+}

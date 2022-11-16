@@ -1,0 +1,11 @@
+.mokuji {
+    position: absolute; left: 44%; top: 10%;
+    bottom: 0;
+    padding: 10;
+    background: #ffff;
+}
+.news{
+    position: absolute; left: 0%; top: 20%;
+    width: auto;
+    height: auto;
+}
