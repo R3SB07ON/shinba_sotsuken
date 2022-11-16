@@ -16,8 +16,11 @@ let mailList = new Array(	"セキュリティ講座の見積書について",
 							"会議開催通知 情報しんば",
 							"友達にプレミアを贈ろう！",
 							"カードお届け直前のご案内",
-							"打合せ日程の件について"							
-						)
+							"打合せ日程の件について",
+							"なし",
+							"請求書の件"							
+						);
+
 
 //メール管理状態の初期化（初回のみ実行）
 function setMailParam() {
@@ -69,6 +72,6 @@ function trashOrRecoveryClick(key,type) {
 	}else if(type == "recovery"){
 		localStorage.setItem(key,'inbox');
 	}
-	tr = document.getElementById("tr"+　mailList.indexOf(key));
+	tr = document.getElementById("tr"+ mailList.indexOf(key));
 	tr.remove();
 }

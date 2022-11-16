@@ -5,26 +5,36 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src = "../../JavaScript/c/parameter.js"></script>
+        <script src = "../../JavaScript/p/mail.js"></script>
+        <script src = "../../JavaScript/p/mbrowse.js"></script>
         <title>メール閲覧画面</title>
-        
         
     </head>
     <body>
         <div style="margin:0px;padding:0px;" align="center">
             <table width="98%" style="border-collapse: collapse;border:1px solid #000000;background-color:#FFFFFF;color:#000000;text-align:left;">
                 <tbody>
-                    <tr><th style="border:1px solid #000000;text-align:left;" height="50">&nbsp;件名：</th></tr>
-                    <tr><td style="border:1px solid #000000;text-align:left;">&nbsp;From:</td></tr>
-                    <tr><td style="border:1px solid #000000;text-align:left;">&nbsp;To:</td></tr>
-                    <tr><td style="border:1px solid #000000;text-align:left;">&nbsp;日付:</td></tr>
-                    <tr><td style="border:1px solid #000000;text-align:left;" height="50">&nbsp;添付ファイル:</td></tr>
-                    <tr><td style="border:1px solid #000000;text-align:left;" height="500">&nbsp;</td></tr>
+                    <tr><th style="border:1px solid #000000;text-align:left;" height="50"><p id="title">件名：</p></th></tr>
+                    <tr><td style="border:1px solid #000000;text-align:left;"><p id="from">From:</p></td></tr>
+                    <tr><td style="border:1px solid #000000;text-align:left;">To:sinba@ggmail.com</td></tr>
+                    <tr><td style="border:1px solid #000000;text-align:left;">日付:10/12</td></tr>
+                    <tr><td style="border:1px solid #000000;text-align:left;" height="50"><p id="file">添付ファイル:</p></td></tr>
+                    <tr><td style="border:1px solid #000000;text-align:left;" height="500"><p id="mail-text"></p></td></tr>
                 </tbody>
             </table>
         </div>
 
+        
         <br>
         <button type="button"onclick="location.href='mlist.html'">戻る</button>
-        <button type="button"onclick="location.href='mcreate.html'">返信</button>
+        <button type="button"onclick="location.href='re();'">返信</button>
+        <script>
+            function re(mail) {
+                // let url = new URL(window.location.href);
+                // params = url.searchParams;
+                url = "./mcreate.html" + location.search;   
+                 window.location.href = url; 
+            }
+        </script>
     </body>
 </html>
