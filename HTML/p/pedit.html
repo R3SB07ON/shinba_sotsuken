@@ -20,7 +20,7 @@
         <hr>
         </div>
         <div id="content" align="center">
-        <h4>文字数は8文字以上で「英字の大文字(A~Z)」「英字の小文字(a~z)」「数字(0~9)」で構成してください。</h4>
+        <h4>文字数は8文字以上30文字未満で構成してください。</h4>
         <form id="register">
             <label for="password"></label>
             <input name="password" id="password" type="password" placeholder="パスワードを入力してください"/>&nbsp;&nbsp;
@@ -33,7 +33,7 @@
             <span id="result"></span>
         </form>
         <br>
-        <button onclick="setPass();">完了</button>
+        <button onclick="setPass(); text(); pass()">完了</button>
         </div>
         </div>
 </body>
