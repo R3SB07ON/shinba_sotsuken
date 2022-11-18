@@ -19,7 +19,7 @@
                     <tr><td style="border:1px solid #000000;text-align:left;">To:sinba@ggmail.com</td></tr>
                     <tr><td style="border:1px solid #000000;text-align:left;">日付:10/12</td></tr>
                     <tr><td style="border:1px solid #000000;text-align:left;" height="50"><p id="file">添付ファイル:</p></td></tr>
-                    <tr><td style="border:1px solid #000000;text-align:left;" height="500" vertical-aligen><p id="mail-text"></p></td></tr>
+                    <tr><td style="border:1px solid #000000;text-align:left;" ><p id="mail-text"></p></td></tr>
                 </tbody>
             </table>
         </div>
@@ -27,14 +27,6 @@
         
         <br>
         <button type="button"onclick="location.href='mlist.html'">戻る</button>
-        <button type="button"onclick="location.href='re();'">返信</button>
-        <script>
-            function re(mail) {
-                // let url = new URL(window.location.href);
-                // params = url.searchParams;
-                url = "./mcreate.html" + location.search;   
-                 window.location.href = url; 
-            }
-        </script>
+        <button type="button"onclick="re();">返信</button>
     </body>
 </html>

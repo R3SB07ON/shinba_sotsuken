@@ -52,7 +52,6 @@ let mail_text = new Array(	"お世話になっております。\
 
 							"※本メールは、セキュリティ強化のため、電子署名をつけてお送りしています。<br><br>\
                             2022年10月25日にお振込みを受付いたしましたので、ご連絡いたします。<br><br>\
-                            ■【添付ファイル】<br><br>\
                             本メールは、お取引の受付確認のために送信しております。<br>\
                             送信を中止することはできませんので、あらかじめご了承ください。<br><br>\
                             なお、お取引につきましては【入出金明細照会】等でもご確認ください。<br> \
@@ -153,12 +152,12 @@ let mail_text = new Array(	"お世話になっております。\
                             食欲の秋、スポーツの秋、読書の秋。そんな色んな秋のお供にぴったりのプレイリストを<br> \
                             広告なしでみんなで楽しもう。<br> <br>\
                             友達に初回2ヶ月無料のプレミアム招待リンクを今すぐ贈ろう。<br><br>\
-                            <input type='button' value='招待リンクを贈る' onclick='alert(- -);'>",
+                            <input type='button' value='招待リンクを贈る' onclick='alert(0);'>",
 
                             "先日は、洛天カードをお申込みいただき、ありがとうございます。 <br>\
                             カードの配送は、「配送状況のご照会」よりカード申し込み受付IDとご本人様ご確認内容の入力により簡単にご確認いただけます。 <br>\
                             図形テキスト ボックスなお、カードは通常1週間でお届けいたします。年末年始やゴールデンウィーク等の長期連休の場合、審査状況または配達地域により通常よりお届けが遅れる場合がございます。あらかじめご了承ください。<br> \
-                            <input type='button' value='配達状況のご案内はこちら' onclick='alert(- -);'>",
+                            <input type='button' value='配達状況のご案内はこちら' onclick='alert(0);'>",
 
                             "ocsしんば　株式会社 <br>\
                             情報システム部　情報しんば様<br><br>\
@@ -205,10 +204,20 @@ let mail_text = new Array(	"お世話になっております。\
 );
 
 window.onload = onLoad;
-function onLoad(){
 
-    document.getElementById("title").innerText = "件名:" + mailList[12];
-    document.getElementById("from").innerText = "From:" + from[12];
-    document.getElementById("file").innerText = "添付ファイル" + file[12];
-    document.getElementById("mail-text").innerHTML = mail_text[11];
+//メール識別
+
+function onLoad(){
+    let i = location.search.substring(1);
+    document.getElementById("title").innerText = "件名:" + mailList[i][1];
+    document.getElementById("from").innerText = "From:" + from[i];
+    document.getElementById("mail-text").innerHTML = mail_text[i];
+    if(file[i] != null){
+        document.getElementById("file").innerHTML = "添付ファイル:<a href='#' onclick='alert(0)'>" + file[i] + "</a>";
+    }
+}
+
+function re() {
+    url = "./mcreate.html" + location.search;   
+     window.location.href = url; 
 }

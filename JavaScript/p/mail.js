@@ -23,9 +23,6 @@ const mailList = [
 	[1,"請求書の件"]
 ];
 
-//迷惑メール「1」普通のメール「0」
-let mail_judge = new Array(0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1);
-
 //メール管理状態の初期化（初回のみ実行）
 function setMailParam() {
 	if(localStorage.getItem("mail_first"))	return;
@@ -55,7 +52,9 @@ function mailSet(type){
 		if(localStorage.getItem(mailList[i][1]) != type) continue;
 		table.innerHTML += 	'<tr id="tr'
 						+	i
-						+	'"><td><a href="mbrowse.html">'
+						+	'"><td><a href="mbrowse.html?'
+						+	i
+						+	'">'
 						+	mailList[i][1]
 						+	'</a><button type="button" class="aaa" onclick="trashOrRecoveryClick(\''
 						+	mailList[i][1]
