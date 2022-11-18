@@ -8,8 +8,8 @@
 <title>パスワード強度確認機能テスト用ページ</title>
 <meta charset="UTF-8">
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet' type='text/css'>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script><!-- jQuery Library-->
-<!-- <link rel="stylesheet" href="../../CSS/p/passwd.css" />  Include Your CSS file here -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../../CSS/p/pedit.css" />  <!-- Include Your CSS file here -->
 <script src="../../JavaScript/p/pedit.js"></script><!-- Include Your jQUery file here-->
 
 </head>
@@ -20,7 +20,7 @@
         <hr>
         </div>
         <div id="content" align="center">
-        <h4>文字数は8文字以上30文字未満で構成してください。</h4>
+        <h4>文字数は8文字以上30文字未満で構成してください</h4>
         <form id="register">
             <label for="password"></label>
             <input name="password" id="password" type="password" placeholder="パスワードを入力してください"/>&nbsp;&nbsp;
@@ -33,7 +33,7 @@
             <span id="result"></span>
         </form>
         <br>
-        <button onclick="setPass(); text(); pass()">完了</button>
+        <button  class="bbb" onclick="setPass(); text(); pass()">完了</button>
         </div>
         </div>
 </body>
