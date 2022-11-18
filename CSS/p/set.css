@@ -1,0 +1,36 @@
+body{
+
+
+    background-color: #513743;
+}
+.bbb {
+    position: relative;
+    border-collapse:  collapse;
+    top: 120px;
+    block-size: 30px;
+    font-size: 15px;
+    width: 20%;
+    height: 40px;
+    padding: 0%;
+    margin-right: auto;
+    max-width: 20%;
+    color: black;
+    background-color: #b44c97;
+    border: solid 0px
+
+    
+}
+
+.example{
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+    
+}
+
+.aaa{
+    text-align: center;
+    
+    margin-left:auto;
+    margin-right:auto;
+}
