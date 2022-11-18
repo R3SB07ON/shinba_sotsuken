@@ -16,7 +16,15 @@
 }
 .box{ 
     position: relative;
-    left: 25%;
+    left: 10%;
+}
+input.kensaku{
+    width: 70%;
+    height: 30px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .iconarea{
@@ -31,3 +39,24 @@
     height: 75px;
     width: 75px;
 }
+.submit {
+    width: 12%;
+    height: 7%;
+    display       : inline-block;
+    border-radius : 7%;          /* 角丸       */
+    font-size     : 10pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 10px 10px;   /* 余白       */
+    background    : #000066;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 4px 4px 2px #666666;  /* 影の設定 */
+    border        : 1px solid #000066;    /* 枠の指定 */
+  }
+  .submit:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #000066;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
+  }
