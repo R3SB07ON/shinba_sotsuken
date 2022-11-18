@@ -3,7 +3,7 @@
 
 //タスク種類
 const taskList = new Array("A","A-1","A-2","A-2-1",
-                            "B","B-1","B-2","C","X",)
+                            "B","B-1","B-2","C","X")
 //タスク状態
 const stateList = new Array("未発生","未完了","完了","失敗");
 //合計タスク数

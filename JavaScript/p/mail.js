@@ -21,6 +21,8 @@ let mailList = new Array(	"セキュリティ講座の見積書について",
 							"請求書の件"							
 						);
 
+//迷惑メール「1」普通のメール「0」
+let mail_judge = new Array(0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1);
 
 //メール管理状態の初期化（初回のみ実行）
 function setMailParam() {

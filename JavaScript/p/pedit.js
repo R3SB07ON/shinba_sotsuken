@@ -30,8 +30,6 @@ function setPass(){
             if(pswd>=3) {
                 //3回以上失敗
                 alert("3回以上失敗")
-            }else {
-                
             }
         }
     }else{
@@ -87,8 +85,6 @@ function pass(){
             kigouflag +=1;
             // alert(kigouflag)
             alert("4")
-        }else{
-
         }
     }else{
         alert("パスワードを入力しなおしてください")
