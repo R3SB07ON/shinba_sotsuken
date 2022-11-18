@@ -1,15 +1,67 @@
 .mokuji{
-    position: relative; left: 50%; top: 10%;
+    position: relative; left: 50%; top: 50px;
+    font-size: 2em;
 }
 .button1{
-    position: absolute; left: 40%; top: 20%;
+    position: absolute; left: 38%; top: 30%;
+    padding: 0.5em 1.5em;
+    margin: 2em 0;
+    color: #FFF;
+    background: #6eb7ff;
+    border-bottom: solid 6px #3f87ce;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+    font-size: 1em;
 }
+.button1 p{
+    margin: 0; 
+    padding: 0;
+}
+
 .button2{
-    position: absolute; left: 60%; top:20%;
+    position: absolute; left: 60%; top:30%;
+    padding: 0.5em 4.5em;
+    margin: 2em 0;
+    color: #FFF;
+    background: #6eb7ff;
+    border-bottom: solid 6px #3f87ce;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+    font-size: 1em;
 }
+.button2 p{
+    margin: 0; 
+    padding: 0;
+}
+
 .button3{
-    position: absolute; left: 40%; top: 40%;
+    position: absolute; left: 38%; top: 60%;
+    padding: 0.5em 1.5em;
+    margin: 2em 0;
+    color: #FFF;
+    background: #6eb7ff;
+    border-bottom: solid 6px #3f87ce;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+    font-size: 1em;
 }
+.button3 p{
+    margin: 0; 
+    padding: 0;
+}
+
 .button4{
-    position: absolute; left: 60%; top: 40%;
+    position: absolute; left: 60%; top: 60%;
+    padding: 0.5em 3em;
+    margin: 2em 0;
+    color: #FFF;
+    background: #6eb7ff;
+    border-bottom: solid 6px #3f87ce;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+    font-size: 1em;
+}
+.button4 p{
+    margin: 0; 
+    padding: 0;
 }
