@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="../../CSS/p/mlist.css">
         <script src = "../../JavaScript/c/parameter.js"></script>
 		<script src = "../../JavaScript/p/mail.js"></script>
+        <script src = "../../JavaScript/c/paramchange.js"></script>
         
         
     </head>
@@ -25,6 +26,8 @@
 
         <table class="sample" id="mailTable">
 			<script>
+                A_OK_mail_del();
+                setParamChange();
 				setMailParam();
 				mailSet("inbox");
 			</script>
