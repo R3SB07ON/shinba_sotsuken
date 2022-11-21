@@ -7,32 +7,34 @@
     <title>デスクトップ画面</title>
 </head>
 <body >
+    <div class="ttt">
+        <div class="imgt">
+            <img src="../../material/image/p/windows_title.png">
+        </div>
+        <div>    <!-- //計５つのアイコンを上下に段分けするためのdiv -->
+            <input type="image" class="icon" src="../../material/image/p/mail.png" alt="メール" onclick="window.open('./mlist.html')" >
+        </div>
+        <div>
+            <input type="image" class="icon" src="../../material/image/p/chat.png" alt="チャット" onclick="window.open('./chat.html')">
+        </div>
 
-    <div class="imgt">
-        <img src="../../material/image/p/windows_title.png">
-    </div>
-
-    <div>    <!-- //計５つのアイコンを上下に段分けするためのdiv -->
-        <input type="image" class="icon" src="../../material/image/p/mail.png" alt="メール" onclick="window.open('./mlist.html')" >
-    </div>
-    <div>
-        <input type="image" class="icon" src="../../material/image/p/chat.png" alt="チャット" onclick="window.open('./chat.html')">
-    </div>
-    <div>
-        <input type="image" class="icon" src="../../material/image/p/file.png" alt="ファイル一覧" onclick="window.open('./filelist.html')">
-    </div>
-    <div>
-        <input type="image" class="icon" src="../../material/image/p/meeting.png" alt="web会議" onclick="window.open('./meeting.html')">
-    </div>
-    <div>
-        <input type="image" class="icon" src="../../material/image/p/browser_mark.png" alt="ブラウザ" onclick="window.open('./browser.html')">
-    </div>
+        <div>
+            <input type="image" class="icon" src="../../material/image/p/file.png" alt="ファイル一覧" onclick="window.open('./filelist.html')">
+        </div>
+        <div>
+            <input type="image" class="icon" src="../../material/image/p/meeting.png" alt="web会議" onclick="window.open('./meeting.html')">
+        </div>
+        <div>
+            <input type="image" class="icon" src="../../material/image/p/browser_mark.png" alt="ブラウザ" onclick="window.open('./browser.html')">
+        </div>
 
 
-    <div class="window">
-        <input type="image" class="open" src="../../material/image/p/window_mark.png" alt="ウィンドウズマーク" onclick="popup();">    <!-- //ボタンクリックで上記関数を呼び出し -->
+
+
+        <div class="window">
+            <input type="image" class="open" src="../../material/image/p/window_mark.png" alt="ウィンドウズマーク" onclick="popup();">    <!-- //ボタンクリックで上記関数を呼び出し -->
         
-        <div id="iconarea" class="iconarea">
+            <div id="iconarea" class="iconarea">
 
                 <div class="pop">
                     <button class="btn">スリープ</button><br>
@@ -43,8 +45,8 @@
 
             
 
+        </div>
     </div>
-
     <script>
     let flag = 0
     function popup(){

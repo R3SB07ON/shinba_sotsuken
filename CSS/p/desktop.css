@@ -40,6 +40,8 @@ body{
   max-width: 50%;
   max-block-size: 100%;
   padding: 50px;
+  margin-right: auto;
+  margin-left: auto;
 
 }
 
@@ -52,7 +54,6 @@ div.imgt {
   position:absolute;
   top:25%;
   left:40%;
-  padding: 0px;
 }
 
 .btn {
@@ -60,7 +61,7 @@ div.imgt {
   padding: 5px;
   background: #b44c97;
   color: #111111;
-  border-bottom: solid 5px rgb(187, 184, 184);
+  border-bottom: solid 5px rgb(255, 255, 255);
   border-radius: 20px;
   margin-bottom: 15px;
  }
