@@ -1,0 +1,20 @@
+.aaa{
+    width: 98%;
+    max-height: 20%;
+    border-collapse: collapse;
+    border:1px solid #000000;
+    background-color:#513743;
+    color:#000000;text-align:left;
+}
+
+.bbb{
+    border:1px solid beige;
+    text-align:center;
+    height: 180px;
+    font-size: 80px;
+}
+
+
+.ddd{
+    text-align: center;
+}
