@@ -22,5 +22,5 @@ function onLoad(){
 
     //保存内容の反映
     let filename = "file_" + params.get("file");
-    document.getElementById("textarea").innerText = localStorage.getItem(filename);
+    document.getElementById("textarea").innerHTML = localStorage.getItem(filename);
 }

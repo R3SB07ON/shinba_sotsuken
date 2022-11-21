@@ -4,8 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>メール作成画面</title>
-        <link rel="stylesheet" href="../../CSS/p/mcreate.css">
+        <!-- <link rel="stylesheet" href="../../CSS/p/mcreate.css"> -->
         <script src = "../../JavaScript/c/parameter.js"></script>
+        <script src = "../../JavaScript/c/task.js"></script>
+        <script src = "../../JavaScript/p/mcreate.js"></script>
         <style>
             div{
               margin-bottom: 15px;
@@ -16,28 +18,29 @@
     <body>
       <button 
       type="button"
-      onclick="location.href='./mcreate.html'">
-      メール作成
-      </button><br>
-      <button 
-      type="button"
       onclick="location.href='./mlist.html'">
       受信トレイ
       </button><br>
       <button 
-      type="button">
+      type="button"
+      onclick="location.href='./dustbin.html'">
       ゴミ箱
       </button><br>
-      <button type="button"onclick="location.href='./pedit.html'">パスワード編集
+      <button 
+      type="button"
+      onclick="location.href='./mlist-sent.html'">
+      送信済み
+      </button><br>
+      <button type="button"onclick="location.href='./pedit.html?mail'">パスワード編集
       </button><br>
 
         <table class="sample">
             <tr><th></th><th>新規メッセージ</th></tr>
             <tr><th>宛先</th><td><input id="from" type="text" size="30"></td></tr>
-            <tr><th>CC</th><td><input type="text" size="30"></td></tr>
-            <tr><th>BCC</th><td><input type="text" size="30"></td></tr>
-            <tr><th>件名:</th><td><input type="text" size="50"></td></tr>
-            <tr><th></th><td><textarea cols="90" rows="30" placeholder="入力"></textarea></td></tr>
+            <tr><th>CC</th><td><input id="cc" type="text" size="30"></td></tr>
+            <tr><th>BCC</th><td><input id="bcc" type="text" size="30"></td></tr>
+            <tr><th>件名:</th><td><input id="title" type="text" size="50"></td></tr>
+            <tr><th></th><td><textarea id="mail-text" cols="90" rows="30" placeholder="入力（最大1000文字）" maxlength=1000></textarea></td></tr>
 
          </table>
          <div>
@@ -45,10 +48,9 @@
                 <input type="file" name="test">
               </div>
               <div>
-                <input type="submit" value="削除する">
-              </div>
-              <div>
-                <input type="submit" value="送信する">
+                <input type="button" value="送信する" onclick="send();">
+                <input type="button" value="後で送信する" onclick="">
+                <input type="button" value="キャンセル" onclick="history.back()">
               </div>
             </form>
           </div>

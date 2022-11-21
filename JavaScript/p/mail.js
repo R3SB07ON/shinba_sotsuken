@@ -4,27 +4,31 @@
 */
 
 
-//メールの件名
+//メール
+//[種別,件名]の二次元で記憶（0:良、1:悪）
 //この配列をもとにローカルストレージで受信/ゴミ箱状態を管理する
-let mailList = new Array(	"セキュリティ講座の見積書について",
-							"貴社訪問のお願い",
-							"お振込受付のお知らせ",
-							"＜重要＞ご利用確認のお願い",
-							"定休日の変更について",
-							"北野海道様からのご紹介 株式会社ウォルトエンジン 遊園 大地",
-							"ウイルス感染について",
-							"会議開催通知 情報しんば",
-							"友達にプレミアを贈ろう！",
-							"カードお届け直前のご案内",
-							"打合せ日程の件について"							
-						)
+const mailList = [
+	[0,"セキュリティ講座の見積書について"],
+	[0,"貴社訪問のお願い"],
+	[1,"お振込受付のお知らせ"],
+	[1,"＜重要＞ご利用確認のお願い"],
+	[0,"定休日の変更について"],
+	[0,"北野海道様からのご紹介 株式会社ウォルトエンジン 遊園 大地"],
+	[0,"ウイルス感染について"],
+	[1,"会議開催通知 情報しんば"],
+	[0,"友達にプレミアを贈ろう！"],
+	[0,"カードお届け直前のご案内"],
+	[0,"打合せ日程の件について"],
+	[1,"なし"],
+	[1,"請求書の件"]
+];
 
 //メール管理状態の初期化（初回のみ実行）
 function setMailParam() {
 	if(localStorage.getItem("mail_first"))	return;
 	localStorage.setItem("mail_first","false")
 	for (let i = 0; i < mailList.length; i++) {
-   		localStorage.setItem(mailList[i],'inbox');
+   		localStorage.setItem(mailList[i][1],'inbox');
 	}
 }
 
@@ -45,13 +49,15 @@ function mailSet(type){
 	
 	//受信・ゴミ箱状態をローカルストレージで確認してメールを配置
 	for(i = 0;i < mailList.length;i++){
-		if(localStorage.getItem(mailList[i]) != type) continue;
+		if(localStorage.getItem(mailList[i][1]) != type) continue;
 		table.innerHTML += 	'<tr id="tr'
 						+	i
-						+	'"><td><a href="mbrowse.html">'
-						+	mailList[i]
+						+	'"><td><a href="mbrowse.html?'
+						+	i
+						+	'">'
+						+	mailList[i][1]
 						+	'</a><button type="button" class="aaa" onclick="trashOrRecoveryClick(\''
-						+	mailList[i]
+						+	mailList[i][1]
 						+	'\',\''
 						+	buttontype
 						+	'\')">'
@@ -64,11 +70,16 @@ function mailSet(type){
 
 //メールをゴミ箱に移動・復元
 function trashOrRecoveryClick(key,type) {
+	//配列検索用
+	let arr_key = mailList.findIndex( item => item[ 1 ]===key );
+
 	if(type == "trash"){
 		localStorage.setItem(key,'trash');
+		//良いメールを削除した場合減点
+		if(mailList[arr_key][0] == 0)	A_OK_mail_del();
 	}else if(type == "recovery"){
 		localStorage.setItem(key,'inbox');
 	}
-	tr = document.getElementById("tr"+　mailList.indexOf(key));
+	tr = document.getElementById("tr"+ arr_key);
 	tr.remove();
 }
