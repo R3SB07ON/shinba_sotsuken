@@ -52,16 +52,16 @@ input.box{
     text-align    : center;      /* 文字位置   */
     cursor        : pointer;     /* カーソル   */
     padding       : 10px 10px;   /* 余白       */
-    background    : #000066;     /* 背景色     */
+    background    : #b44c97;     /* 背景色     */
     color         : #ffffff;     /* 文字色     */
     line-height   : 1em;         /* 1行の高さ  */
     transition    : .3s;         /* なめらか変化 */
     box-shadow    : 4px 4px 2px #666666;  /* 影の設定 */
-    border        : 1px solid #000066;    /* 枠の指定 */
+    border        : 1px solid #b44c97;    /* 枠の指定 */
   }
   .submit:hover {
     box-shadow    : none;        /* カーソル時の影消去 */
-    color         : #000066;     /* 背景色     */
+    color         : #b44c97;     /* 背景色     */
     background    : #ffffff;     /* 文字色     */
   }
 
