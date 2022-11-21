@@ -8,6 +8,7 @@
         <script src = "../../JavaScript/c/parameter.js"></script>
         <script src = "../../JavaScript/c/task.js"></script>
         <script src = "../../JavaScript/p/mcreate.js"></script>
+        <script src = "../../JavaScript/p/mdata.js"></script>
         <style>
             div{
               margin-bottom: 15px;
@@ -40,16 +41,17 @@
             <tr><th>CC</th><td><input id="cc" type="text" size="30"></td></tr>
             <tr><th>BCC</th><td><input id="bcc" type="text" size="30"></td></tr>
             <tr><th>件名:</th><td><input id="title" type="text" size="50"></td></tr>
-            <tr><th></th><td><textarea id="mail-text" cols="90" rows="30" placeholder="入力（最大1000文字）" maxlength=1000></textarea></td></tr>
+            <tr><th></th><td><textarea id="mail-text" cols="90" rows="30" placeholder="入力（最大500文字）" maxlength=500></textarea></td></tr>
 
          </table>
          <div>
               <div>
-                <input type="file" name="test">
+                <input id="file" type="file" accept=".txt">
               </div>
               <div>
-                <input type="button" value="送信する" onclick="send();">
-                <input type="button" value="後で送信する" onclick="">
+                <input type="button" value="送信する" onclick="send(location.search);">
+                <!-- onclick内に加点関数呼び込み -->
+                <input type="button" value="後で送信する" onclick="alert('加点処理を後で加える'); send(location.search);">
                 <input type="button" value="キャンセル" onclick="history.back()">
               </div>
             </form>

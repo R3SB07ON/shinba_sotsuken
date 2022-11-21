@@ -47,8 +47,6 @@ let text = new Array("株式会社ウォルトエンジンからきた返信メ�
 //------------------------------------------------------
 
 //チャット追加関数
-//フラグが0なら上司からのチャット
-//フラグが1ならプレイヤーからのチャット
 //ローカルストレージに随時追加状況を反映する
 function addchat(chattext){
     //新しいチャットを生成
@@ -77,6 +75,7 @@ function addmychat(chattext){
 function addhistory(num){
     localStorage.setItem("c_history",localStorage.getItem("c_history") + num);
 }
+
 
 //------------------------------------------------------
 //依存タスク出現フラグ

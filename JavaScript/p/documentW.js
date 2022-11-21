@@ -25,3 +25,11 @@ function onLoad(){
     let filename = "file_" + params.get("file");
     document.getElementById("textarea").value = localStorage.getItem(filename);
 }
+
+//画面離脱警告
+window.addEventListener('beforeunload', function (e) {
+    // イベントをキャンセルする
+    e.preventDefault();
+    // Chrome では returnValue を設定する必要がある
+    e.returnValue = '';
+  });
