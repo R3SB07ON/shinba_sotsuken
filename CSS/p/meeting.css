@@ -1,67 +1,33 @@
-.mokuji{
-    position: relative; left: 50%; top: 50px;
-    font-size: 2em;
+body{
+    background-color: #513743;
 }
-.button1{
-    position: absolute; left: 38%; top: 30%;
-    padding: 0.5em 1.5em;
-    margin: 2em 0;
-    color: #FFF;
-    background: #6eb7ff;
-    border-bottom: solid 6px #3f87ce;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
-    border-radius: 9px;
-    font-size: 1em;
+h1{
+    color: #ffff;
+    text-align: center;
+    margin-top: 100px;
 }
-.button1 p{
-    margin: 0; 
-    padding: 0;
+.zoon{
+    text-align: center;
+    
+    margin-left:auto;
+    margin-right:auto;
 }
 
-.button2{
-    position: absolute; left: 60%; top:30%;
-    padding: 0.5em 4.5em;
-    margin: 2em 0;
-    color: #FFF;
-    background: #6eb7ff;
-    border-bottom: solid 6px #3f87ce;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+.bb1{
+    position: relative;
+    border-collapse:  collapse;
+    top: 200px;
+    font-size: 25px;
+    width: 20%;
+    height: 50px;
+    padding: 0%;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    max-width: 20%;
+    color: #ffff;
+    background-color: #b44c97;
+    border: solid 0px;
     border-radius: 9px;
-    font-size: 1em;
-}
-.button2 p{
-    margin: 0; 
-    padding: 0;
-}
 
-.button3{
-    position: absolute; left: 38%; top: 60%;
-    padding: 0.5em 1.5em;
-    margin: 2em 0;
-    color: #FFF;
-    background: #6eb7ff;
-    border-bottom: solid 6px #3f87ce;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
-    border-radius: 9px;
-    font-size: 1em;
-}
-.button3 p{
-    margin: 0; 
-    padding: 0;
-}
-
-.button4{
-    position: absolute; left: 60%; top: 60%;
-    padding: 0.5em 3em;
-    margin: 2em 0;
-    color: #FFF;
-    background: #6eb7ff;
-    border-bottom: solid 6px #3f87ce;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
-    border-radius: 9px;
-    font-size: 1em;
-}
-.button4 p{
-    margin: 0; 
-    padding: 0;
 }
