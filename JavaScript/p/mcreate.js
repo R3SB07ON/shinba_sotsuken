@@ -35,8 +35,10 @@ function onLoad(){
 function cheakmail(mail,task){
     if(mail == 6){
         stateChange(task,2);
+        alert("タスクメール送信成功")
     }else if(mail < 6){
         stateChange(task,3);
+        alert("タスクメール送信失敗・減点")
     }
 }
 
@@ -46,7 +48,7 @@ function sendCheake(re){
 if(re == ""){
     let cheak3 = 0;
     let cheak7 = 0;
-    if(stateCheck(3) = "未完了" || stateCheck(3) == "失敗"){
+    if(stateCheck(3) == "未完了" || stateCheck(3) == "失敗"){
         if(c_from == from[0]){
             cheak3 += 1;
         }
@@ -66,7 +68,7 @@ if(re == ""){
             cheak3 += 1;
         }
     }
-    if(stateCheck(7) = "未完了" || stateCheck(7) == "失敗"){
+    if(stateCheck(7) == "未完了" || stateCheck(7) == "失敗"){
         if(c_from == "projectXX.m-list@shinba.com"){
             cheak7 += 1;
         }
@@ -91,7 +93,7 @@ if(re == ""){
     }else{
         cheakmail(cheak7,7);
     }
-}else if(re == "?5"){
+}else if(re == "?5" && (stateCheck(1) == "未完了" || stateCheck(1) == "失敗")){
     //タスク返信時
     let cheak1 = 0;
     if(c_from == from[5]){
@@ -110,13 +112,14 @@ if(re == ""){
     if(c_mail_text != ""){
         cheak1 += 1;
     }
-    if(c_file == "C:\\fakepath\\projectXX.txt"){
+    if(c_file == ""){
         cheak1 += 1;
     }
     cheakmail(cheak1,1);
 }else{
     //タスク無関係の返信時
     //減点処理
+    alert("タスクの無関係のメール送信・減点")
 }
 }
 
@@ -128,11 +131,14 @@ function send(re){
         alert("送信先を指定してください");
         return 0;
     }
-    // sendCheake(re);
+    sendCheake(re);
     let text = c_from + "*" + c_cc + "*" + c_bcc + "*" + c_title + "*" + c_mail_text + "*" + c_file;
     localStorage.setItem("send" + localStorage.getItem("addmail"),text);
     localStorage.setItem("addmail", Number(localStorage.getItem("addmail")) + 1);
+
+    //画面離脱警告解除
     moveflag = false;
+
     window.location.href = "./mlist-sent.html";
 }
 
