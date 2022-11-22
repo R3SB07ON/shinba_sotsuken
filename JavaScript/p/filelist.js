@@ -75,3 +75,7 @@ if(localStorage.getItem("file_11_Company") == null){
     <h3>メンバー</h3>:矢野、井端、松本、村瀬、吉田<br>\
     <h3>目的</h3>:クーポン機能、ポイント機能、混雑状況機能の搭載による集客数のUP<br>\ ");
 }
+
+function passfile(){
+    
+}

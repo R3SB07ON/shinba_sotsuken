@@ -8,14 +8,14 @@ let key = "";
 
 let pswd = 0; //失敗のカウント
 let texttype = 0;
-let kigouflag = 0; //判定
+let kigouflag = false; //判定
 
 if(param == "?mail"){
     key = "p_mail";
 }else if(param == "?chat"){
     key = "p_chat";
 }else if(~param.indexOf('?file')){
-	key = "p_file";
+	key = "p_" + param.substring(1);
 }
 
 function setPass(){
@@ -62,7 +62,7 @@ function text(){
         }
 
         if(document.getElementById("password").value.match(/[!,%,&,@,#,$,^,*,?,_,~]/)){
-
+            kigouflag = true;
             texttype += 1;
         }
     
@@ -82,8 +82,6 @@ function pass(){
             //3種類の文字数
             alert("3")
         }else if(texttype == 4){
-            kigouflag +=1;
-            // alert(kigouflag)
             alert("4")
         }
     }else{

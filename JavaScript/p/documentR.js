@@ -13,6 +13,15 @@ function move_pass() {
 
 window.onload = onLoad;
 function onLoad(){
+    //パスワード設定チェック
+    if(localStorage.getItem("p_" + location.search.substring(1)) != null){
+        
+        let passalert = prompt("パスワードを入力してください","");
+         if(passalert != localStorage.getItem("p_" + location.search.substring(1))){
+            history.back();
+        }
+    }
+
     url = new URL(window.location.href);
     params = url.searchParams;
 
