@@ -1,11 +1,28 @@
+body{
+    background-color: #513743;
+}
 .meeting{
-    position: relative; left:43%; top:100px;
+    position: relative; top:100px;
+    text-align: center;
+    font-size: 30px;
+    color: #ffffff;
 }
 .roomid{
-    position: relative; left: 43%; top: 120px;
+    position: relative; top: 120px;
+    text-align: center;
+
 }
 .passid{
-    position: relative; left: 43%; top: 140px;
+    position: relative; top: 140px;
+    text-align: center;
+}
+
+input.ggg{
+    width: 400px; height: 50px;
+    background-color: #cca6bf;
+    border: #cca6bf;
+    font-size: 20px;
+    border-radius: 9px;
 
 }
 div.kiroku{
@@ -13,21 +30,30 @@ div.kiroku{
     font-size: 12px;
 }
 .creat{
-    position: relative; left: 47%; top: 170px;
+    position: relative; top: 170px;
+    text-align: center;
+}
+button.creatbutton{
+    width: 70px; height: 30px;
+    background-color: #cca6bf;
+    border: #cca6bf;
+    border-radius: 9px;
 }
 .url{
-    position: relative; left: 42%; top: 190px;
+    position: relative; top: 190px;
+    text-align: center;
+    color: #513743;
 }
 
 
 input.sample{
     width: auto;
-    background-color:#ffffff;
-    color:#ffffff;
+    background-color: #513743;
+    color:#513743;
     outline:none;
     box-shadow: none;
     text-shadow: none;
-    border: #ffffff;
+    border: #513743;
     font-size: 17px;
 
 }
