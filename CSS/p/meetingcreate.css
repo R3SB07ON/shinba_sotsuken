@@ -36,6 +36,7 @@ div.kiroku{
 button.creatbutton{
     width: 70px; height: 30px;
     background-color: #cca6bf;
+    border: #cca6bf;
     border-radius: 9px;
 }
 .url{

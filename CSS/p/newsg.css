@@ -2,12 +2,12 @@
     position: relative;
 }
 .mokuji {
-    position: relative; left: 0; top: 0;
+    position: relative; top: 10px;
     background: #ffff;
     text-align: center;
 }
 .news{
-    position: relative; top: 20px;
+    position: relative; left: 300px; top: 20px;
     text-align: center;
-
+    max-width:max-content;
 }
