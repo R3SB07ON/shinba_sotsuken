@@ -4,13 +4,19 @@
 }
 .bbb{
     background-color: #b44c97;
+    border: #b44c97;
     color:#ffff;
     width: 150px;
+    height: 50px;
+    border-radius: 9px;
 }
 .open{
     background-color: #b44c97;
+    border: #b44c97;
     color:#ffff;
     width: 150px;
+    height: 50px;
+    border-radius: 9px;
 }
 
 .iconbox{
