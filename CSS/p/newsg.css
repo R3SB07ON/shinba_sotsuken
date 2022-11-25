@@ -1,13 +1,14 @@
 .bbb{
-    position: relative;
+    position: relative;top: 0; left: 0;
 }
-.mokuji {
-    position: relative; top: 10px;
-    background: #ffff;
+h1{
     text-align: center;
 }
 .news{
-    position: relative; left: 300px; top: 20px;
-    text-align: center;
-    max-width:max-content;
+    position: absolute; left: 0%; top: 20%;
+    width: auto;
+    height: auto;
+}
+.news img{
+    width: 100%;
 }

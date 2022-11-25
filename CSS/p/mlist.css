@@ -1,5 +1,6 @@
 body {
     background-color: #513743;
+    font-size: 25px;
 
 }
 
@@ -17,7 +18,7 @@ body {
 .sample {
     border-collapse:  collapse;     /* セルの線を重ねる */
     margin-left: auto;
-    margin-top: 0%;
+    /* margin-top: 0%; */
     max-width:  80%;
     max-height: 80%;
     
@@ -57,16 +58,16 @@ body {
 }
 
 h1 {
-    font-weight: 1000px;
-    margin: 0;
+    /* font-weight: 1000px; */
+    /* margin: 0; */
     font-size: 50px;
     color: black;
     
 }
 
-a {
+/* a {
     font-size: 25px;
-}
+} */
 
 
 
