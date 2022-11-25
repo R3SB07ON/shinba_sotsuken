@@ -1,9 +1,10 @@
 //時間管理画面読み込み用JS
+let moveflag = true;
 
 //タイマー初期設定
 function setTime() {
     if(localStorage.getItem("time") == null){
-        localStorage.setItem("time", "10000");  //テスト用10秒
+        localStorage.setItem("time", "600000"); 
     }
 }
 
@@ -13,8 +14,8 @@ setTime();
 //------------------------------------------------------
 //10分後画面遷移
 let fin = function finish() {
+    moveflag = false;
     window.location.href = "../c/result.html?game1"
-    // window.open( '../c/result.html?game1' );
 }
 let time2 = localStorage.getItem("time");
 setTimeout(fin,time2)
@@ -30,6 +31,12 @@ setInterval(everytime,time3)
 
 //------------------------------------------------------
 //画面遷移、リロード、画面終了に対する警告（一時休止）
-// window.onbeforeunload = function(e) {
-//     e.returnValue = "";
-// }
+
+window.addEventListener('beforeunload', function (e) {
+    if(moveflag){
+        // イベントをキャンセルする
+        e.preventDefault();
+        // Chrome では returnValue を設定する必要がある
+        e.returnValue = '';
+    }
+  });

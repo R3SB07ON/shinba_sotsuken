@@ -20,7 +20,7 @@ function onLoad(){
          if(passalert != localStorage.getItem("p_" + location.search.substring(1))){
             history.back();
         }
-    }
+    } 
 
     url = new URL(window.location.href);
     params = url.searchParams;

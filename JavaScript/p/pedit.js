@@ -40,8 +40,6 @@ function setPass(){
 
 //パスワード強度判定
 function text(){
-
-    
     
         if(document.getElementById("password").value.match(/[a-z]/)){
 
