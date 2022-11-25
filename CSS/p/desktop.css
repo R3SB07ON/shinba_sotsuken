@@ -4,12 +4,12 @@ body{
   font-family: 'Raleway', sans-serif;
   font-size: 15px;
   line-height: 1.5;
-  background-color: #513743;
+  background-color:#f5f5dc;
   }
 .icon{    /* 画像のサイズ調整 */
   position: relative; top: 0%; left: 0%; 
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
   margin-bottom: 40px;
 }
 .iconarea{
@@ -55,6 +55,9 @@ div.imgt {
   top:25%;
   left:40%;
 }
+.imgt img{
+  width: 100%;
+}
 
 .btn {
   width: 110%;
@@ -69,12 +72,4 @@ div.imgt {
   -webkit-transform: translateY(5px);
   transform: translateY(5px);
   border-bottom: none;
- }
-
- p {
-  padding: 1px;
-  background-color: #e3f6f5;
-  border-left: 10px solid #ffd803;
-  font-weight: bold;
-  
  }
