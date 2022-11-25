@@ -53,5 +53,13 @@ body{
         max-width: 20%;
         color: black;
         background-color: #b44c97;
-        border: solid 0px
+        border: solid 0px;
+        /* 左上 */
+        border-top-left-radius:70px;
+        /*右上*/
+        border-top-right-radius:70px;
+        /* 左下 */
+        border-bottom-left-radius:70px;
+        /*右下*/
+        border-bottom-right-radius:70px;
     }
