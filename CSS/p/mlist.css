@@ -37,6 +37,7 @@ body {
     max-width: 20%;
     /* padding-left: 50%; */
     background-color: #b44c97;
+    color: #e7e7eb;
 }
 
 .bbb {
@@ -50,7 +51,7 @@ body {
     padding: 0%;
     margin-right: auto;
     max-width: 20%;
-    color: black;
+    color: #e7e7eb;
     background-color: #b44c97;
     border: solid 0px
 
@@ -61,7 +62,7 @@ h1 {
     /* font-weight: 1000px; */
     /* margin: 0; */
     font-size: 50px;
-    color: black;
+    color: #e7e7eb;
     
 }
 

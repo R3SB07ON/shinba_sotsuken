@@ -1,10 +1,6 @@
 body{
-  margin: 0;
-  padding: 0;
-  font-family: 'Raleway', sans-serif;
-  font-size: 15px;
-  line-height: 1.5;
   background-color:#f5f5dc;
+  width:fit-content;
   }
 .icon{    /* 画像のサイズ調整 */
   position: relative; top: 0%; left: 0%; 
@@ -14,62 +10,38 @@ body{
 }
 .iconarea{
   border: solid;
-  height: 30%;
-  width: 200px;
-  padding: 10px;
-  margin-top: 5%;
+  height: 150px;
+  width: 300px;
   display: none;    /* //ページ読み込み時は非表示 */
-  top: 100px;
-  bottom: 0;
-  margin-right: auto;
-  margin: auto;
   color:rgb(112, 112, 112);
-  position:absolute;top: 50%; left: 15%;
-
+  position: absolute;left: 100px;bottom: 50px;
 }
 .open{
-  position: relative; bottom: 0; left: 0%; 
-  height: 70px;
-  width: 70px;
-  margin-top: 5%;
-  max-height: max-content;
+  height: 60px;
+  width: 60px;
+
 }
 .pop{
-  display:block;
-  width: 70%;
-  max-width: 50%;
-  max-block-size: 100%;
-  padding: 50px;
-  margin-right: auto;
-  margin-left: auto;
-
+  position: relative; top: 10px;
+  width: 50px;
+  margin: 15px;
 }
-
-
-.hoge{
-  margin-bottom: 50px;
-}
-
-div.imgt {
-  position:absolute;
-  top:25%;
-  left:40%;
-}
-.imgt img{
-  width: 100%;
+.window{
+  position: relative; top:160px;
 }
 
 .btn {
-  width: 110%;
+  float: left;
+  width: 110px;
   padding: 5px;
-  background: #b44c97;
+  margin-left: 25px;
+  background: #93b881;
   color: #111111;
-  border-bottom: solid 5px rgb(255, 255, 255);
   border-radius: 20px;
   margin-bottom: 15px;
+  margin-top: 20px;
  }
  .btn:active {
   -webkit-transform: translateY(5px);
   transform: translateY(5px);
-  border-bottom: none;
  }
