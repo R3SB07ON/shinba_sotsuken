@@ -1,5 +1,6 @@
 .aaa{
-    width: 98%;
+    width: auto;
+    min-width: 800px;
     max-height: 20%;
     border-collapse: collapse;
     border:1px solid #000000;
@@ -8,10 +9,12 @@
 }
 
 .bbb{
+    width: auto;
     border:1px solid beige;
     text-align:center;
     height: 180px;
     font-size: 80px;
+    white-space: nowrap;
 }
 
 

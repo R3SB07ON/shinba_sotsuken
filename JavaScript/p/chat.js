@@ -81,7 +81,7 @@ function addhistory(num){
 //依存タスク出現フラグ
 function new_task() {
     //A系統
-    if(stateCheck(2) == "完了" && stateCheck(3) == "未発生"){    //addは一度だけにしたい
+    if(stateCheck(2) == "完了" && stateCheck(3) == "未発生"){
         stateChange(3,1);
         addchat(text[2]);
         addhistory("2");
@@ -131,13 +131,13 @@ function check() {
 
 let addT = function addtask(){
     if(localStorage.getItem("time") != null && stateCheck(8) == "未発生"){
-        if(localStorage.getItem("time") < 5000){
+        if(localStorage.getItem("time") < 30000){
             stateChange(8,1);
             addchat(text[5]);
             addhistory(5);
             clearInterval(timer);
         }
-    }{
+    }else{
         clearInterval(timer);
     }
 }
