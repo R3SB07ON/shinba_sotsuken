@@ -3,16 +3,16 @@
     justify-content: flex-end;margin-bottom: 10px;
 }
 .bbb{
-    background-color: #b44c97;
-    border: #b44c97;
+    background-color: #ff0000;
+    border: #ff0000;
     color:#ffff;
     width: 150px;
     height: 50px;
     border-radius: 9px;
 }
 .open{
-    background-color: #b44c97;
-    border: #b44c97;
+    background-color: #ff0000;
+    border: #ff0000;
     color:#ffff;
     width: 150px;
     height: 50px;
@@ -73,15 +73,15 @@ input.kensaku{
     text-align    : center;      /* 文字位置   */
     cursor        : pointer;     /* カーソル   */
     padding       : 10px 10px;   /* 余白       */
-    background    : #b44c97;     /* 背景色     */
+    background    : #ff0000;     /* 背景色     */
     color         : #ffffff;     /* 文字色     */
     line-height   : 1em;         /* 1行の高さ  */
     transition    : .3s;         /* なめらか変化 */
     box-shadow    : 4px 4px 2px #666666;  /* 影の設定 */
-    border        : 1px solid #b44c97;    /* 枠の指定 */
+    border        : 1px solid #ff0000;    /* 枠の指定 */
   }
   .submit:hover {
     box-shadow    : none;        /* カーソル時の影消去 */
-    color         : #b44c97;     /* 背景色     */
+    color         : #ff0000;     /* 背景色     */
     background    : #ffffff;     /* 文字色     */
   }
