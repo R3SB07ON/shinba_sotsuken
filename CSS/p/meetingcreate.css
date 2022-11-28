@@ -1,6 +1,3 @@
-body{
-    background-color: #513743;
-}
 .meeting{
     position: relative; top:100px;
     text-align: center;
@@ -19,11 +16,11 @@ body{
 
 input.ggg{
     width: 400px; height: 50px;
-    background-color: #cca6bf;
-    border: #cca6bf;
+    background-color: #59b9c6;
+    border: #59b9c6;
     font-size: 20px;
     border-radius: 9px;
-
+    color: #ffffff;
 }
 div.kiroku{
     position: relative; left: 43%; top: 150px;
@@ -35,25 +32,25 @@ div.kiroku{
 }
 button.creatbutton{
     width: 70px; height: 30px;
-    background-color: #cca6bf;
-    border: #cca6bf;
+    background-color: #007bbb;
+    border: #007bbb;
     border-radius: 9px;
+    color: #fff;
 }
 .url{
     position: relative; top: 190px;
     text-align: center;
-    color: #513743;
 }
 
 
 input.sample{
     width: auto;
-    background-color: #513743;
-    color:#513743;
+    background-color: #ffffff;
+    color:#ffffff;
     outline:none;
     box-shadow: none;
     text-shadow: none;
-    border: #513743;
+    border: #ffffff;
     font-size: 17px;
 
 }

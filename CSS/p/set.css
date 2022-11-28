@@ -1,7 +1,7 @@
 body{
 
 
-    background-color: #513743;
+    background-color: aliceblue;
 }
 .bbb {
     position: relative;
@@ -13,7 +13,7 @@ body{
     padding: 0%;
     margin-right: auto;
     max-width: 30%;
-    background-color: #b44c97;
+    background-color: #eaf4fc;
     border: solid 3px;
     /*左上*/
     border-top-left-radius:70px;
@@ -24,6 +24,7 @@ body{
     /*右下*/
     border-bottom-right-radius:70px;
     margin-right: 10px;
+    border-color: gray;
     
 }
 
@@ -43,7 +44,7 @@ body{
 
 .ccc{
     width: 600px;
-    background: #e7e7eb;
+    background: greenyellow;
     padding: 30px;
     margin: 200px auto;
     border-radius: 5px;

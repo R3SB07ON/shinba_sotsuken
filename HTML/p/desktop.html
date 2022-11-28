@@ -8,9 +8,7 @@
 </head>
 <body >
     <div class="ttt">
-        <div class="imgt">
-            <img src="../../material/image/p/windows_title.png">
-        </div>
+
         <div>    <!-- //計５つのアイコンを上下に段分けするためのdiv -->
             <input type="image" class="icon" src="../../material/image/p/mail.png" alt="メール" onclick="window.open('./mlist.html')" >
         </div>
@@ -27,25 +25,21 @@
         <div>
             <input type="image" class="icon" src="../../material/image/p/browser_mark.png" alt="ブラウザ" onclick="window.open('./browser.html')">
         </div>
+        <div id="iconarea" class="iconarea">
+
+                <button class="btn">スリープ</button>
+                <button class="btn">アップデート</button>
+                <button class="btn">再起動</button>
+                <button class="btn">シャットダウン</button>
+        </div>
 
 
 
 
         <div class="window">
             <input type="image" class="open" src="../../material/image/p/window_mark.png" alt="ウィンドウズマーク" onclick="popup();">    <!-- //ボタンクリックで上記関数を呼び出し -->
-        
-            <div id="iconarea" class="iconarea">
-
-                <div class="pop">
-                    <button class="btn">スリープ</button><br>
-                    <button class="btn">アップデート</button><br>
-                    <button class="btn">再起動</button><br>
-                    <button class="btn">シャットダウン</button>
-                </div>
-            </div>
-            
-
         </div>
+
     </div>
     <script>
     let flag = 0
