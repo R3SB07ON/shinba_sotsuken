@@ -45,4 +45,10 @@ function t_collLast(){
   return t_achieve;
 }
 
+//割合
+function t_finish(){
+  let count = t_collLast() * 100 / t_total ;
+  return Math.round(count,2);
+}
+
 //

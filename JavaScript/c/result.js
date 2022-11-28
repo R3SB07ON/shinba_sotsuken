@@ -12,11 +12,10 @@ function onLoad() {
   }else{
     alert("a");
   }
-
   //パラメータ調整
   p_collLast();
   //達成タスク数取得
-  t_collLast();
+  document.getElementById("achieve").textContent = "タスク達成率:" + t_finish() + "%";
 
   //グラフ作製
   //予防編グラフ1
