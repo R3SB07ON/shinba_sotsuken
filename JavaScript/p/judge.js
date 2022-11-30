@@ -23,15 +23,16 @@ function judgeflag1(text) {
       let flag2 = judgeflag2(text);  //株価系統の文字列を検出で「1」
   
       if(flag1 == 1 && flag2 == 1){ //vr3
-        window.location.href = "./searchlist.html?vr3";
-  
-      }else if(flag1 == 1 && flag2 == 0){ //vr1
+        B1_access_except_page();   //タスクに無関係の状態で検索
+        window.location.href = "./searchlist.html?vr3";  
+      }else if(flag1 == 1 && flag2 == 0){ //vr1(ニュース)
+        B1_access_except_page();
         window.location.href = "./searchlist.html?vr1";
-  
-      }else if(flag1 == 0 && flag2 == 1){  //vr2
+      }else if(flag1 == 0 && flag2 == 1){  //vr2(株価)
+        B2_access_except_page();
         window.location.href = "./searchlist.html?vr2";
-  
       }else if(flag1 == 0 && flag2 == 0){ //vr4
+        Z_task_disrelation_search();
         window.location.href = "./searchlist.html?vr4";
       }
     }else{  //検索文字数が過剰に多いとき
