@@ -1,6 +1,8 @@
 let url;
 let param;
 
+//画面遷移警告回避フラグ
+let moveflag = true;
 
 function move(){  
     url = "./documentR.html" + location.search;
@@ -8,6 +10,7 @@ function move(){
 }
 
 function save() {
+    moveflag = false;
     let filename = "file_" + params.get("file");
     localStorage.setItem(filename,document.getElementById("textarea").value);
 }
@@ -28,10 +31,12 @@ function onLoad(){
 
 //画面離脱警告
 window.addEventListener('beforeunload', function (e) {
-    // イベントをキャンセルする
-    e.preventDefault();
-    // Chrome では returnValue を設定する必要がある
-    e.returnValue = '';
+    if(moveflag){
+        // イベントをキャンセルする
+        e.preventDefault();
+        // Chrome では returnValue を設定する必要がある
+        e.returnValue = '';
+    }
   });
 
 //保存内容の判定
