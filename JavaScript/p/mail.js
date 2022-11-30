@@ -61,10 +61,12 @@ function trashOrRecoveryClick(key,type) {
 
 	if(type == "trash"){
 		localStorage.setItem(key,'trash');
-		//良いメールを削除した場合減点
+		//A：良いメールを削除した場合減点
 		if(mailList[arr_key][0] == 0)	A_OK_mail_del();
 	}else if(type == "recovery"){
 		localStorage.setItem(key,'inbox');
+		//Z：メールをゴミ箱から戻す
+		Z_mail_recovery();
 	}
 	tr = document.getElementById("tr"+ arr_key);
 	tr.remove();

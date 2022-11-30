@@ -132,7 +132,13 @@ function send(re){
         return 0;
     }
     sendCheake(re);
-    let text = c_from + "*" + c_cc + "*" + c_bcc + "*" + c_title + "*" + c_mail_text + "*" + c_file;
+    let text =
+        escape_ast(c_from) + "*" + 
+        escape_ast(c_cc) + "*" + 
+        escape_ast(c_bcc) + "*" + 
+        escape_ast(c_title) + "*" + 
+        escape_ast(c_mail_text) + "*" + 
+        escape_ast(c_file);
     localStorage.setItem("send" + localStorage.getItem("addmail"),text);
     localStorage.setItem("addmail", Number(localStorage.getItem("addmail")) + 1);
 
@@ -151,3 +157,9 @@ window.addEventListener('beforeunload', function (e) {
         e.returnValue = '';
     }
   });
+
+//エスケープ(*)
+function escape_ast(text){
+    text = text.split("*");
+    return text.join("<esp_ast>");
+}

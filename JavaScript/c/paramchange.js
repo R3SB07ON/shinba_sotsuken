@@ -17,6 +17,18 @@ function setParamChange() {
    	localStorage.setItem("A_OK_mail","0");    //良いメールを削除した回数
 }
 
+//タスク完了状態の判断
+//引数はtask.jsのtaskListの値に準ずる
+function task_check(task_type){
+    let state = stateCheck(task_type);
+    //console.log(state);
+    if(state == "未完了" || state == "失敗"){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 /*
 共通
 */
@@ -26,22 +38,22 @@ function task_failed(task_type){
         case "A":
             paramctr([0,-10],[1,-10],[2,-10],[3,-10],[4,-10],[5,-10],[6,-10],[7,-10],[8,-10],[9,-10],[10,-10]);
             break;
-        case "A1":
+        case "A-1":
             paramctr([0,-5],[1,-5],[2,-5],[3,-5],[4,-5],[5,-5],[6,-5],[7,-5],[8,-5],[9,-5],[10,-5]);
             break;
-        case "A2":
+        case "A-2":
             paramctr([0,-5],[1,-5],[2,-5],[3,-5],[4,-5],[5,-5],[6,-5],[7,-5],[8,-5],[9,-5],[10,-5]);
             break;
-        case "A21":
+        case "A-2-1":
             paramctr([0,-3],[1,-3],[2,-3],[3,-3],[4,-3],[5,-3],[6,-3],[7,-3],[8,-3],[9,-3],[10,-3]);
             break;
         case "B":
             paramctr([0,-10],[1,-10],[2,-10],[3,-10],[4,-10],[5,-10],[6,-10],[7,-10],[8,-10],[9,-10],[10,-10]);
             break;
-        case "B1":
+        case "B-1":
             paramctr([0,-5],[1,-5],[2,-5],[3,-5],[4,-5],[5,-5],[6,-5],[7,-5],[8,-5],[9,-5],[10,-5]);
             break;
-        case "B2":
+        case "B-2":
             paramctr([0,-5],[1,-5],[2,-5],[3,-5],[4,-5],[5,-5],[6,-5],[7,-5],[8,-5],[9,-5],[10,-5]);
             break;
         case "C":
@@ -56,8 +68,13 @@ function task_failed(task_type){
 /*
 A
 */
+
 //良いメールを削除
 function A_OK_mail_del(){
+    if(!task_check("0")){
+        Z_OK_mail_trash();
+        return;
+    }
     let A_OK_mail = Number(Number(localStorage.getItem("A_OK_mail"))) + 1;
     localStorage.setItem("A_OK_mail",A_OK_mail);
     if(A_OK_mail==1)            paramctr([[1,-2],[2,-2],[3,-2],[10,-2]]);
@@ -67,6 +84,7 @@ function A_OK_mail_del(){
 
 //良いメールをゴミ箱から戻す
 function A_OK_mail_recovery(){
+    if(!task_check("0"))  return;
     //専用のローカルストレージ作成
     //let A_OK_mail = Number(Number(localStorage.getItem("A_OK_mail"))) + 1;
     //localStorage.setItem("A_OK_mail",A_OK_mail);
@@ -76,16 +94,19 @@ function A_OK_mail_recovery(){
 
 //2分以内に完了
 function A_task_2min_finish(){
+    if(!task_check("0"))  return;
     paramctr([[5,1]]);
 }
 
 //迷惑メールのリンクを踏む
 function A_spam_link_click(){
+    if(!task_check("0"))  return;
     paramctr([[0,-3],[1,-3],[2,-3],[6,-3],[7,-8],[8,-8]]);
 }
 
 //ゴミ箱から難易度〇の迷惑メールを戻す
 function A_spam_recovery(difficulty){
+    if(!task_check("0"))  return;
     switch (difficulty){
         case 1:
             paramctr([[1,-1],[2,-1],[6,-1],[7,-1],[8,-1]]);
@@ -104,6 +125,7 @@ function A_spam_recovery(difficulty){
 
 //難易度〇の迷惑メールを消す
 function A_spam_trash(difficulty){
+    if(!task_check("0"))  return;
     switch (difficulty){
         case 1:
             paramctr([[1,2],[2,2],[6,2],[7,2],[8,2]]);
@@ -122,11 +144,13 @@ function A_spam_trash(difficulty){
 
 //ゴミ箱からなりすましメールを戻す
 function A_narisumashi_recovery(){
+    if(!task_check("0"))  return;
     paramctr([[0,-2],[1,-2],[2,-2],[3,-3],[6,-2],[7,-2],[8,-3]]);
 }
 
 //なりすましメールを消す
 function A_narisumashi_trash(){
+    if(!task_check("0"))  return;
     paramctr([[0,3],[1,3],[2,3],[3,4],[6,3],[7,3],[8,4]]);
 }
 
@@ -135,6 +159,7 @@ A-1
  */
 //送信先を間違える
 function A1_to_mistake(){
+    //if(!task_check("1"))  return;
     paramctr([[0,-10],[1,-10],[3,-10],[7,-10],[9,-10]]);
 }
 
@@ -243,6 +268,7 @@ B-1
 */
 //レートの記入数が少ない
 function B1_rate_input(rate){
+    if(!task_check("5"))  return;
     switch(rate){
         case 1:
             paramctr([[1,-10],[3,-10],[5,-10],[7,-10],[8,-10]]);
@@ -264,31 +290,47 @@ function B1_rate_input(rate){
 
 //記入レートの数値に間違い
 function B1_rate_num(){
+    if(!task_check("5"))  return;
     paramctr([[1,-2],[3,-2],[4,-3],[5,-2],[7,-2],[8,-2]]);
 }
 
 //ExchangeRateに不要な書き込み
 function B1_ExchangeRate_edit(){
+    if(!task_check("5"))  return;
     paramctr([[1,-2],[3,-2],[5,-2],[8,-5],[11,1]]);
 }
 
 //ExchangeRate以外の資料に書き込み
 function B1_except_edit(){
+    if(!task_check("5"))  return;
     paramctr([[1,-2],[3,-2],[5,-2],[9,-5],[11,1]]);
 }
 
 //悪いサイトにアクセス
 function B1_access_bad_page(){
+    if(!task_check("5")){
+        Z_access_bad_page();
+        return;
+    }
     paramctr([[0,-10],[2,-9],[3,-1],[6,-2],[7,-3][8,-8],[9,-10],[11,5]]);
 }
 
-//404が出たら（共通？）
+//404が出たら（B-2共通）
 function B1_access_404_page(){
-    paramctr([[0,-4],[2,-4],[5,-8],[6,-6],[7,-4][8,-4],[11,10]]);
+    if(task_check("5") || task_check("6")){
+        paramctr([[0,-4],[2,-4],[5,-8],[6,-6],[7,-4][8,-4],[11,10]]);
+    }else{
+        Z_display_404();
+    }
+    
 }
 
-//検索画面で株価以外を調べる（共通？）
+//検索画面で株価以外を調べる
 function B1_access_except_page(){
+    if(!task_check("5")){
+        Z_task_disrelation_search_news();
+        return;
+    }
     paramctr([[1,-4],[5,-4],[11,5]]);
 }
 
@@ -297,6 +339,7 @@ B-2
 */
 //イベントの記入数が少ない
 function B2_ivent_input(ivent){
+    if(!task_check("6"))  return;
     switch(ivent){
         case 1:
             paramctr([[1,-5],[3,-5],[5,-5],[7,-5],[8,-5]]);
@@ -309,22 +352,36 @@ function B2_ivent_input(ivent){
 
 //イベントに記入漏れ
 function B2_ivent_mistake(){
+    if(!task_check("6"))  return;
     paramctr([[1,-2],[3,-2],[5,-2],[7,-2],[8,-2]]);
 }
 
 //誤字
 function B2_typo(){
+    if(!task_check("6"))  return;
     paramctr([[1,-1]]);
 }
 
 //資料に不要な書き込み
 function B2_doc_edit(){
+    if(!task_check("6"))  return;
     paramctr([[1,-1],[3,-1],[5,-1],[11,1]]);
 }
 
 //10_Company以外の資料に書き込み
 function B2_doc_except_edit(){
+    if(!task_check("6"))  return;
     paramctr([[1,-1],[3,-1],[5,-1],[11,1]]);
+}
+
+
+//検索画面でニュース以外を調べる
+function B2_access_except_page(){
+    if(!task_check("6")){
+        Z_task_disrelation_search_news();
+        return;
+    }
+    paramctr([[1,-4],[5,-4],[11,5]]);
 }
 
 /*
@@ -370,7 +427,7 @@ Z
 */
 //悪いサイトにアクセス
 function Z_access_bad_page(){
-    paramctr([[0,-5],[2,-6],[3,-1],[6,-1],[7,-1][8,-4],[9,-5],[11,2]]);
+    paramctr([[0,-5],[2,-6],[3,-1],[6,-1],[7,-1],[8,-4],[9,-5],[11,2]]);
 }
 
 //一度に2つ以上の完了報告をする
@@ -416,22 +473,23 @@ function Z_NG_link_click(){
 
 //タスクと関係ない時検索画面で株価とニュース以外を調べる
 function Z_task_disrelation_search(){
+    if(task_check("5") || task_check("6"))  return;
     paramctr([[1,-6],[5,-6],[6,-5],[11,6]]);
 }
 
-//タスクと関係ない時検索画面で株価とニュースを調べる
+//タスクと関係ない時検索画面で株価とニュースを調べる(Z)
 function Z_task_disrelation_search_news(){
     paramctr([[1,-2],[5,-2],[11,3]]);
 }
 
-//良いメールを消す
+//良いメールを消す(Z)
 function Z_OK_mail_trash(){
     paramctr([[1,-2],[2,-2],[3,-2],[11,2]]);
 }
 
-//404が出る
+//404が出る(Z)
 function Z_display_404(){
-    paramctr([[0,-2],[2,-2],[5,-4],[6,-3],[7,-2][8,-2],[11,5]]);
+    paramctr([[0,-2],[2,-2],[5,-4],[6,-3],[7,-2],[8,-2],[11,5]]);
 }
 
 //タスクに関係ないタイミングでパスワード編集

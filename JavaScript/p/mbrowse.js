@@ -13,9 +13,9 @@ function onLoad(){
             file = mail[5].split("\\");
         }
         
-        document.getElementById("to").innerText = "To:" + mail[0];
-        document.getElementById("title").innerText = "件名:" + mail[3];
-        document.getElementById("mail-text").innerHTML = mail[4];
+        document.getElementById("to").innerText = "To:" + escape_ast_return(mail[0]);
+        document.getElementById("title").innerText = "件名:" + escape_ast_return(mail[3]);
+        document.getElementById("mail-text").innerHTML = escape_ast_return(mail[4]);
         document.getElementById("file").innerHTML = "添付ファイル:<a href='#' onclick='alert(0)'>" + file[2] + "</a>";
     }else{
         //受信トレイ、ゴミ箱のメールの場合
@@ -33,4 +33,10 @@ function onLoad(){
 function re() {
     url = "./mcreate.html" + location.search;   
      window.location.href = url; 
+}
+
+//エスケープ解除(*)
+function escape_ast_return(text){
+    text = text.split("<esp_ast>");
+    return text.join("*");
 }
