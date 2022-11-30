@@ -1,5 +1,5 @@
 body{
-    background-color: #513743;
+    background-color: #946c45;
 }
 .bbb {
     position: relative;
@@ -11,7 +11,7 @@ body{
     padding: 0%;
     margin-right: auto;
     max-width: 30%;
-    background-color: #b44c97;
+    background-color: #fbd8b5;
     border: solid 3px;
     /*左上*/
     border-top-left-radius:70px;
@@ -23,7 +23,7 @@ body{
     border-bottom-right-radius:70px;
     margin-right: 10px;
     max-height: 10%;
-    color: #e7e7eb;
+    color: black;
     border-color: black;
     
 }
@@ -37,5 +37,5 @@ body{
 .aaa{
     max-height: 10%;
     height: 28px;
-    color: #e7e7eb;
+    color: black;
 }

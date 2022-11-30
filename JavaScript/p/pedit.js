@@ -8,14 +8,35 @@ let key = "";
 
 let pswd = 0; //失敗のカウント
 let texttype = 0;
-let kigouflag = false; //判定
+let kigouflag = 0; //判定
 
+
+var target = document.getElementById("body"); //対象要素をIDで指定
+var target1 = document.getElementById("header"); //対象要素をIDで指定
+var target2 = document.getElementById("container"); //対象要素をIDで指定
+var target3 = document.getElementById("bbb"); //対象要素をIDで指定
+var target4 = document.getElementById("register"); //対象要素をIDで指定
 if(param == "?mail"){
     key = "p_mail";
 }else if(param == "?chat"){
     key = "p_chat";
+    target.style.backgroundColor="aliceblue";
+    target1.style.backgroundColor="greenyellow";
+    target2.style.backgroundColor="greenyellow";
+    target3.style.backgroundColor="#eaf4fc";
+    target4.style.boxShadow="#eaf4fc";
+
 }else if(~param.indexOf('?file')){
-	key = "p_" + param.substring(1);
+	key = "p_file";
+    target.style.backgroundColor="#946c45";
+    target1.style.backgroundColor="#e7e7eb";
+    target1.style.color="black";
+    target2.style.backgroundColor="#e7e7eb";
+    target2.style.color="black";
+    target3.style.backgroundColor="#946c45";
+    target3.style.color="black";
+    target4.style.boxShadow="#eaf4fc";
+    // 入社知識能力
 }
 
 function setPass(){
@@ -40,6 +61,8 @@ function setPass(){
 
 //パスワード強度判定
 function text(){
+
+    
     
         if(document.getElementById("password").value.match(/[a-z]/)){
 
@@ -60,7 +83,7 @@ function text(){
         }
 
         if(document.getElementById("password").value.match(/[!,%,&,@,#,$,^,*,?,_,~]/)){
-            kigouflag = true;
+
             texttype += 1;
         }
     
@@ -80,6 +103,8 @@ function pass(){
             //3種類の文字数
             alert("3")
         }else if(texttype == 4){
+            kigouflag +=1;
+            // alert(kigouflag)
             alert("4")
         }
     }else{

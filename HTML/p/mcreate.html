@@ -2,62 +2,72 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>メール作成画面</title>
-        <!-- <link rel="stylesheet" href="../../CSS/p/mcreate.css"> -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../CSS/p/mcreate.css">
         <script src = "../../JavaScript/c/parameter.js"></script>
         <script src = "../../JavaScript/c/task.js"></script>
         <script src = "../../JavaScript/p/mcreate.js"></script>
         <script src = "../../JavaScript/p/mdata.js"></script>
+<<<<<<< HEAD
         <script src = "../../JavaScript/c/paramchange.js"></script>
         <script src = "../../JavaScript/c/task.js"></script>
         <style>
+=======
+        <!-- <style>
+>>>>>>> ocs194086
             div{
               margin-bottom: 15px;
             }
-        </style>
-        
+        </style> -->
     </head>
     <body>
-      <button 
-      type="button"
-      onclick="location.href='./mlist.html'">
-      受信トレイ
-      </button><br>
-      <button 
-      type="button"
-      onclick="location.href='./dustbin.html'">
-      ゴミ箱
-      </button><br>
-      <button 
-      type="button"
-      onclick="location.href='./mlist-sent.html'">
-      送信済み
-      </button><br>
-      <button type="button"onclick="location.href='./pedit.html?mail'">パスワード編集
-      </button><br>
+      <h1>メール新規作成</h1>
+      <button type="button" onclick="location.href='./mlist.html'" class="bbb">受信トレイ</button><br>
+      <button type="button" onclick="location.href='./dustbin.html'" class="bbb">ゴミ箱</button><br>
+      <button type="button" onclick="location.href='./mlist-sent.html'" class="bbb">送信済み</button><br>
+      <button type="button" onclick="location.href='./pedit.html?mail'" class="bbb">パスワード編集</button><br>
 
         <table class="sample">
-            <tr><th></th><th>新規メッセージ</th></tr>
+            <!-- <tr><th></th><th>新規メッセージ</th></tr>
             <tr><th>宛先</th><td><input id="from" type="text" size="30"></td></tr>
             <tr><th>CC</th><td><input id="cc" type="text" size="30"></td></tr>
             <tr><th>BCC</th><td><input id="bcc" type="text" size="30"></td></tr>
             <tr><th>件名:</th><td><input id="title" type="text" size="50"></td></tr>
-            <tr><th></th><td><textarea id="mail-text" cols="90" rows="30" placeholder="入力（最大500文字）" maxlength=500></textarea></td></tr>
+            <tr><th></th><td><textarea id="mail-text" cols="90" rows="30" placeholder="入力（最大500文字）" maxlength=500></textarea></td></tr> -->
+            <!-- <tr>
+            <th></th><th>新規メッセージ</th></tr>-->
+            <tr>
+            <td class="eee">宛先&nbsp;<input id="from" class="ccc" type="text" size="30"></td>
+            </tr>
+            <tr>
+            <td class="eee">CC&nbsp;<input id="cc" class="ccc" type="text" size="30">
+            </tr>
+            <tr>
+            <td class="eee">BCC&nbsp;<input id="bcc" class="ccc" type="text" size="30">
+            </tr>
+            <tr>
+            <td class="eee">件名:&nbsp;<input id="title" class="ccc" type="text" size="50">
+            </tr>
+            <!-- <tr>
+            <td class="fff"><textarea id="mail-text" class="ddd" placeholder="入力（最大500文字）" maxlength=500></textarea>
+            </tr> -->
+            <tr>
+              <td class="fff"><input id="mail-text" class="ddd" placeholder="入力（最大500文字）" maxlength=500></input>
+            </tr>
+
 
          </table>
-         <div>
-              <div>
-                <input id="file" type="file" accept=".txt">
-              </div>
-              <div>
-                <input type="button" value="送信する" onclick="send(location.search);">
+         <!-- <div> -->
+              <div align="right">
+                <input id="file" type="file" accept=".txt" class="ggg" ><br>
+                <input type="button" value="送信する" onclick="send(location.search);" class="ggg">
                 <!-- onclick内に加点関数呼び込み -->
-                <input type="button" value="後で送信する" onclick="alert('加点処理を後で加える'); send(location.search);">
-                <input type="button" value="キャンセル" onclick="history.back()">
+                <input type="button" value="後で送信する" onclick="alert('加点処理を後で加える'); send(location.search);" class="ggg">
+                <input type="button" value="キャンセル" onclick="history.back()" class="ggg">
               </div>
-            </form>
-          </div>
-        
+            <!-- </form> -->
+          <!-- </div> -->
     </body>
 </html>
