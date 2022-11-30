@@ -22,10 +22,13 @@ result.html?game=2
     <div>
       <p>
         お疲れさまでした。<br>
-        画面下の文字列をコピーして、<br>
+        下記の結果をコピーして、<br>
         下記のリンクをクリックしてください。
       </p>
-     
+      <!--クリップボード用テキストエリア-->
+      <div id="copyarea" class="result">
+        <p id="copyTarget" name="name" rows="8" cols="80"></textarea>
+      </div>
     </div>
     <!--予防編の結果画面-->
     <div id = result1>
@@ -44,6 +47,7 @@ result.html?game=2
           <p id = achieve>タスク達成率</p>
         </div>
         <div class="graph2">
+          <font color='red'>未実装</font>
           <canvas id="para2"></canvas>
         </div>
       </div>
@@ -67,11 +71,6 @@ result.html?game=2
           <canvas id="para4"></canvas>
         </div>
       </div>
-    </div>
-
-    <!--クリップボード用テキストエリア-->
-    <div id="copyarea">
-      <p id="copyTarget" name="name" rows="8" cols="80"></textarea>
     </div>
 
   </body>

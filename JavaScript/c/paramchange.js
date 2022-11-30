@@ -17,13 +17,6 @@ function setParamChange() {
    	localStorage.setItem("A_OK_mail","0");    //良いメールを削除した回数
 }
 
-//未完了
-// function stategreen(taskNo){
-//     if(stateCheck(taskNo) != "未完了"){
-        
-//     }
-// }
-
 /*
 共通
 */
