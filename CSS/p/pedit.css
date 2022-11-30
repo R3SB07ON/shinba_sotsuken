@@ -18,6 +18,7 @@ body{
     #header {
     text-align: center;
     font-size: 80%;
+    color:black;
     background-color: #d3ccd6;
     border-radius: 10px;
     margin: -39px -20px 10px -20px;
@@ -34,8 +35,9 @@ body{
     }
     #register input {
     padding: 14px 14px;
-    border: 1px solid #d5d9da;
-    box-shadow: 0 0 9px #594255 inset;
+    border: 2px solid black;
+    /* box-shadow: 0 0 9px #594255 inset; */
+    border: solid 1px;
     width: 272px;
     font-size: 1em;
     height: 30px;
@@ -53,7 +55,7 @@ body{
         max-width: 20%;
         color: black;
         background-color: #b44c97;
-        border: solid 0px;
+        border: solid 1px;
         /* 左上 */
         border-top-left-radius:70px;
         /*右上*/
