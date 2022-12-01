@@ -17,11 +17,11 @@ const mailList = [
 let from = new Array(	"aiupro@tmail.com",
 						"stockmoney@ois.com",
 						"info-viking@musi.ac.jp",
-						"info@sentosa601.vjp",
+						"sinba@ggmail.com",
 						"hokkaijoho-svk@lmail.com",
 						"waltengine@dsn.ac.rjp",
 						"ocs-systemsinfo.oc.jp",
-						"ojs-system.ac.gjp",
+						"ojs-systemق تم.ac.gjp",
 						"spotify-info.agc.jp ",
 						"myinfo.rakuten.tc.ajp",
 						"muramoto-drive.ac.com",
@@ -30,7 +30,7 @@ let from = new Array(	"aiupro@tmail.com",
 
 );
 
-let file = {0:"【見積書】ocsしんば株式会社.pdf", 2:"添付ファイル", 7:"会議開催通知.doc", 11:"exe.corrections.doc" ,12:"請求書の件.xlsx" };
+let file = {0:"【見積書】ocsしんば株式会社.pdf", 2:"振込詳細_20221025.xlsm", 7:"会議開催通知.doc", 11:"exe.corrections.doc" ,12:"請求書の件.xlsm" };
 
 let mail_text = new Array(	"お世話になっております。\
                             aiupro株式会社の江尾太郎です。<br><br>\
@@ -80,8 +80,7 @@ let mail_text = new Array(	"お世話になっております。\
                             つきましては、以下へアクセスの上、カードのご利用確認にご協力をお願いいたします。<br>\
                             ご回答をいただけない場合、カードのご利用制限が継続されることもございますので、予めご了承ください。<br><br>\
                             ■ご利用確認はこちら<br><br>\
-                            https://〇〇〇〇<br><br>\
-                            ■発行者 ",
+                            https://aiu-project/enginmax/1g48g90/ ",
 
                             "平素は格別のお引き建てをいただき、誠にありがとうございます。<br><br>\
                             株式会社　北海情報　営業部の北野　海道です。<br><br> \
@@ -136,7 +135,7 @@ let mail_text = new Array(	"お世話になっております。\
                             （不在の方の分や共有PCについてもご協力願います。）<br><br>\
                             チェック方法はこちらを参考にして下さい。<br> \
                             ↓ <br><br>\
-                            http://www.○○○.○○.jp<br><br>\
+                            http://www.ocsjoho/2023sotufight.j<br><br>\
                             チェック後、感染していなければここで終了ですが、<br> \
                             感染していた場合は、さらに以下の対処をお願いします。<br><br>\
                             ■LANケーブルを抜く<br><br>\

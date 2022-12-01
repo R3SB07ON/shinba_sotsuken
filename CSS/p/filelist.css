@@ -4,8 +4,9 @@
     max-height: 20%;
     border-collapse: collapse;
     border:1px solid #000000;
-    background-color:#513743;
-    color:#000000;text-align:left;
+    background-color: #946c45;
+    color:#000000;
+    text-align:left;
 }
 
 .bbb{
@@ -21,3 +22,4 @@
 .ddd{
     text-align: center;
 }
+
