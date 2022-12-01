@@ -100,7 +100,10 @@ function A_task_2min_finish(){
 
 //迷惑メールのリンクを踏む
 function A_spam_link_click(){
-    if(!task_check("0"))  return;
+    if(!task_check("0")){
+        Z_NG_link_click();
+        return;
+    }
     paramctr([[0,-3],[1,-3],[2,-3],[6,-3],[7,-8],[8,-8]]);
 }
 
@@ -125,7 +128,10 @@ function A_spam_recovery(difficulty){
 
 //難易度〇の迷惑メールを消す
 function A_spam_trash(difficulty){
-    if(!task_check("0"))  return;
+    if(!task_check("0")){
+        Z_spam_trash();
+        return;
+    }
     switch (difficulty){
         case 1:
             paramctr([[1,2],[2,2],[6,2],[7,2],[8,2]]);
@@ -142,13 +148,13 @@ function A_spam_trash(difficulty){
     }
 }
 
-//ゴミ箱からなりすましメールを戻す
+//ゴミ箱からなりすましメールを戻す（ボツ）
 function A_narisumashi_recovery(){
     if(!task_check("0"))  return;
     paramctr([[0,-2],[1,-2],[2,-2],[3,-3],[6,-2],[7,-2],[8,-3]]);
 }
 
-//なりすましメールを消す
+//なりすましメールを消す(ボツ)
 function A_narisumashi_trash(){
     if(!task_check("0"))  return;
     paramctr([[0,3],[1,3],[2,3],[3,4],[6,3],[7,3],[8,4]]);
@@ -497,8 +503,8 @@ function Z_pass_edit(){
     paramctr([[0,-5],[11,5]]);
 }
 
-//タスクの指示に関係なくメール送信
-function Z_mail_disrelation_send(){
+//タスクの指示に関係なくメール返信
+function Z_mail_disrelation_res(){
     paramctr([[0,-8],[1,-8],[5,-10],[11,10]]);
 }
 

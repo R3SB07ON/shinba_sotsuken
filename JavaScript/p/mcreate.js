@@ -48,16 +48,27 @@ function sendCheake(re){
 if(re == ""){
     let cheak3 = 0;
     let cheak7 = 0;
+    //A-2-1
     if(stateCheck(3) == "未完了" || stateCheck(3) == "失敗"){
         if(c_from == from[0]){
             cheak3 += 1;
+        }else{
+            A21_to_not_aiupro();
         }
+
         if(c_cc == ""){
             cheak3 += 1;
+        }else{
+            A21_CC_unintentional();
         }
+
         if(c_bcc == from[1]){
             cheak3 += 1;
+        }else{
+            A21_BCC_unintentional();
         }
+
+
         if(c_title != ""){
             cheak3 += 1;
         }
@@ -68,6 +79,7 @@ if(re == ""){
             cheak3 += 1;
         }
     }
+    //C
     if(stateCheck(7) == "未完了" || stateCheck(7) == "失敗"){
         if(c_from == "projectXX.m-list@shinba.com"){
             cheak7 += 1;
@@ -96,9 +108,14 @@ if(re == ""){
 }else if(re == "?5" && (stateCheck(1) == "未完了" || stateCheck(1) == "失敗")){
     //タスク返信時
     let cheak1 = 0;
+    
+    //宛先に間違い
     if(c_from == from[5]){
         cheak1 += 1;
+    }else{
+        A1_to_mistake();
     }
+
     if(c_cc == ""){
         cheak1 += 1;
     }
@@ -108,8 +125,8 @@ if(re == ""){
     if(c_title == "re:北野海道様からのご紹介 株式会社ウォルトエンジン 遊園 大地"){
         cheak1 += 1;
     }
-    //別で関数作成
-    if(c_mail_text != ""){
+    
+    if(taskA1_judge(c_mail_text)){
         cheak1 += 1;
     }
     if(c_file == ""){
@@ -119,7 +136,8 @@ if(re == ""){
 }else{
     //タスク無関係の返信時
     //減点処理
-    alert("タスクの無関係のメール送信・減点")
+    alert("タスクの無関係のメール送信・減点");
+    Z_mail_disrelation_res();
 }
 }
 
@@ -162,4 +180,36 @@ window.addEventListener('beforeunload', function (e) {
 function escape_ast(text){
     text = text.split("*");
     return text.join("<esp_ast>");
+}
+
+
+//タスクA1のメール本文チェック
+function taskA1_judge(text){
+    let OK_flag = true;
+
+    const A1_checkList =[
+        "株式会社ウォルトエンジン",       //送信者の会社名
+        "営業部",                       //部署名
+        "遊園大地",                     //名前
+        "株式会社ocsしんば",         //自分の会社名
+        "営業部",                   //部署名
+        "しんば太郎"                //名前
+    ];
+
+    //日付ミス
+    if(text.indexOf("yyyy/mm/dd（仮）") == -1){
+        A1_date_mistake();
+        OK_flag = false;
+    }
+
+    //その他ミス
+    for(i in A1_checkList){
+        if(text.indexOf(i) == -1){
+            A1_res_mistake();
+            OK_flag = false;
+        }
+    }
+
+
+    return OK_flag;
 }
