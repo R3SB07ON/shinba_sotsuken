@@ -7,9 +7,9 @@ body {
 .eee{
     position: relative;
     border: solid 5px;
-    padding: 1%;
+    padding: 0%;
     height: 20px;       
-    text-align: left; 
+    /* text-align: left;  */
     width: 1400px;
     background-color: #e7e7eb;
     border-color: black;
@@ -41,21 +41,29 @@ body {
 }
 
 .ddd{
-    width: 200px;
+    resize: none;
+    width: 98.3%;
     height: 500px;
-    max-width: 80%;
+    /* max-width: 1500px; */
+    margin-right: 0px;
 }
 
 .fff{
     position: relative;
     border: solid 5px;
-    padding: 1%;
+    padding: 0%;
     height: 500px;       
-    text-align: left; 
+    /* text-align: left;  */
     width: 1400px;
     background-color: #e7e7eb;
     border-color: black;
+   
+    /* padding: 0; */
+    /* border: 0px;
+    cell
+    cellpadding=0 ; */
     
+
 }
 
 h1 {
@@ -93,6 +101,13 @@ h1 {
     
 }
 
+.ccc{
+    width: 90%;
+    /* height: 1000px; */
+    /* max-width: 1500px; */
+    padding: 1%;
+    margin-right: 0%;
+}
 
 
 
