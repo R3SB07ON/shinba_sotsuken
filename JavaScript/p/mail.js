@@ -5,8 +5,11 @@
 
 
 //メール
-//[種別,件名]の二次元で記憶（0:良、1:悪）
+//[種別,件名]の二次元で記憶（0:良、1～4悪（数値は難易度））
 //この配列をもとにローカルストレージで受信/ゴミ箱状態を管理する
+/*
+mdata.jsに移行
+*/
 
 
 //メール管理状態の初期化（初回のみ実行）
@@ -61,10 +64,22 @@ function trashOrRecoveryClick(key,type) {
 
 	if(type == "trash"){
 		localStorage.setItem(key,'trash');
+
 		//A：良いメールを削除した場合減点
 		if(mailList[arr_key][0] == 0)	A_OK_mail_del();
+
+		//A：難易度〇の迷惑メールを消す
+		if(mailList[arr_key][0] >= 1)	A_spam_trash(mailList[arr_key][0]);
+
 	}else if(type == "recovery"){
 		localStorage.setItem(key,'inbox');
+
+		//A：難易度〇の迷惑メールをゴミ箱から戻す
+		if(mailList[arr_key][0] >= 1)	A_spam_recovery(mailList[arr_key][0]);
+
+		//A:ゴミ箱から良いメールを戻す
+		if(mailList[arr_key][0] == 0)	A_OK_mail_recovery();
+
 		//Z：メールをゴミ箱から戻す
 		Z_mail_recovery();
 	}

@@ -23,7 +23,7 @@ function onLoad(){
         document.getElementById("title").innerText = "件名:" + mailList[i][1];
         document.getElementById("mail-text").innerHTML = mail_text[i];
         if(file[i] != null){
-            document.getElementById("file").innerHTML = "添付ファイル:<a href='#' onclick='alert(0)'>" + file[i] + "</a>";
+            document.getElementById("file").innerHTML = "添付ファイル:<a href='#' onclick='attachement_file_click(" + i + ")'>" + file[i] + "</a>";
         }
     }
     
@@ -39,4 +39,15 @@ function re() {
 function escape_ast_return(text){
     text = text.split("<esp_ast>");
     return text.join("*");
+}
+
+//添付ファイルをクリック
+function attachement_file_click(i){
+    //不正なリンクをクリック
+    if(mailList[i][0] != 0){
+        alert("ひっかかったな！");
+        A_spam_link_click();
+    }else{
+        alert("OK");
+    }
 }
