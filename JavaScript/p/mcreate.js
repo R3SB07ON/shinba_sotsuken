@@ -52,19 +52,36 @@ if(re == ""){
     if(stateCheck(3) == "未完了" || stateCheck(3) == "失敗"){
         if(c_from == from[0]){
             cheak3 += 1;
+        }else if(c_cc == from[0]){
+            //BCC以外にstockmoneyが入っている
+            A21_BCC_except_stockmoney();
         }else{
             A21_to_not_aiupro();
         }
 
         if(c_cc == ""){
             cheak3 += 1;
+        }else if(c_cc == from[0]){
+            //送信先以外にaiuproが入っている
+            A21_to_except_aiupro();
+        }else if(c_cc == from[0]){
+            //BCC以外にstockmoneyが入っている
+            A21_BCC_except_stockmoney();
         }else{
+            //意図しないアドレスが入っている
             A21_CC_unintentional();
         }
 
         if(c_bcc == from[1]){
             cheak3 += 1;
+        }else if(c_bcc == from[0]){
+            //送信先以外にaiuproが入っている
+            A21_to_except_aiupro();
+        }else if(c_bcc != ""){
+            //stockmoneyがbccに入っていない
+            A21_BCC_not_stockmoney();
         }else{
+            //意図しないアドレスが入っている
             A21_BCC_unintentional();
         }
 
@@ -77,19 +94,38 @@ if(re == ""){
         }
         if(c_file == "C:\\fakepath\\projectXX.txt"){
             cheak3 += 1;
+        }else{
+            //資料を間違える
+            A21_doc_send_mistake();
         }
+
     }
     //C
     if(stateCheck(7) == "未完了" || stateCheck(7) == "失敗"){
         if(c_from == "projectXX.m-list@shinba.com"){
             cheak7 += 1;
+        }else{
+            C_mailinglist_address_mistake();
         }
+
         if(c_cc == ""){
             cheak7 += 1;
+        }else if(c_cc == "projectXX.m-list@shinba.com"){
+            //宛先以外にメーリングリストが入っている
+            C_to_mistake();
+        }else{
+            C_CC_address_insert();
         }
+
         if(c_bcc == ""){
             cheak7 += 1;
+        }else if(c_cc == "projectXX.m-list@shinba.com"){
+            //宛先以外にメーリングリストが入っている
+            C_to_mistake();
+        }else{
+            C_BCC_address_insert();
         }
+
         if(c_title != ""){
             cheak7 += 1;
         }
@@ -98,6 +134,8 @@ if(re == ""){
         }
         if(c_file == ""){
             cheak7 += 1;
+        }else{
+            C_doc_attached();
         }
     }
     if(cheak3 > cheak7){
