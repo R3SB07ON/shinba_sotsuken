@@ -51,7 +51,9 @@ function text_judge(){
 
     if(file_name == "10_Company")           judge_10_Company(text);
     else if(file_name== "ExchangeRate")     judge_ExchangeRate(text);
-    else                                    Z_doc_edit();               //資料に不要な書き込み
+    else{
+        B1_except_edit();               //資料に不要な書き込み
+    }
 }
 
 function judge_10_Company(text){
