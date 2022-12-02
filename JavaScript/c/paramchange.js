@@ -308,7 +308,10 @@ function B1_ExchangeRate_edit(){
 
 //ExchangeRate以外の資料に書き込み
 function B1_except_edit(){
-    if(!task_check("5"))  return;
+    if(!task_check("5")){
+        B2_doc_except_edit();
+        return;
+    }
     paramctr([[1,-2],[3,-2],[5,-2],[9,-5],[11,1]]);
 }
 
@@ -376,7 +379,9 @@ function B2_doc_edit(){
 
 //10_Company以外の資料に書き込み
 function B2_doc_except_edit(){
-    if(!task_check("6"))  return;
+    if(!task_check("6")){
+        Z_doc_edit();
+    }
     paramctr([[1,-1],[3,-1],[5,-1],[11,1]]);
 }
 

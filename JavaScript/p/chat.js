@@ -121,7 +121,8 @@ function check() {
     }else if(t_achieve - localStorage.getItem("t_last") > 1){
         addchat("確認しました");
         addhistory("b");
-        //減点処理（未）
+        //一度に複数の確認報告（減点）
+        Z_task_report(t_achieve - localStorage.getItem("t_last"));
     }
     localStorage.setItem("t_last", t_achieve);
     new_task();

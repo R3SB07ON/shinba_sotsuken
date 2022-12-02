@@ -111,3 +111,8 @@ function pass(){
         alert("パスワードを入力しなおしてください")
     }
 }
+
+//入力されたパスワードを採点
+function password_check(){
+
+}
