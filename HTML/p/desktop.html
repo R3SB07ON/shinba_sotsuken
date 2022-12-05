@@ -32,8 +32,8 @@
 
                 <button class="btn">スリープ</button>
                 <button class="btn">アップデート</button>
-                <button class="btn">再起動</button>
-                <button class="btn">シャットダウン</button>
+                <button class="btn" onclick="btnpush()">再起動</button>
+                <button class="btn" onclick="btnpush()">シャットダウン</button>
         </div>
 
 
@@ -55,6 +55,12 @@
             flag=0;
         }
     }
+
+    function btnpush(){
+        Z_unfinished_shutdown();
+        alert("今はやめておこう");
+    }
+
     </script>
 
 </body>

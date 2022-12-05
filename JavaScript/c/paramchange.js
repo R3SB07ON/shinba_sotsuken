@@ -195,11 +195,10 @@ function A2_pass_type(type){
 }
 
 //記号を使用
-//記号使用フラグ（仮）を使用
 function A2_pass_kigou(hoge){
     if(hoge){           //大文字、小文字、数字、記号を全部
         paramctr([[0,1],[3,1],[5,1],[6,1],[7,1],[10,1]]);
-    }else if(hoge){     //記号のどれかを使用
+    }else{     //記号のどれかを使用
         paramctr([[0,1],[3,1],[6,1],[7,1],[10,1]]);
     }
 }
@@ -433,6 +432,34 @@ X
 A-2とほぼ共通
 */
 
+//使用文字が1、2種類だけのPWで完了
+function X_pass_type(type){
+    if(type==1)         paramctr([[0,-10],[3,-10],[6,-10],[7,-10],[10,-10]]);
+    else if(type==2)    paramctr([[0,-5],[3,-5],[6,-5],[7,-5],[10,-5]]);
+}
+
+//記号を使用
+function X_pass_kigou(hoge){
+    if(hoge){           //大文字、小文字、数字、記号を全部
+        paramctr([[0,1],[3,1],[5,1],[6,1],[7,1],[10,1]]);
+    }else{     //記号のどれかを使用
+        paramctr([[0,1],[3,1],[6,1],[7,1],[10,1]]);
+    }
+}
+
+//再入力を3回以上失敗
+function X_pass_retry_failed(){
+    paramctr([[0,-3],[1,-3],[3,-3],[6,-3],[7,-3],[11,1]]);
+}
+
+//文字数が8字未満or30以上
+function X_pass_length(pass_length){
+    if(pass_length < 8 || 30 <= pass_length){
+        paramctr([[0,-4],[3,-4],[5,-4],[6,-4],[7,-4],[10,-4],[11,1]]);
+    }
+}
+
+
 /*
 Z
 */
@@ -474,7 +501,12 @@ function Z_time_over(){
 
 //タスクが終わっていない状況でシャットダウン、再起動、更新
 function Z_unfinished_shutdown(){
-    paramctr([[5,-10],[11,10]]);
+    for(i=0;i<=9;i++){
+        if(task_check(String(i))){
+            paramctr([[5,-10],[11,10]]);
+            return;
+        }
+    }
 }
 
 //不正なリンク、ファイルを開く
@@ -505,6 +537,7 @@ function Z_display_404(){
 
 //タスクに関係ないタイミングでパスワード編集
 function Z_pass_edit(){
+    if(task_check("2") || task_check("8"))  return;
     paramctr([[0,-5],[11,5]]);
 }
 

@@ -51,6 +51,7 @@ function text_judge(){
 
     if(file_name == "10_Company")           judge_10_Company(text);
     else if(file_name== "ExchangeRate")     judge_ExchangeRate(text);
+    else if(file_name == "projectXX")       A21_projectXX_edit();       //projectXXをA-2-1中に編集
     else{
         B1_except_edit();               //資料に不要な書き込み
     }
