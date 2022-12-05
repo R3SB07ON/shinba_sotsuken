@@ -17,3 +17,5 @@ function onLoad(){
     alert("a");
   }
 }
+
+//リンククリック回数記録

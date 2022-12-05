@@ -16,6 +16,7 @@ function judgeflag1(text) {
   
   function judge(){
     let text = document.getElementById("searchtext").value;
+    localStorage.setItem("f_searchstr",localStorage.getItem("f_searchstr") + text + "**");
     if(text.length < 1){
       ;
     }else if(text.length < 20){ //検索文字数が一般的数量のとき

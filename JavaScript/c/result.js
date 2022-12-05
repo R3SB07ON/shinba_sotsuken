@@ -1,12 +1,23 @@
 window.onload = onLoad;
+let lsArray = [];
+
 
 function onLoad() {
   //URLパラメータに応じて表示内容を変える
   var param = location.search;
   if(~param.indexOf('?game1')){
     document.getElementById("result2").style.display ="none";
-    //タスク達成率の取得
-    document.getElementById("achieve").textContent ="タスク達成率：" + (t_achieve/t_total*100) + "%";
+    //達成タスク数取得
+    document.getElementById("achieve").textContent = "タスク達成率:" + t_finish() + "%";
+
+    //予防編限定測定値取得
+    //ローカルストレージのキー取得
+    for (var i = 0, length = localStorage.length; i < length; ++i) {
+      lsArray = localStorage.key(i);
+      lsArray[i][0] = localStorage.getItem(lsArray[i])
+    }
+
+
   }else if(~param.indexOf('?game2')){
     document.getElementById("result1").style.display ="none";
   }else{
@@ -14,8 +25,7 @@ function onLoad() {
   }
   //パラメータ調整
   p_collLast();
-  //達成タスク数取得
-  document.getElementById("achieve").textContent = "タスク達成率:" + t_finish() + "%";
+  
 
   //グラフ作製
   //予防編グラフ1
