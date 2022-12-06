@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../CSS/p/desktop.css">
-    <script src = "../../JavaScript/p/desktop.js"></script>
     <script src = "../../JavaScript/c/parameter.js"></script>
     <script src = "../../JavaScript/c/paramchange.js"></script>
     <script src = "../../JavaScript/c/task.js"></script>
@@ -13,27 +12,28 @@
     <div class="ttt">
 
         <div>    <!-- //計５つのアイコンを上下に段分けするためのdiv -->
-            <input type="image" class="icon" src="../../material/image/p/mail.png" alt="メール" onclick="window.open('./mlist.html')" >
+            <input type="image" class="icon" src="../../material/image/p/mail.png" alt="メール" onclick="location.href = './mlist.html'" >
         </div>
         <div>
-            <input type="image" class="icon" src="../../material/image/p/chat.png" alt="チャット" onclick="window.open('./chat.html')">
+            <input type="image" class="icon" src="../../material/image/p/chat.png" alt="チャット" onclick="location.href = './chat.html'">
         </div>
 
         <div>
-            <input type="image" class="icon" src="../../material/image/p/file.png" alt="ファイル一覧" onclick="window.open('./filelist.html')">
+            <input type="image" class="icon" src="../../material/image/p/file.png" alt="ファイル一覧" onclick="location.href = './filelist.html'">
         </div>
         <div>
-            <input type="image" class="icon" src="../../material/image/p/meeting.png" alt="web会議" onclick="window.open('./meeting.html')">
+            <input type="image" class="icon" src="../../material/image/p/meeting.png" alt="web会議" onclick="location.href = './meeting.html'">
         </div>
         <div>
-            <input type="image" class="icon" src="../../material/image/p/browser_mark.png" alt="ブラウザ" onclick="window.open('./browser.html')">
+            <input type="image" class="icon" src="../../material/image/p/browser_mark.png" alt="ブラウザ" onclick="location.href = './browser.html'">
         </div>
         <div id="iconarea" class="iconarea">
 
                 <button class="btn">スリープ</button>
-                <button class="btn">アップデート</button>
+                <button class="btn"  onclick="localStorage.setItem('f_update','true');">アップデート</button>
                 <button class="btn" onclick="btnpush()">再起動</button>
                 <button class="btn" onclick="btnpush()">シャットダウン</button>
+
         </div>
 
 
@@ -61,6 +61,7 @@
         alert("今はやめておこう");
     }
 
+    
     </script>
 
 </body>

@@ -16,7 +16,6 @@ body{
     background-color: aliceblue;
 }
 
-
 .chattext{
     font-size: 32px;
     word-break: break-word; /*改行*/
@@ -36,6 +35,9 @@ body{
     margin-right: 0;
 }
 
+#first{
+    display: none;
+}
 
 .lock{
     width: auto;

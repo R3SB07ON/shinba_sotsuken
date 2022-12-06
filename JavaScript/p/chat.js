@@ -3,14 +3,38 @@
 if(localStorage.getItem("firstp") == null){
     window.addEventListener('load',setParam());
 }
-if(localStorage.getItem('t_last') == null){
-    window.addEventListener('load',setState());
+
+//最終結果用ローカルストレージの宣言
+if(localStorage.getItem("f_searchstr") == null){
+    //検索文字列の保存
+    localStorage.setItem("f_searchstr","");
+    //404のクリック回数およびリンク保存
+    localStorage.setItem("f_404","");
+    //503のクリック回数およびリンク保存
+    localStorage.setItem("f_503","");
+    //悪性リンクのクリック回数の保存
+    localStorage.setItem("f_evil","");
+    //アップデート状況の保存
+    localStorage.setItem("f_update","false");
+    //メールの添付ファイルクリック回数
+    localStorage.setItem("f_mfile","");
+}
+
+function start(){
+    if(localStorage.getItem("t_last") == null){
+        //タスク状態の初期化
+        setState();
+        document.getElementById("first").style.display = "block";
+    }
 }
 
 //初回：履歴保存のローカルストレージ作成
 //2回目以降：履歴からチャット状況を復元
 window.onload = onLoad;
 function onLoad() {
+    if(localStorage.getItem('time') != null){
+        document.getElementById("first").style.display = "block";
+    }
     if(localStorage.getItem('c_history') == null){
         localStorage.setItem("c_history","")
     }else{
@@ -37,11 +61,11 @@ function onLoad() {
 //※※※※※<br><font>を活かせていない※※※※
 let text = new Array("株式会社ウォルトエンジンからきた返信メールを確認し、参加希望の説明会の日付に関する返信メールを送ってください",
                     "資料「projectXX」に任意のパスワードを任意の設定してください",
-                    "資料「projectXX」を添付して、BCCにstockmoney株式会社を設定し、aiupro株式会社へ送信してください",
+                    "資料「projectXX」を添付して、BCCにstockmoney株式会社を設定し、aiupro株式会社へ送信してください<br>設定したパスワードをメールで伝えてください",
                     "株価サイトを検索し、「日経平均.米ドル/円.TOPIX.NYダウ.上海総合.ユーロ円」レートの金額を資料「ExchangeRate」に全てしてください",
                     "ニュースサイトを検索し、来週のイベントを調査し、10月に決算を発表する会社を資料「10_Company」に書き込んでください",
-                    "メールアプリ、チャットアプリのパスワードを任意のパスワードに変更してください<br><font color='red'>※４分以内に</font>",
-                    "朝一の作業はこれで以上になります。デスクトップ画面からPCをシャットダウンしてください",
+                    "メールアプリ、チャットアプリのパスワードを任意のパスワードに変更してください",
+                    "朝の作業はこれで以上になります。デスクトップ画面からPCをシャットダウンしてください",
                     );
 
 //------------------------------------------------------
@@ -129,18 +153,18 @@ function check() {
 }
 
 //タスク追加（時間経過）
-
-let addT = function addtask(){
-    if(localStorage.getItem("time") != null && stateCheck(8) == "未発生"){
-        if(localStorage.getItem("time") < 30000){
-            stateChange(8,1);
-            addchat(text[5]);
-            addhistory(5);
-            clearInterval(timer);
-        }
-    }else{
-        clearInterval(timer);
-    }
-}
-let time1 = 1000;
-let timer = setInterval(addT,time1);
+//凍結中
+// let addT = function addtask(){
+//     if(localStorage.getItem("time") != null && stateCheck(8) == "未発生"){
+//         if(localStorage.getItem("time") < 30000){
+//             stateChange(8,1);
+//             addchat(text[5]);
+//             addhistory(5);
+//             clearInterval(timer);
+//         }
+//     }else{
+//         clearInterval(timer);
+//     }
+// }
+// let time1 = 1000;
+// let timer = setInterval(addT,time1);

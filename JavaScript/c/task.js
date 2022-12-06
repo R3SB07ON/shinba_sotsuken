@@ -16,7 +16,7 @@ function setState() {
     //最終報告タスク数
     localStorage.setItem('t_last',0);
     for (let index = 0; index < taskList.length; index++) {
-      if(taskList[index] == "A" || taskList[index] =="B" || taskList[index] =="C"){
+      if(taskList[index] == "A" || taskList[index] =="B" || taskList[index] =="C" || taskList[index] =="X"){
         localStorage.setItem(taskList[index],stateList[1]);
       }else{
         localStorage.setItem(taskList[index],stateList[0]);
@@ -37,6 +37,7 @@ function stateChange(t_name,t_state) {
 //完了タスク数の算出
 function t_collLast(){
   t_achieve = 0;
+  let miss = "";
   for (let index = 0; index < taskList.length; index++) {
     if(localStorage.getItem(taskList[index]) == "完了"){
       t_achieve += 1;

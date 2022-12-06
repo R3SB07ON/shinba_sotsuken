@@ -43,6 +43,8 @@ function escape_ast_return(text){
 
 //添付ファイルをクリック
 function attachement_file_click(i){
+    //リンククリック記録
+    localStorage.setItem("f_mfile",localStorage.getItem("f_mfile") + i + "/*/");
     //不正なリンクをクリック
     if(mailList[i][0] != 0){
         alert("ひっかかったな！");

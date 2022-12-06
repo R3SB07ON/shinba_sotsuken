@@ -10,7 +10,6 @@ move内の全ての要素にid連番を行う -->
     <script src = "../../JavaScript/c/parameter.js"></script>
     <script src = "../../JavaScript/c/task.js"></script>
     <script src = "../../JavaScript/p/chat.js"></script>
-    <script src = "../../JavaScript/p/other.js"></script>
     <script src = "../../JavaScript/c/paramchange.js"></script>
   </head>
   <body>
@@ -22,24 +21,28 @@ move内の全ての要素にid連番を行う -->
           <a href="#" onclick="window.open('./manyuaru.html');">業務マニュアル</a>
         </p>
         <p class="chattext">
-          準備が整ったら、ブラウザを開きこれから指示する作業を行ってください<br>
-          <a href="#" onclick="window.open('./browser.html');">https://~~~~~~~</a>
-          <a href="#" onclick="window.open('./timer.html'); start();">ゲーム開始画面</a>
+          準備が整ったら、下記のリンクを開きこれから指示する作業を行ってください<br>
+          <a href="#" onclick="window.open('./browser.html');">https://~~~~~~~</a><br>
+          <a href="#" onclick="start(); window.open('./timer.html'); ">記録開始画面</a>
         </p>
         <p class="chattext">
           <font color="red">※メタ的な警告※<br>
-          上記リンクをクリックすることで、時間管理画面と模擬ブラウザ画面が開かれます<br>
+          上記リンクをクリックすることで、それぞれ模擬ブラウザ画面と時間管理画面が開かれます<br>
           時間管理画面は閉じないでください</font>
         </p>
-        <p class="chattext">
-          それでは、初めの作業を3つ指示します<br>
-          <font color="red">タスクが1つ完了するごとに報告をしてください</font><br>
-        </p>
-        <p class="chattext">
-          ・受信トレイに迷惑メールがあれば、ゴミ箱に移してください<br><font color="red">※４分以内に</font><br><br>
-          ・ブックマークに登録している「株価サイト」、「ニュースサイト」をチェックしてください<br><br>
-          ・会議アプリで会議用のURLを作成して、projectXX.m-list@shinba.comへ送信してください<br><font color="red">※４分以内に</font>
-        </p>
+        <div id = "first">
+          <p class="chattext">
+            それでは、初めの作業を4つ指示します<br>
+            <font color="red">タスクが1つ完了するごとに報告をしてください</font><br>
+          </p>
+          <p class="chattext">
+            ・受信トレイに迷惑メールがあれば、ゴミ箱に移してください<br><br>
+            ・ブックマークに登録している「株価サイト」、「ニュースサイト」をチェックしてください<br><br>
+            ・会議アプリで会議用のURLを作成して、projectXX.m-list@shinba.comへ送信してください<br><br>
+            ・メールアプリ、チャットアプリのパスワードを任意のパスワードに変更してください
+          </p>
+        </div>
+        
       </div>
       <div class="lock">
         <a href="./set.html"><img src="../../material/image/p/gear.png" alt="設定" height="90" width="90"></a>

@@ -30,7 +30,7 @@ let time3 = 1000;
 setInterval(everytime,time3)
 
 //------------------------------------------------------
-//画面遷移、リロード、画面終了に対する警告（一時休止）
+//画面遷移、リロード、画面終了に対する警告
 
 window.addEventListener('beforeunload', function (e) {
     if(moveflag){
