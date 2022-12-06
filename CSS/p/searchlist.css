@@ -75,3 +75,7 @@ input.box{
   }
 
 .side img{width: 30vw;}
+
+a,a:hover,a:visited{
+    color: rgb(2, 116, 255);
+}

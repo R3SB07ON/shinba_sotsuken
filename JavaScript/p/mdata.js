@@ -1,3 +1,4 @@
+//難易度（0<4）、件名
 const mailList = [
 	[0,"セキュリティ講座の見積書について"],
 	[0,"貴社訪問のお願い"],
@@ -30,7 +31,7 @@ let from = new Array(	"aiupro@tmail.com",
 
 );
 
-let file = {0:"【見積書】株式会社ocsしんば.pdf", 2:"振込詳細_20221025.xlsm", 7:"会議開催通知.doc", 11:"exe.corrections.doc" ,12:"請求書の件.xlsm" };
+let file = {0:"【見積書】株式会社ocsしんば.pdf", 2:"振込詳細_20221025.xlsm", 7:"会議開催通知.doc", 11:"exe.corrections.docx" ,12:"請求書の件.xlsm" };
 
 let mail_text = new Array(	"お世話になっております。\
                             aiupro株式会社の江尾太郎です。<br><br>\

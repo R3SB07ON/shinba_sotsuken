@@ -3,9 +3,6 @@
 if(localStorage.getItem("firstp") == null){
     window.addEventListener('load',setParam());
 }
-if(localStorage.getItem('t_last') == null){
-    window.addEventListener('load',setState());
-}
 
 //最終結果用ローカルストレージの宣言
 if(localStorage.getItem("f_searchstr") == null){
@@ -18,15 +15,26 @@ if(localStorage.getItem("f_searchstr") == null){
     //悪性リンクのクリック回数の保存
     localStorage.setItem("f_evil","");
     //アップデート状況の保存
-    localStorage.setItem("f_update","");
+    localStorage.setItem("f_update","false");
     //メールの添付ファイルクリック回数
     localStorage.setItem("f_mfile","");
+}
+
+function start(){
+    if(localStorage.getItem("t_last") == null){
+        //タスク状態の初期化
+        setState();
+        document.getElementById("first").style.display = "block";
+    }
 }
 
 //初回：履歴保存のローカルストレージ作成
 //2回目以降：履歴からチャット状況を復元
 window.onload = onLoad;
 function onLoad() {
+    if(localStorage.getItem('time') != null){
+        document.getElementById("first").style.display = "block";
+    }
     if(localStorage.getItem('c_history') == null){
         localStorage.setItem("c_history","")
     }else{

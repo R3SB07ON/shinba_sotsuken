@@ -23,7 +23,11 @@ function onLoad() {
   }else{
     alert("a");
   }
-  //パラメータ調整
+
+  //丸めこむ前にデータを取得
+
+
+  //パラメータ調整（表示用）
   p_collLast();
   
 
