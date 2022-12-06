@@ -583,3 +583,131 @@ function Z_spam_trash(difficulty){
             break;
     }
 }
+
+/*
+R(対応編)
+*/
+
+function R_start(){
+    paramctr([[0,50],[1,50],[2,50],[3,50],[4,50],[5,50],[6,50],[7,50],[8,50],[9,50],[10,50],[12,50],[13,50]]);
+}
+
+function R_1A(){
+    paramctr([[1,6],[4,24]]);
+}
+
+function R_1B(){
+    paramctr([[1,6],[7,9],[8,20]]);
+}
+
+function R_1C(){
+    paramctr([[7,6],[8,30]]);
+}
+
+function R_1D(){
+    paramctr([[0,10],[4,8]]);
+}
+
+function R_2AA(){
+    paramctr([[10,-25]]);
+}
+
+function R_2AB(){
+    paramctr([[5,20]]);
+}
+
+function R_2AC(){
+    paramctr([[7,9],[10,25]]);
+}
+
+function R_2B(){
+    paramctr([[2,-5]]);
+}
+
+function R_3A(){
+    paramctr([[0,15]]);
+}
+
+function R_3BA(){
+    paramctr([[0,-5],[1,-6],[5,-6]]);
+}
+
+function R_3BB(){
+    paramctr([[1,12],[5,6],[6,6]]);
+}
+
+function R_4A(){
+    paramctr([[7,9],[10,25],[12,7]]);
+}
+
+function R_4B(){
+    paramctr([[12,7]]);
+}
+
+function R_5A(){
+    paramctr([[7,-3],[9,22]]);
+}
+
+function R_5BA(){
+    paramctr([[1,18],[7,6],[13,13]]);
+}
+
+function R_5BB(){
+    paramctr([[6,14],[7,6],[12,7]]);
+}
+
+function R_61A(){
+    paramctr([[1,18]]);
+}
+
+function R_61B(){
+    paramctr([[4,18],[9,14]]);
+}
+
+function R_61C(){
+    paramctr([[4,-8],[9,-7]]);
+}
+
+function R_62A(){
+    paramctr([[0,15],[7,3],[12,7]]);
+}
+
+function R_62B(){
+    paramctr([[2,10],[6,9],[7,3],[13,13]]);
+}
+
+function R_63A(){
+    paramctr([[3,22],[6,6],[12,7]]);
+}
+
+function R_63B(){
+    paramctr([[2,15],[7,6],[12,7]]);
+}
+
+function R_64A(){
+    paramctr([[2,10],[3,7],[8,20]]);
+}
+
+function R_64B(){
+    paramctr([[3,14],[5,6],[9,14]]);
+}
+
+function R_7A(){
+    paramctr([[6,6],[7,-3],[13,13]]);
+}
+
+function R_7B(){
+    paramctr([[0,10],[6,6],[7,-3],[13,13]]);
+}
+
+function R_7C(){
+    paramctr([[2,15],[6,3],[12,7]]);
+}
+
+function R_7D(){
+    paramctr([[3,14],[4,8],[5,18],[12,7]]);
+}
+
+function R_7E(){
+    paramctr([[7,9],[12,8]]);
+}

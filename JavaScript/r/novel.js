@@ -199,11 +199,20 @@ function MouseClick(){
     if (num+1 >= msg.length)  return;
 
     //パラメータ増加処理
+    /**
+     * 12/6改修
+    *
     while(msg[num].charAt(0)=='+'){
         //「+」を取り除いてからsplitで区切り文字を指定
         //["パラメータ種別","増加値"]の配列を作る
         let param_array = msg[num].substring(1).split(",");
         add(Number(param_array[0]),Number(param_array[1]));
+        num++;
+    }
+    */
+    if(msg[num].charAt(0)=='+'){
+        let param_ctr = "R_" + msg[num].substring(1) + "();";
+        eval(param_ctr);
         num++;
     }
 
