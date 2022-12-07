@@ -1,5 +1,7 @@
 window.onload = onLoad;
+//ローカルストレージ保存配列
 let lsArray = [];
+//
 
 
 function onLoad() {
@@ -13,24 +15,23 @@ function onLoad() {
     //予防編限定測定値取得
     //ローカルストレージのキー取得
     for (var i = 0, length = localStorage.length; i < length; ++i) {
-      lsArray = localStorage.key(i);
-      lsArray[i][0] = localStorage.getItem(lsArray[i])
+      lsArray[i] = localStorage.key(i);
+      // lsArray[i][0] = localStorage.getItem(lsArray[i]);
+      document.getElementById('copyTarget').innerText += (lsArray[i] + ":" + localStorage.getItem(lsArray[i]) + ",");
     }
-
 
   }else if(~param.indexOf('?game2')){
     document.getElementById("result1").style.display ="none";
+    //対応編限定選択履歴取得
+
   }else{
     alert("a");
   }
 
   //丸めこむ前にデータを取得
-
-
   //パラメータ調整（表示用）
   p_collLast();
   
-
   //グラフ作製
   //予防編グラフ1
   var mydata = {
@@ -108,13 +109,7 @@ function onLoad() {
 
         });
 
-  //結果文字列出力
-  let resulttext = document.getElementById('copyTarget')
-  for (let index = 0; index < paramList.length; index++) {
-    resulttext.innerHTML += (paramList[index] + ':' + localStorage.getItem(index) + ',');
-  } ;
 }
-
 
 // function copyToClipboard() {
 //   // コピー対象をJavaScript上で変数として定義する

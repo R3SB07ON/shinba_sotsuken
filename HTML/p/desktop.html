@@ -57,8 +57,13 @@
     }
 
     function btnpush(){
-        Z_unfinished_shutdown();
-        alert("今はやめておこう");
+        if(t_collLast() == t_total){
+            location.href = "../c/result.html?game1";
+        }else{
+            Z_unfinished_shutdown();
+            alert("今はやめておこう");
+        }
+
     }
 
     

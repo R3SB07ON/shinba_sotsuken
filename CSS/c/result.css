@@ -1,6 +1,7 @@
 .result{
   border: 5px solid;
   margin: 10px;
+  word-break: break-word; /*改行*/
 }
 
 .linktext{

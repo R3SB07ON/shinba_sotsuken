@@ -8,16 +8,20 @@ if(localStorage.getItem("firstp") == null){
 if(localStorage.getItem("f_searchstr") == null){
     //検索文字列の保存
     localStorage.setItem("f_searchstr","");
-    //404のクリック回数およびリンク保存
-    localStorage.setItem("f_404","");
-    //503のクリック回数およびリンク保存
-    localStorage.setItem("f_503","");
-    //悪性リンクのクリック回数の保存
-    localStorage.setItem("f_evil","");
+    //検索結果一覧画面でのクリック履歴      -1
+    localStorage.setItem("f_click","");
     //アップデート状況の保存
     localStorage.setItem("f_update","false");
     //メールの添付ファイルクリック回数
     localStorage.setItem("f_mfile","");
+
+    //-1にて代替
+    // //404のクリック回数およびリンク保存
+    // localStorage.setItem("f_404","");
+    // //503のクリック回数およびリンク保存
+    // localStorage.setItem("f_503","");
+    // //悪性リンクのクリック回数の保存
+    // localStorage.setItem("f_evil","");
 }
 
 function start(){
