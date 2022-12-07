@@ -13,6 +13,7 @@ let t_achieve = 0;
 
 //パラメータの初期化
 function setState() {
+    if(localStorage.getItem('firstp') == null)  return;     //初回のみ
     //最終報告タスク数
     localStorage.setItem('t_last',0);
     for (let index = 0; index < taskList.length; index++) {

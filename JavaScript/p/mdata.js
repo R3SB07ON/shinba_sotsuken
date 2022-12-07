@@ -15,6 +15,12 @@ const mailList = [
 	[2,"請求書の件"]
 ];
 
+//迷惑メール一覧
+let spam_mail_list =[];
+for(i = 0;i < mailList.length;i++){
+    if(mailList[i][0] >=1) spam_mail_list.push(mailList[i][1]);
+}
+
 let from = new Array(	"aiupro@tmail.com",
 						"stockmoney@ois.com",
 						"info-viking@musi.ac.jp",

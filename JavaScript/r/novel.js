@@ -211,6 +211,7 @@ function MouseClick(){
     }
     */
     if(msg[num].charAt(0)=='+'){
+        localStorage.setItem("r_selected",localStorage.getItem("r_selected") + msg[num]);
         let param_ctr = "R_" + msg[num].substring(1) + "();";
         eval(param_ctr);
         num++;

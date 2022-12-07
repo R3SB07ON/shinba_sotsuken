@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
 
     <title>ブックマークnews</title>
+    <script src="../../JavaScript/c/task.js"></script>
+    <script>
+        localStorage.setItem("B_news_view","ture");
+        if(localStorage.getItem("B_stock_view") && localStorage.getItem("B_news_view")){
+            stateChange(4,2);
+        }
+    </script>
 </head>
 <body>
     <div>
