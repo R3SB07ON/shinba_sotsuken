@@ -251,3 +251,8 @@ function taskA1_judge(text){
 
     return OK_flag;
 }
+
+//A-1、A-2-1、Cタスクの完了判定
+function mail_task_judge(task){
+
+}

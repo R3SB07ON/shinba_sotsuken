@@ -69,7 +69,10 @@ function trashOrRecoveryClick(key,type) {
 		if(mailList[arr_key][0] == 0)	A_OK_mail_del();
 
 		//A：難易度〇の迷惑メールを消す
-		if(mailList[arr_key][0] >= 1)	A_spam_trash(mailList[arr_key][0]);
+		if(mailList[arr_key][0] >= 1){
+			A_spam_trash(mailList[arr_key][0]);
+			A_complete_judge();		//タスク完了判定
+		}
 
 	}else if(type == "recovery"){
 		localStorage.setItem(key,'inbox');
@@ -85,4 +88,14 @@ function trashOrRecoveryClick(key,type) {
 	}
 	tr = document.getElementById("tr"+ arr_key);
 	tr.remove();
+}
+
+//タスクAの成否判定
+function A_complete_judge(){
+	if(!task_check("0"))	return;
+	//すべての迷惑メールがゴミ箱にあれば完了
+	for(i=0;i < spam_mail_list.length;i++){
+		if(localStorage.getItem(spam_mail_list[i]) != "trash")	return;
+		stateChange(0,2);
+	}
 }
