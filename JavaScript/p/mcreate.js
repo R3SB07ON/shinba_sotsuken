@@ -98,6 +98,8 @@ if(re == ""){
             //資料を間違える
             A21_doc_send_mistake();
         }
+        //成否判定
+        mail_task_judge(3);
 
     }
     //C
@@ -137,14 +139,19 @@ if(re == ""){
         }else{
             C_doc_attached();
         }
+        //成否判定
+        mail_task_judge(7);
     }
+    //かちあう問題
+    /*
     if(cheak3 > cheak7){
         cheakmail(cheak3,3);
     }else{
         cheakmail(cheak7,7);
     }
+    */
 }else if(re == "?5" && (stateCheck(1) == "未完了" || stateCheck(1) == "失敗")){
-    //タスク返信時
+    //タスク返信時(A1)
     let cheak1 = 0;
     
     //宛先に間違い
@@ -170,7 +177,10 @@ if(re == ""){
     if(c_file == ""){
         cheak1 += 1;
     }
-    cheakmail(cheak1,1);
+    
+    //cheakmail(cheak1,1);
+    //成否判定
+    mail_task_judge(1);
 }else{
     //タスク無関係の返信時
     //減点処理
@@ -248,11 +258,37 @@ function taskA1_judge(text){
         }
     }
 
-
     return OK_flag;
 }
 
-//A-1、A-2-1、Cタスクの完了判定
+//A-1、A-2-1、Cタスクの完了判定(送信ボタンを押した際に最低限の情報がそろっていれば完了、そうでなければ失敗)
 function mail_task_judge(task){
-
+    if(!task_check(task))	return;
+    switch(task){
+        //A1：宛先＆日程（本文）
+        case 1:
+            if(c_from == from[5] && c_mail_text.indexOf("yyyy/mm/dd（仮）") != -1){
+                stateChange(1,2);
+            }else{
+                stateChange(1,3);
+            }
+            break;
+        //A21：宛先＆資料
+        case 3:
+            if(c_from == from[0] && c_file == "C:\\fakepath\\projectXX.txt"){
+                stateChange(3,2);
+            }else{
+                stateChange(3,3);
+            }
+            break;
+        //C：宛先＆URL（本文）
+        case 7:
+            if(c_from == "projectXX.m-list@shinba.com" && c_mail_text.indexOf("https://zoon.us/j/ocsjohoR4S") != -1){
+                stateChange(7,2);
+            }else{
+                stateChange(7,3);
+            }
+            break;
+    }
+    console.log("メールタスク判定終了");
 }

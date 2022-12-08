@@ -137,6 +137,10 @@ function password_check_A2(texttype,kigouflag){
     //記号の使用
     if(texttype == 4 && kigouflag)  A2_pass_kigou(true);
     else if(kigouflag)              A2_pass_kigou(false);
+
+    //タスク完了
+    stateChange(2,2);
+
 }
 
 
