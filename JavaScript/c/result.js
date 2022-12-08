@@ -23,7 +23,11 @@ function onLoad() {
   }else if(~param.indexOf('?game2')){
     document.getElementById("result1").style.display ="none";
     //対応編限定選択履歴取得
-
+    for (var i = 0, length = localStorage.length; i < length; ++i) {
+      lsArray[i] = localStorage.key(i);
+      // lsArray[i][0] = localStorage.getItem(lsArray[i]);
+      document.getElementById('copyTarget').innerText += (lsArray[i] + ":" + localStorage.getItem(lsArray[i]) + ",");
+    }
   }else{
     alert("a");
   }
