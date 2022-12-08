@@ -17,7 +17,7 @@ function onLoad() {
     for (var i = 0, length = localStorage.length; i < length; ++i) {
       lsArray[i] = localStorage.key(i);
       // lsArray[i][0] = localStorage.getItem(lsArray[i]);
-      document.getElementById('copyTarget').innerText += (lsArray[i] + ":" + localStorage.getItem(lsArray[i]) + ",");
+      document.getElementById('copyTarget').value += (lsArray[i] + ":" + localStorage.getItem(lsArray[i]) + ",");
     }
 
   }else if(~param.indexOf('?game2')){
