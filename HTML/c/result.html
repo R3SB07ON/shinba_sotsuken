@@ -22,12 +22,15 @@ result.html?game=2
     <div>
       <p>
         お疲れさまでした。<br>
-        下記の結果をコピーして、<br>
+        下記のコピーボタンをクリックして、<br>
         下記のリンクをクリックしてください。
       </p>
       <!--クリップボード用テキストエリア-->
       <div id="copyarea" class="result">
-        <p id="copyTarget" name="name" rows="8" cols="80"></textarea>
+        <textarea class="rrr" id="copyTarget" name="name" rows="8" cols="80"></textarea>
+      </div>
+      <div class="creat">
+        <button class="creatbutton" onclick="copyToClipboard();">コピー</button>
       </div>
     </div>
     <!--予防編の結果画面-->
@@ -72,6 +75,23 @@ result.html?game=2
         </div>
       </div>
     </div>
+
+    <script>
+                
+      function copyToClipboard() {
+          // コピー対象をJavaScript上で変数として定義する
+          var copyTarget = document.getElementById("copyTarget");
+
+          // コピー対象のテキストを選択する
+          copyTarget.select();
+
+          // 選択しているテキストをクリップボードにコピーする
+          document.execCommand("Copy");
+
+          // コピーをお知らせする
+          alert("結果をコピーしました");
+      }
+  </script>
 
   </body>
 </html>

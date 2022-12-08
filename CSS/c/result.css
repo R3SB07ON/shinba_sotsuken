@@ -42,3 +42,14 @@
 .side{
   display: flex;
 }
+.creat{
+text-align: center;
+}
+.rrr{
+  word-break: break-word; /*改行*/
+  width: 98%;
+}
+textarea{
+  resize: none;
+  border: #fff;
+}
