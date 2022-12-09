@@ -43,6 +43,7 @@ if(param == "?mail"){
 }
 
 
+
 //パスワード入力完了ボタンを押下
 function setPass(){
     //タスクに関係ないタイミングかチェック
@@ -52,13 +53,13 @@ function setPass(){
     //文字数の確認
     if(password_input.value.length >= 8 && password_input.value.length < 30){
         if(password_input.value == password_kakunin.value){
-            localStorage.setItem(key,password_input.value);
-            //強度判定に移行する
-            text(password_input.value);
+            localStorage.setItem(key,password_input.value);     //パスワードを設定する
+            text(password_input.value);     //強度判定
+            X_complete_judge();             //タスクXの完了判定
             alert("パスワードを設定しました");
             history.back();
         }else{
-            alert("パスワードが確認用の再入力と一致していません");
+            alert("確認用の再入力が一致していません");
             pswd +=1;
             if(pswd>=3) {
                 //3回以上失敗
@@ -151,4 +152,12 @@ function password_check_X(texttype,kigouflag){
     //記号の使用
     if(texttype == 4 && kigouflag)  X_pass_kigou(true);
     else if(kigouflag)              X_pass_kigou(false);
+}
+
+//タスクXの完了判定
+function X_complete_judge(){
+    if(!task_check(8))   return;
+    if(localStorage.getItem("p_mail") != null && localStorage.getItem("p_chat")){
+        stateChange(8,2);
+    }
 }

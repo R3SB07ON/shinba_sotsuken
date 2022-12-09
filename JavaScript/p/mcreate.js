@@ -54,35 +54,35 @@ if(re == ""){
             cheak3 += 1;
         }else if(c_cc == from[0]){
             //BCC以外にstockmoneyが入っている
-            A21_BCC_except_stockmoney();
+            let A21_BCC_except_stockmoney_flag = true;
         }else{
-            A21_to_not_aiupro();
+            let A21_to_not_aiupro_flag = true;
         }
 
         if(c_cc == ""){
             cheak3 += 1;
         }else if(c_cc == from[0]){
             //送信先以外にaiuproが入っている
-            A21_to_except_aiupro();
+            let A21_to_except_aiupro_flag = ture;
         }else if(c_cc == from[0]){
             //BCC以外にstockmoneyが入っている
-            A21_BCC_except_stockmoney();
+            let A21_BCC_except_stockmoney_flag = ture;
         }else{
             //意図しないアドレスが入っている
-            A21_CC_unintentional();
+            let A21_CC_unintentional_flag = ture;
         }
 
         if(c_bcc == from[1]){
             cheak3 += 1;
         }else if(c_bcc == from[0]){
             //送信先以外にaiuproが入っている
-            A21_to_except_aiupro();
+            let A21_to_except_aiupro_flag = ture;
         }else if(c_bcc != ""){
             //stockmoneyがbccに入っていない
-            A21_BCC_not_stockmoney();
+            let A21_BCC_not_stockmoney_flag = ture;
         }else{
             //意図しないアドレスが入っている
-            A21_BCC_unintentional();
+            let A21_BCC_unintentional_flag = ture;
         }
 
 
@@ -96,10 +96,9 @@ if(re == ""){
             cheak3 += 1;
         }else{
             //資料を間違える
-            A21_doc_send_mistake();
+            let A21_doc_send_mistake_flag = ture;
         }
-        //成否判定
-        mail_task_judge(3);
+
 
     }
     //C
@@ -107,25 +106,25 @@ if(re == ""){
         if(c_from == "projectXX.m-list@shinba.com"){
             cheak7 += 1;
         }else{
-            C_mailinglist_address_mistake();
+            let C_mailinglist_address_mistake_flag = ture;
         }
 
         if(c_cc == ""){
             cheak7 += 1;
         }else if(c_cc == "projectXX.m-list@shinba.com"){
             //宛先以外にメーリングリストが入っている
-            C_to_mistake();
+            let C_to_mistake_flag = ture;
         }else{
-            C_CC_address_insert();
+            let C_CC_address_insert_flag = ture;
         }
 
         if(c_bcc == ""){
             cheak7 += 1;
         }else if(c_cc == "projectXX.m-list@shinba.com"){
             //宛先以外にメーリングリストが入っている
-            C_to_mistake();
+            let C_to_mistake_flag = ture;
         }else{
-            C_BCC_address_insert();
+            let C_BCC_address_insert_flag = ture;
         }
 
         if(c_title != ""){
@@ -137,19 +136,36 @@ if(re == ""){
         if(c_file == ""){
             cheak7 += 1;
         }else{
-            C_doc_attached();
+            let C_doc_attached_flag = ture;
         }
-        //成否判定
+       
+    }
+    //かちあった場合のためのフラグ管理
+    if(cheak3 > cheak7){
+        //cheakmail(cheak3,3);
+
+        //減点フラグを処理してから成否判定に移る
+        if(A21_BCC_except_stockmoney_flag)  A21_BCC_except_stockmoney();
+        if(A21_to_not_aiupro_flag)  A21_to_not_aiupro();
+        if(A21_to_except_aiupro_flag)   A21_to_except_aiupro();
+        if(A21_CC_unintentional_flag)   A21_CC_unintentional();
+        if(A21_BCC_not_stockmoney_flag) A21_BCC_not_stockmoney();
+        if(A21_BCC_unintentional_flag)  A21_BCC_unintentional();
+        if(A21_doc_send_mistake_flag)   A21_doc_send_mistake();
+
+        mail_task_judge(3);     //成否判定
+    }else{
+        //cheakmail(cheak7,7);
+
+        if(C_mailinglist_address_mistake_flag)  C_mailinglist_address_mistake();
+        if(C_to_mistake_flag)           C_to_mistake();
+        if(C_CC_address_insert_flag)    C_CC_address_insert();
+        if(C_BCC_address_insert_flag)   C_BCC_address_insert();
+        if(C_doc_attached_flag)         C_doc_attached();
+
         mail_task_judge(7);
     }
-    //かちあう問題
-    /*
-    if(cheak3 > cheak7){
-        cheakmail(cheak3,3);
-    }else{
-        cheakmail(cheak7,7);
-    }
-    */
+    
 }else if(re == "?5" && (stateCheck(1) == "未完了" || stateCheck(1) == "失敗")){
     //タスク返信時(A1)
     let cheak1 = 0;
@@ -271,6 +287,7 @@ function mail_task_judge(task){
                 stateChange(1,2);
             }else{
                 stateChange(1,3);
+                task_failed("A-1");
             }
             break;
         //A21：宛先＆資料
@@ -279,6 +296,7 @@ function mail_task_judge(task){
                 stateChange(3,2);
             }else{
                 stateChange(3,3);
+                task_failed("A-2-1");
             }
             break;
         //C：宛先＆URL（本文）
@@ -287,6 +305,7 @@ function mail_task_judge(task){
                 stateChange(7,2);
             }else{
                 stateChange(7,3);
+                task_failed("C");
             }
             break;
     }
