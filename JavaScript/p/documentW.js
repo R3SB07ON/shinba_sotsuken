@@ -111,6 +111,14 @@ function judge_10_Company(text){
     }
     //イベントが正しく記入されている日数に応じてパラメータ変動
     B2_ivent_input(ivent_num);
+    //イベントが1日以上記入されていればタスク完了とみなす。
+    //1日も記入されていなければ失敗とする。
+    if(!task_check(6))  return;
+    if(ivent_num>=1)    stateChange(6,2);
+    else{
+        stateChange(6,3);
+        task_failed("B-2");
+    }
 
 }
 
@@ -144,6 +152,15 @@ function judge_ExchangeRate(text){
     console.log(rate_num);
     //正しく記入されているレート数に応じてパラメータ変動
     B1_rate_input(rate_num);
+
+    //レートが1個以上記入されていればタスク完了とみなす。
+    //1個も記入されていなければ失敗とする。
+    if(!task_check(5))  return;
+    if(rate_num>=1)     stateChange(5,2);
+    else{
+        stateChange(5,3);
+        task_failed("B-1");
+    }
 
 }
 
