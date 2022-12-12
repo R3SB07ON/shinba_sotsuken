@@ -31,3 +31,28 @@ body{
     margin-right: 10px;
     
 }
+.music{
+    position: relative;
+    left: 160px;
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 9px;
+    background-color: #33CC00;
+    color: #000000;
+    border-color: #33CC00;
+
+}
+.rakuten{
+    position: relative;
+    left: 160px;
+    width: 200px;
+    height: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 9px;
+    color: #ffff;
+    background-color: #FF0000;
+    border-color: #FF0000;
+}

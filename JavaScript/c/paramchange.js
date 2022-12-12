@@ -7,6 +7,7 @@ function paramctr(param_bundle){
     for(x = 0;x < param_bundle.length;x++){
         add(param_bundle[x][0],param_bundle[x][1]);
     }
+    console.log("paramctr");
 }
 
 //パラメータ変動に関連するローカルストレージのセット（初回のみ）
@@ -17,7 +18,7 @@ function setParamChange() {
    	localStorage.setItem("A_OK_mail","0");    //良いメールを削除した回数
 }
 
-//タスク完了状態の判断
+//タスク完了状態の判断（完了していなければture）
 //引数はtask.jsのtaskListの値に準ずる
 function task_check(task_type){
     let state = stateCheck(task_type);
@@ -69,7 +70,7 @@ function task_failed(task_type){
 A
 */
 
-//良いメールを削除
+//良いメールを削除（Zあり）
 function A_OK_mail_del(){
     if(!task_check("0")){
         Z_OK_mail_trash();
@@ -92,13 +93,13 @@ function A_OK_mail_recovery(){
     else if(A_OK_mail==2)       paramctr([[1,2],[2,2],[3,2],[10,2]]);    
 }
 
-//2分以内に完了
+//2分以内に完了（没）
 function A_task_2min_finish(){
     if(!task_check("0"))  return;
     paramctr([[5,1]]);
 }
 
-//迷惑メールのリンクを踏む
+//迷惑メールのリンクを踏む（Zあり）
 function A_spam_link_click(){
     if(!task_check("0")){
         Z_NG_link_click();
@@ -126,10 +127,10 @@ function A_spam_recovery(difficulty){
     }
 }
 
-//難易度〇の迷惑メールを消す
+//難易度〇の迷惑メールを消す（Zあり）
 function A_spam_trash(difficulty){
     if(!task_check("0")){
-        Z_spam_trash();
+        Z_spam_trash(difficulty);
         return;
     }
     switch (difficulty){
@@ -165,37 +166,42 @@ A-1
  */
 //送信先を間違える
 function A1_to_mistake(){
-    //if(!task_check("1"))  return;
+    if(!task_check("1"))  return;
     paramctr([[0,-10],[1,-10],[3,-10],[7,-10],[9,-10]]);
 }
 
 //返信メールの日付にミス
 function A1_date_mistake(){
+    if(!task_check("1"))  return;
     paramctr([[0,-1],[1,-1],[3,-1],[4,-8],[5,-1],[6,-1],[10,-1]]);
 }
 
 //返信メールのミス（送信者の会社名/部署名/名前、自分の会社名/部署名/名前）
 function A1_res_mistake(){
+    if(!task_check("1"))  return;
     paramctr([[0,-1],[1,-1],[3,-1],[5,-1],[6,-1],[10,-1]]);
 }
 
 /*
 A-2
-（Xと共通）
+（Xは別に関数用意）
 */
 //パスワードを付ける資料を間違える（独立）
 function A2_doc_mistake(){
+    if(!task_check("2"))  return;
     paramctr([[0,-1],[1,-1],[3,-1]]);
 }
 
 //使用文字が1、2種類だけのPWで完了
 function A2_pass_type(type){
+    if(!task_check("2"))  return;
     if(type==1)         paramctr([[0,-10],[3,-10],[6,-10],[7,-10],[10,-10]]);
     else if(type==2)    paramctr([[0,-5],[3,-5],[6,-5],[7,-5],[10,-5]]);
 }
 
 //記号を使用
 function A2_pass_kigou(hoge){
+    if(!task_check("2"))  return;
     if(hoge){           //大文字、小文字、数字、記号を全部
         paramctr([[0,1],[3,1],[5,1],[6,1],[7,1],[10,1]]);
     }else{     //記号のどれかを使用
@@ -205,17 +211,19 @@ function A2_pass_kigou(hoge){
 
 //再入力を3回以上失敗
 function A2_pass_retry_failed(){
+    if(!task_check("2"))  return;
     paramctr([[0,-3],[1,-3],[3,-3],[6,-3],[7,-3],[11,1]]);
 }
 
 //文字数が8字未満or30以上
 function A2_pass_length(pass_length){
+    if(!task_check("2"))  return;
     if(pass_length < 8 || 30 <= pass_length){
         paramctr([[0,-4],[3,-4],[5,-4],[6,-4],[7,-4],[10,-4],[11,1]]);
     }
 }
 
-//1分以内に完了
+//1分以内に完了(没)
 function A2_1min_finish(){
     paramctr([[5,1]]);
 }
@@ -225,46 +233,55 @@ A-2-1
 */
 //aiupro株式会社が送信先以外に入っている
 function A21_to_except_aiupro(){
+    if(!task_check("3"))  return;
     paramctr([[0,-8],[1,-8],[2,-8],[3,-8],[5,-5]]);
 }
 
 //aiupro株式会社が送信先に入っていない
 function A21_to_not_aiupro(){
+    if(!task_check("3"))  return;
     paramctr([[0,-3],[1,-8],[2,-1],[3,-5],[4,-8],[5,-1]]);
 }
 
 //stockmoney株式会社がBCC以外に入っている
 function A21_BCC_except_stockmoney(){
+    if(!task_check("3"))  return;
     paramctr([[0,-8],[1,-8],[2,-8],[3,-8],[5,-5],[7,-10]]);
 }
 
 //stockmoney株式会社がBCCに入っていない
 function A21_BCC_not_stockmoney(){
+    if(!task_check("3"))  return;
     paramctr([[0,-8],[1,-8],[2,-8],[3,-8],[4,-8],[5,-7]]);
 }
 
 //BCCに意図しないアドレスが入っている
 function A21_BCC_unintentional(){
+    if(!task_check("3"))  return;
     paramctr([[0,-8],[1,-8],[2,-8],[3,-8],[7,-10],[9,-10]]);
 }
 
 //CCに意図しないアドレスが入っている
 function A21_CC_unintentional(){
+    if(!task_check("3"))  return;
     paramctr([[0,-8],[1,-8],[2,-8],[3,-8],[7,-10],[9,-10]]);
 }
 
 //projectXXの資料を編集
 function A21_projectXX_edit(){
+    if(!task_check("3"))  return;
     paramctr([[5,-8],[6,-1],[7,-8],[9,-8],[11,5]]);
 }
 
 //添付する資料を間違えたまま送信
 function A21_doc_send_mistake(){
+    if(!task_check("3"))  return;
     paramctr([[0,-1],[1,-1],[3,-1],[5,-1],[7,-5],[8,-8],[5,-9],[11,1]]);
 }
 
 //A-2で設定したパスワードが送信されていない
 function A21_pass_send_failed(){
+    if(!task_check("3"))  return;
     paramctr([[4,-5],[6,-2],[7,-2],[10,-2]]);
 }
 
@@ -399,31 +416,37 @@ C
 */
 //メーリングリストアドレスが送信先以外に入っている
 function C_to_mistake(){
+    if(!task_check("7"))  return;
     paramctr([[0,-8],[1,-8],[2,-8],[3,-8],[5,-5]]);
 }
 
 //メーリングリストアドレスを間違えている
 function C_mailinglist_address_mistake(){
+    if(!task_check("7"))  return;
     paramctr([[0,-10],[1,-10],[2,-8],[3,-10],[5,-5],[6,-8],[7,-10]]);
 }
 
 //BCCにアドレスが入っている
 function C_BCC_address_insert(){
+    if(!task_check("7"))  return;
     paramctr([[0,-8],[1,-8],[2,-8],[3,-8],[7,-10],[9,-10]]);
 }
 
 //CCにアドレスが入っている
 function C_CC_address_insert(){
+    if(!task_check("7"))  return;
     paramctr([[0,-8],[1,-8],[2,-8],[3,-8],[7,-10],[9,-10]]);
 }
 
 //資料が添付されている
 function C_doc_attached(){
+    if(!task_check("7"))  return;
     paramctr([[0,-1],[1,-1],[3,-3],[5,-5],[7,-5],[8,-8],[9,-9],[11,1]]);
 }
 
-//2分以内に完了
+//2分以内に完了(没)
 function C_2min_finish(){
+    if(!task_check("7"))  return;
     paramctr([[5,1]]);
 }
 
@@ -434,12 +457,14 @@ A-2とほぼ共通
 
 //使用文字が1、2種類だけのPWで完了
 function X_pass_type(type){
+    if(!task_check("8"))  return;
     if(type==1)         paramctr([[0,-10],[3,-10],[6,-10],[7,-10],[10,-10]]);
     else if(type==2)    paramctr([[0,-5],[3,-5],[6,-5],[7,-5],[10,-5]]);
 }
 
 //記号を使用
 function X_pass_kigou(hoge){
+    if(!task_check("8"))  return;
     if(hoge){           //大文字、小文字、数字、記号を全部
         paramctr([[0,1],[3,1],[5,1],[6,1],[7,1],[10,1]]);
     }else{     //記号のどれかを使用
@@ -449,11 +474,13 @@ function X_pass_kigou(hoge){
 
 //再入力を3回以上失敗
 function X_pass_retry_failed(){
+    if(!task_check("8"))  return;
     paramctr([[0,-3],[1,-3],[3,-3],[6,-3],[7,-3],[11,1]]);
 }
 
 //文字数が8字未満or30以上
 function X_pass_length(pass_length){
+    if(!task_check("8"))  return;
     if(pass_length < 8 || 30 <= pass_length){
         paramctr([[0,-4],[3,-4],[5,-4],[6,-4],[7,-4],[10,-4],[11,1]]);
     }
@@ -472,6 +499,7 @@ function Z_access_bad_page(){
 function Z_task_report(num=0){
     switch(num){
         case 0:
+            break;
         case 1:
             break;
         case 2:

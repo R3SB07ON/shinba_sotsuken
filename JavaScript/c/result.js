@@ -8,9 +8,27 @@ function onLoad() {
   //URLパラメータに応じて表示内容を変える
   var param = location.search;
   if(~param.indexOf('?game1')){
+    //未完了の特定タスクを失敗にする
+    if(task_check(0)){
+      stateChange(0,3);
+      task_failed("A");
+    }
+    if(task_check(2)){
+      stateChange(2,3);
+      task_failed("A-2");
+    }
+    if(task_check(4)){
+      stateChange(4,3);
+      task_failed("B");
+    }
+    if(task_check(8)){
+      stateChange(8,3);
+      task_failed("X");
+    }
     document.getElementById("result2").style.display ="none";
     //達成タスク数取得
     document.getElementById("achieve").textContent = "タスク達成率:" + t_finish() + "%";
+    if(t_finish() < 100)  Z_time_over();    //制限時間内に終わらなかった場合
 
     //予防編限定測定値取得
     //ローカルストレージのキー取得
