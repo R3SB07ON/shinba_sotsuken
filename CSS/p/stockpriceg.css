@@ -2,10 +2,5 @@ h1{
     text-align: center;
 }
 .news{
-    position: absolute; left: 0%; top: 20%;
-    width: auto;
-    height: auto;
-}
-.news img{
-    width: 100%;
+    text-align: center;
 }
