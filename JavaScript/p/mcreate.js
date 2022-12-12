@@ -48,41 +48,58 @@ function sendCheake(re){
 if(re == ""){
     let cheak3 = 0;
     let cheak7 = 0;
+
+    //減点処理のフラグ
+    let A21_BCC_except_stockmoney_flag = false;
+    let A21_to_not_aiupro_flag = false;
+    let A21_to_except_aiupro_flag = false;
+    let A21_CC_unintentional_flag = false;
+    let A21_BCC_not_stockmoney_flag = false;
+    let A21_BCC_unintentional_flag = false;
+    let A21_doc_send_mistake_flag = false;
+    let A21_pass_send_failed_flag = false;
+
+    let C_mailinglist_address_mistake_flag = false;
+    let C_to_mistake_flag = false;
+    let C_CC_address_insert_flag = false;
+    let C_BCC_address_insert_flag = false;
+    let C_doc_attached_flag = false;
+
     //A-2-1
     if(stateCheck(3) == "未完了" || stateCheck(3) == "失敗"){
         if(c_from == from[0]){
             cheak3 += 1;
         }else if(c_cc == from[0]){
             //BCC以外にstockmoneyが入っている
-            let A21_BCC_except_stockmoney_flag = true;
+            A21_BCC_except_stockmoney_flag = true;
         }else{
-            let A21_to_not_aiupro_flag = true;
+            A21_to_not_aiupro_flag = true;
         }
 
         if(c_cc == ""){
             cheak3 += 1;
         }else if(c_cc == from[0]){
             //送信先以外にaiuproが入っている
-            let A21_to_except_aiupro_flag = ture;
+            A21_to_except_aiupro_flag = ture;
         }else if(c_cc == from[0]){
             //BCC以外にstockmoneyが入っている
-            let A21_BCC_except_stockmoney_flag = ture;
+            A21_BCC_except_stockmoney_flag = ture;
         }else{
             //意図しないアドレスが入っている
-            let A21_CC_unintentional_flag = ture;
+            A21_CC_unintentional_flag = ture;
         }
 
         if(c_bcc == from[1]){
             cheak3 += 1;
         }else if(c_bcc == from[0]){
             //送信先以外にaiuproが入っている
-            let A21_to_except_aiupro_flag = ture;
+            A21_to_except_aiupro_flag = ture;
         }else if(c_bcc != ""){
             //stockmoneyがbccに入っていない
-            let A21_BCC_not_stockmoney_flag = ture;
+            A21_BCC_not_stockmoney_flag = ture;
         }else{
             //意図しないアドレスが入っている
-            let A21_BCC_unintentional_flag = ture;
+            A21_BCC_unintentional_flag = ture;
         }
 
 
@@ -92,11 +109,15 @@ if(re == ""){
         if(c_mail_text != ""){
             cheak3 += 1;
         }
-        if(c_file == "C:\\fakepath\\projectXX.txt"){
+        if(c_file.indexOf("projectXX.txt") != -1){
             cheak3 += 1;
         }else{
             //資料を間違える
-            let A21_doc_send_mistake_flag = ture;
+            A21_doc_send_mistake_flag = ture;
+        }
+        if(c_mail_text.indexOf(localStorage.getItem("p_file")) == -1){
+            //パスワードが送信されていない
+            A21_pass_send_failed_flag = ture;
         }
 
 
@@ -106,25 +127,25 @@ if(re == ""){
         if(c_from == "projectXX.m-list@shinba.com"){
             cheak7 += 1;
         }else{
-            let C_mailinglist_address_mistake_flag = ture;
+            C_mailinglist_address_mistake_flag = ture;
         }
 
         if(c_cc == ""){
             cheak7 += 1;
         }else if(c_cc == "projectXX.m-list@shinba.com"){
             //宛先以外にメーリングリストが入っている
-            let C_to_mistake_flag = ture;
+            C_to_mistake_flag = ture;
         }else{
-            let C_CC_address_insert_flag = ture;
+            C_CC_address_insert_flag = ture;
         }
 
         if(c_bcc == ""){
             cheak7 += 1;
         }else if(c_cc == "projectXX.m-list@shinba.com"){
             //宛先以外にメーリングリストが入っている
-            let C_to_mistake_flag = ture;
+            C_to_mistake_flag = ture;
         }else{
-            let C_BCC_address_insert_flag = ture;
+            C_BCC_address_insert_flag = ture;
         }
 
         if(c_title != ""){
@@ -136,7 +157,7 @@ if(re == ""){
         if(c_file == ""){
             cheak7 += 1;
         }else{
-            let C_doc_attached_flag = ture;
+            C_doc_attached_flag = ture;
         }
        
     }
@@ -152,6 +173,7 @@ if(re == ""){
         if(A21_BCC_not_stockmoney_flag) A21_BCC_not_stockmoney();
         if(A21_BCC_unintentional_flag)  A21_BCC_unintentional();
         if(A21_doc_send_mistake_flag)   A21_doc_send_mistake();
+        if(A21_pass_send_failed_flag)   A21_pass_send_failed();
 
         mail_task_judge(3);     //成否判定
     }else{
