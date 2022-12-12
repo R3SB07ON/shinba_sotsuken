@@ -39,7 +39,7 @@ if(localStorage.getItem("file_11_Company") == null){
      ス（8766）<br> 10月全国消費者物価指数（CPI）<br> 英10月小売売上高<br> 米10月中古住宅販売件数<br> \
      米10月景気先行指標総合指数<br>");
      
-    localStorage.setItem("file_archive","<h1>ホームページ作成プロジェクト</h1><br>2022/11/16<br>しんば株式会社<br>Aチーム<br>\
+    localStorage.setItem("file_achieve","<h1>ホームページ作成プロジェクト</h1><br>2022/11/16<br>しんば株式会社<br>Aチーム<br>\
     <h3>プロジェクト名</h3>:新規ホームページ制作プロジェクト<br>\
     <h3>開発期間</h3>：9か月<br>\
     <h3>日程</h3>:2022/3/1~2022/12/1<br>\

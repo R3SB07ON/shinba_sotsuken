@@ -17,7 +17,7 @@ let fin = function finish() {
     moveflag = false;
     window.location.href = "../c/result.html?game1"
 }
-let time2 = localStorage.getItem("time");
+let time2 = 6000;
 setTimeout(fin,time2)
 
 //------------------------------------------------------
