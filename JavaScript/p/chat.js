@@ -30,6 +30,10 @@ function start(){
         setState();
         document.getElementById("first").style.display = "block";
     }
+    //パラメータ初期値設定（事前、事後のぞく）
+    for(let i = 0;i < paramList.length -2;i++){
+        localStorage.setItem(i,"100");
+    }
 }
 
 //初回：履歴保存のローカルストレージ作成

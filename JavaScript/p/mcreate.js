@@ -80,26 +80,26 @@ if(re == ""){
             cheak3 += 1;
         }else if(c_cc == from[0]){
             //送信先以外にaiuproが入っている
-            A21_to_except_aiupro_flag = ture;
+            A21_to_except_aiupro_flag = true;
         }else if(c_cc == from[0]){
             //BCC以外にstockmoneyが入っている
-            A21_BCC_except_stockmoney_flag = ture;
+            A21_BCC_except_stockmoney_flag = true;
         }else{
             //意図しないアドレスが入っている
-            A21_CC_unintentional_flag = ture;
+            A21_CC_unintentional_flag = true;
         }
 
         if(c_bcc == from[1]){
             cheak3 += 1;
         }else if(c_bcc == from[0]){
             //送信先以外にaiuproが入っている
-            A21_to_except_aiupro_flag = ture;
+            A21_to_except_aiupro_flag = true;
         }else if(c_bcc != ""){
             //stockmoneyがbccに入っていない
-            A21_BCC_not_stockmoney_flag = ture;
+            A21_BCC_not_stockmoney_flag = true;
         }else{
             //意図しないアドレスが入っている
-            A21_BCC_unintentional_flag = ture;
+            A21_BCC_unintentional_flag = true;
         }
 
 
@@ -113,11 +113,11 @@ if(re == ""){
             cheak3 += 1;
         }else{
             //資料を間違える
-            A21_doc_send_mistake_flag = ture;
+            A21_doc_send_mistake_flag = true;
         }
         if(c_mail_text.indexOf(localStorage.getItem("p_file")) == -1){
             //パスワードが送信されていない
-            A21_pass_send_failed_flag = ture;
+            A21_pass_send_failed_flag = true;
         }
 
 
@@ -127,25 +127,25 @@ if(re == ""){
         if(c_from == "projectXX.m-list@shinba.com"){
             cheak7 += 1;
         }else{
-            C_mailinglist_address_mistake_flag = ture;
+            C_mailinglist_address_mistake_flag = true;
         }
 
         if(c_cc == ""){
             cheak7 += 1;
         }else if(c_cc == "projectXX.m-list@shinba.com"){
             //宛先以外にメーリングリストが入っている
-            C_to_mistake_flag = ture;
+            C_to_mistake_flag = true;
         }else{
-            C_CC_address_insert_flag = ture;
+            C_CC_address_insert_flag = true;
         }
 
         if(c_bcc == ""){
             cheak7 += 1;
         }else if(c_cc == "projectXX.m-list@shinba.com"){
             //宛先以外にメーリングリストが入っている
-            C_to_mistake_flag = ture;
+            C_to_mistake_flag = true;
         }else{
-            C_BCC_address_insert_flag = ture;
+            C_BCC_address_insert_flag = true;
         }
 
         if(c_title != ""){
@@ -157,7 +157,7 @@ if(re == ""){
         if(c_file == ""){
             cheak7 += 1;
         }else{
-            C_doc_attached_flag = ture;
+            C_doc_attached_flag = true;
         }
        
     }

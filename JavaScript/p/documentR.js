@@ -8,7 +8,7 @@ function move_W(){
 
 function move_pass() {
     url = './pedit.html' + location.search;
-    window.location.href = url;    
+    window.open(url, '_blank');
 }
 
 window.onload = onLoad;

@@ -57,7 +57,7 @@ function setPass(){
             text(password_input.value);     //強度判定
             X_complete_judge();             //タスクXの完了判定
             alert("パスワードを設定しました");
-            history.back();
+            window.close();
         }else{
             alert("確認用の再入力が一致していません");
             pswd +=1;
@@ -131,13 +131,18 @@ function pass(){
 
 //入力されたパスワードを採点(A-2用)
 function password_check_A2(texttype,kigouflag){
-    //パスワードをつける資料を間違える
-    if(param.indexOf("projectXX") == -1)    A2_doc_mistake();    
+
     //使用文字が2種類以下
     A2_pass_type(texttype);
     //記号の使用
     if(texttype == 4 && kigouflag)  A2_pass_kigou(true);
     else if(kigouflag)              A2_pass_kigou(false);
+
+    //パスワードをつける資料を間違える
+    if(param.indexOf("projectXX") == -1){
+        A2_doc_mistake();
+        return;
+    }
 
     //タスク完了
     stateChange(2,2);

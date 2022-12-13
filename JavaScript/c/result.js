@@ -6,24 +6,25 @@ let lsArray = [];
 
 function onLoad() {
   //URLパラメータに応じて表示内容を変える
+  localStorage.setItem("finish",true);
   var param = location.search;
   if(~param.indexOf('?game1')){
     //未完了の特定タスクを失敗にする
     if(task_check(0)){
-      stateChange(0,3);
       task_failed("A");
+      stateChange(0,3);
     }
     if(task_check(2)){
-      stateChange(2,3);
       task_failed("A-2");
+      stateChange(2,3);
     }
     if(task_check(4)){
-      stateChange(4,3);
       task_failed("B");
+      stateChange(4,3);
     }
     if(task_check(8)){
-      stateChange(8,3);
       task_failed("X");
+      stateChange(8,3);
     }
     document.getElementById("result2").style.display ="none";
     //達成タスク数取得
