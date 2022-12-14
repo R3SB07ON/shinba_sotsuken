@@ -6,6 +6,7 @@
     <script src = "../../JavaScript/c/parameter.js"></script>
     <script src = "../../JavaScript/c/paramchange.js"></script>
     <script src = "../../JavaScript/c/task.js"></script>
+    <script src = "../../JavaScript/p/other.js"></script>
     <title>デスクトップ画面</title>
 </head>
 <body >
@@ -30,7 +31,7 @@
         <div id="iconarea" class="iconarea">
 
                 <button class="btn">スリープ</button>
-                <button class="btn"  onclick="localStorage.setItem('f_update','true');update_check();">アップデート</button>
+                <button class="btnup" id="main" onclick="localStorage.setItem('f_update','true');update_check();">アップデート</button>
                 <button class="btn" onclick="btnpush()">再起動</button>
                 <button class="btn" onclick="btnpush()">シャットダウン</button>
 
@@ -67,11 +68,30 @@
     }
 
     function update_check(){
+        if(localStorage.getItem("upflag") == true){
+            return 0;
+    }
         if(t_collLast() == t_total){
             Z_task_finished_update();    //全てのタスクが完了し、更新した
         }
         alert("更新した");
     }
+
+    'use strict';
+    if(localStorage.getItem("upflag") == null){
+        localStorage.setItem("upflag",false) 
+        
+    }
+    else if(localStorage.getItem("upflag") != null){
+        document.getElementById('main').style.backgroundColor = "#808080";
+    }
+
+    document.getElementById('main').addEventListener('click',
+    function () {
+    this.style.backgroundColor = "#808080";
+    localStorage.setItem("upflag",true) 
+  }
+)
     </script>
 
 </body>

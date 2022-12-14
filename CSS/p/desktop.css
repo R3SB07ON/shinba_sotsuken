@@ -35,13 +35,28 @@ body{
   width: 110px;
   padding: 5px;
   margin-left: 25px;
-  background: #93b881;
+  background: #00FF00;
   color: #111111;
   border-radius: 20px;
   margin-bottom: 15px;
   margin-top: 20px;
  }
- .btn:active {
+.btn:active {
   -webkit-transform: translateY(5px);
   transform: translateY(5px);
- }
+}
+.btnup{
+  float: left;
+  width: 110px;
+  padding: 5px;
+  margin-left: 25px;
+  background: #FF6600;
+  color: #111111;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+.btnup:active{
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+}
