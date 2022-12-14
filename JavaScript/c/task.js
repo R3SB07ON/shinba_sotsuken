@@ -38,13 +38,17 @@ function stateChange(t_name,t_state) {
 //完了タスク数の算出
 function t_collLast(){
   t_achieve = 0;
-  let miss = "";
+  let t_miss = "";
   for (let index = 0; index < taskList.length; index++) {
     if(localStorage.getItem(taskList[index]) == "完了"){
       t_achieve += 1;
     }
+    if(localStorage.getItem(taskList[index]) == "失敗"){
+      t_miss += toString(index);
+    }
   }
-  return t_achieve;
+  //[タスク完了数、タスク失敗数]
+  return t_miss;
 }
 
 //割合

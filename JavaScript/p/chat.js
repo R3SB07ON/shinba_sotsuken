@@ -54,6 +54,9 @@ function onLoad() {
                 addchat("確認しました");
             }else if(history.charAt(index) == "c"){
                 addchat("作業を終えてから報告してください");
+            }else if(history.charAt(index) == "d"){
+                let misstask;
+                addchat("作業が失敗しています<br>" + misstask)
             }else{
                 addchat(text[history.charAt(index)]);
             }
@@ -67,13 +70,18 @@ function onLoad() {
 
 //チャット保存
 //※※※※※<br><font>を活かせていない※※※※
-let text = new Array("株式会社ウォルトエンジンからきた返信メールを確認し、参加希望の説明会の日付に関する返信メールを送ってください",
+let text = new Array("株式会社ウォルトエンジンからきたメールを確認し、「12/10に説明会をお願いします」という文言を含めた返信メールを送ってください",
                     "資料「projectXX」に任意のパスワードを任意の設定してください",
                     "資料「projectXX」を添付して、BCCにstockmoney株式会社を設定し、aiupro株式会社へ送信してください<br>設定したパスワードをメールで伝えてください",
                     "検索エンジンから株価サイトを検索し、「日経平均.米ドル/円.TOPIX.NYダウ.上海総合.ユーロ円」レートの金額を資料「ExchangeRate」に全てしてください",
                     "検索エンジンからニュースサイトを検索し、来週のイベント調査を行い、10月のイベントを資料「10_Company」に書き込んでください",
                     "メールアプリ、チャットアプリのパスワードを任意のパスワードに変更してください",
                     "朝の作業はこれで以上になります。デスクトップ画面からPCをシャットダウンしてください",
+                    //以下は失敗警告時に使用（7,8,9,10）
+                    "受信トレイに迷惑メールがあれば、ゴミ箱に移してください",
+                    "ブックマークに登録している「株価サイト」、「ニュースサイト」をチェックしてください",
+                    "会議アプリで会議用のURLを作成して、projectXX.m-list@shinba.comへ送信してください",
+                    "メールアプリ、チャットアプリのパスワードを任意のパスワードに変更してください"
                     );
 
 //------------------------------------------------------
@@ -142,7 +150,7 @@ function new_task() {
 //------------------------------------------------------
 //報告ボタン押下時、最終報告タスク数と現在の完了タスク数の差分チェック
 function check() {
-    t_collLast();
+    let misstask = t_collLast();
     if(t_achieve - localStorage.getItem("t_last") == 1){
         addchat("確認しました");
         addhistory("b");
@@ -156,6 +164,14 @@ function check() {
         //一度に複数の確認報告（減点）
         Z_task_report(t_achieve - localStorage.getItem("t_last"));
     }
+    //タスク失敗表示
+    if(misstask != ""){
+        for (let index = 0; index < misstask.length; index++) {
+            addchat("作業が失敗しています<br><br>＜失敗したタスク＞<br>" + taskList[charAt(index)]);
+            addhistory("d" + charAt(index));
+        }
+    }
+    //完了タスク数更新
     localStorage.setItem("t_last", t_achieve);
     new_task();
 }
