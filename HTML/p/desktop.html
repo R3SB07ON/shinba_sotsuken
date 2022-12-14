@@ -31,7 +31,7 @@
         <div id="iconarea" class="iconarea">
 
                 <button class="btn">スリープ</button>
-                <button class="btnup" id="main" onclick="localStorage.setItem('f_update','true');update_check();">アップデート</button>
+                <button class="btnup" id="main" onclick="update_check();">アップデート</button>
                 <button class="btn" onclick="btnpush()">再起動</button>
                 <button class="btn" onclick="btnpush()">シャットダウン</button>
 
@@ -47,6 +47,10 @@
     </div>
     <script>
     let flag = 0
+    if(localStorage.getItem("f_update") == "true"){
+        document.getElementById('main').style.backgroundColor = "#808080";
+    }
+
     function popup(){
         if(flag==0){
             document.getElementById("iconarea").style.display="block";
@@ -68,30 +72,21 @@
     }
 
     function update_check(){
-        if(localStorage.getItem("upflag") == true){
+        if(localStorage.getItem("f_update") == "true"){
             return 0;
-    }
-        if(t_collLast() == t_total){
-            Z_task_finished_update();    //全てのタスクが完了し、更新した
         }
-        alert("更新した");
-    }
 
-    'use strict';
-    if(localStorage.getItem("upflag") == null){
-        localStorage.setItem("upflag",false) 
+        if(t_collLast() == t_total){
+            localStorage.setItem('f_update','true');
+            Z_task_finished_update();    //全てのタスクが完了し、更新した
+            document.getElementById('main').style.backgroundColor = "#808080";
+            alert("更新した");
+        }else{
+            alert("業務が終わってから更新しよう");
+        }
         
     }
-    else if(localStorage.getItem("upflag") != null){
-        document.getElementById('main').style.backgroundColor = "#808080";
-    }
-
-    document.getElementById('main').addEventListener('click',
-    function () {
-    this.style.backgroundColor = "#808080";
-    localStorage.setItem("upflag",true) 
-  }
-)
+    'use strict';
     </script>
 
 </body>

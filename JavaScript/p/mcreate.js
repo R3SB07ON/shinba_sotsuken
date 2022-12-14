@@ -283,7 +283,7 @@ function taskA1_judge(text){
     ];
 
     //日付ミス
-    if(text.indexOf("yyyy/mm/dd（仮）") == -1){
+    if(text.indexOf("12/10") == -1){
         A1_date_mistake();
         OK_flag = false;
     }
