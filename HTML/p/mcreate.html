@@ -62,7 +62,7 @@
                 <input id="file" type="file" accept=".txt" class="ggg" ><br>
                 <input type="button" value="送信する" onclick="send(location.search);" class="ggg">
                 <!-- onclick内に加点関数呼び込み -->
-                <input type="button" value="後で送信する" onclick="send(location.search);" class="ggg">
+                <input type="button" value="後で送信する" onclick="localStorage.setItem('after_send','Y'); send(location.search);" class="ggg">
                 <input type="button" value="キャンセル" onclick="history.back()" class="ggg">
               </div>
             <!-- </form> -->
