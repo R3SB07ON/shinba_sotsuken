@@ -30,7 +30,7 @@ if(param == "?mail"){
     target4.style.boxShadow="#eaf4fc";
 
 }else if(param.indexOf('?file') != -1){
-	key = "p_file";
+	key = "p_" + param.substring(1);
     target.style.backgroundColor="#946c45";
     target1.style.backgroundColor="#e7e7eb";
     target1.style.color="black";
