@@ -21,7 +21,7 @@ function set(){
     c_file = document.getElementById("file").value
 }
 
-//返信時の初期値
+//返信時の初期値、デフォルトで本文に署名
 window.onload = onLoad;
 function onLoad(){
     if(location.search != ""){
@@ -29,9 +29,15 @@ function onLoad(){
         document.getElementById("from").value = from[i]
         document.getElementById("title").value = "re:" + mailList[i][1];
     }
+
+    document.getElementById("mail-text").value
+    ="\n\n\n"
+    +"------------------------\n"
+    +"株式会社OCSしんば　営業部　しんば太郎\n"
+    +"mail:sinba@ggmail.com";
 }
 
-//送信ボタン押下後　タスク状態変更
+//送信ボタン押下後　タスク状態変更（未使用）
 function cheakmail(mail,task){
     if(mail == 6){
         stateChange(task,2);
@@ -222,7 +228,7 @@ if(re == ""){
 }else{
     //タスク無関係の返信時
     //減点処理
-    alert("タスクの無関係のメール送信・減点");
+    //alert("タスクの無関係のメール送信・減点");
     Z_mail_disrelation_res();
 }
 }
