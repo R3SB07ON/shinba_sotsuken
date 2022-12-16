@@ -305,7 +305,7 @@ function mail_task_judge(task){
     switch(task){
         //A1：宛先＆日程（本文）
         case 1:
-            if(c_from == from[5] && c_mail_text.indexOf("yyyy/mm/dd（仮）") != -1){
+            if(c_from == from[5] && c_mail_text.indexOf("12/10") != -1){
                 stateChange(1,2);
             }else{
                 stateChange(1,3);
@@ -314,7 +314,7 @@ function mail_task_judge(task){
             break;
         //A21：宛先＆資料
         case 3:
-            if(c_from == from[0] && c_file == "C:\\fakepath\\projectXX.txt"){
+            if(c_from == from[0] && c_file.indexOf("projectXX.txt") != -1){
                 stateChange(3,2);
             }else{
                 stateChange(3,3);
