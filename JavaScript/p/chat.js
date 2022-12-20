@@ -69,7 +69,7 @@ function onLoad() {
 let text = new Array('受信トレイに迷惑メールがあれば、ゴミ箱に移してください<br>（特別指示がない限りは返信不要です）<br><a href="./mlist.html" target="_blank">メール画面</a>',
                     '株式会社ウォルトエンジンからきたメール「北野海道様からのご紹介 株式会社ウォルトエンジン 遊園 大地」を確認し、「12/10に説明会をお願いします」という文言を含めた返信メールを送ってください<br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./mlist.html" target="_blank">メール画面</a>',
                     '資料「projectXX」に任意のパスワードを設定してください<br><a href="./filelist.html" target="_blank">ファイル画面</a><br><br>',
-                    '資料「projectXX」を添付して、BCCにstockmoney株式会社を設定し、aiupro株式会社へ送信してください<br>また、設定したパスワードを先方にメールで伝えてください<br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./mlist.html" target="_blank">メール画面</a>',
+                    '資料「projectXX」を添付して、BCCにstockmoney株式会社を設定し、aiupro株式会社へ送信してください<br>また、設定したパスワードを先方にメールで伝えてください<br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./mlist.html" target="_blank">メール画面</a><br><a href="./filelist.html" target="_blank">ファイル画面</a>',
                     'ブックマークに登録している「株価サイト」、「ニュースサイト」を閲覧してください<br><a href="./bookmark.html" target="_blank">ブックマーク画面</a>',
                     '検索エンジンから「株価サイト」を検索し、「日経平均.米ドル/円.TOPIX.NYダウ.上海総合.ユーロ円」レートの金額を資料「ExchangeRate」に全てしてください<br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./filelist.html" target="_blank">ファイル画面</a>',
                     '検索エンジンから「ニュースサイト」を検索し、来週のイベント調査を行い、10月のイベントを資料「10_Company」に書き込んでください<br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./filelist.html" target="_blank">ファイル画面</a>',
