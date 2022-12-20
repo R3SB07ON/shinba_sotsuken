@@ -38,14 +38,23 @@ function mailSet(type){
 	
 	//受信・ゴミ箱状態をローカルストレージで確認してメールを配置
 	for(i = 0;i < mailList.length;i++){
+		let file_icon = "";
 		if(localStorage.getItem(mailList[i][1]) != type) continue;
+		//添付ファイルがある場合アイコンを配置
+		if(file[i] != null)	file_icon = "📎";
+		else				file_icon = "";
 		table.innerHTML += 	'<tr id="tr'
 						+	i
 						+	'"><td><a href="mbrowse.html?'
 						+	i
 						+	'">'
+						+	'<font size = "4">'
+						+	from[i]
+						+	'<br></font>'
 						+	mailList[i][1]
-						+	'</a><button type="button" class="aaa" onclick="trashOrRecoveryClick(\''
+						+	file_icon
+						+	'</a>'
+						+	'<button type="button" class="aaa" onclick="trashOrRecoveryClick(\''
 						+	mailList[i][1]
 						+	'\',\''
 						+	buttontype
