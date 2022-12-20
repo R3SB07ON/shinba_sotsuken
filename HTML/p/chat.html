@@ -14,6 +14,7 @@ move内の全ての要素にid連番を行う -->
   </head>
   <body>
     <div class="container">
+      
       <div id="move" class="move">
         <p class="chattext">
           業務に関するマニュアルを一読ください<br>
@@ -32,21 +33,41 @@ move内の全ての要素にid連番を行う -->
         </p>
         <div id = "first">
           <p class="chattext">
-            それでは、初めの作業を4つ指示します<br>
-            <font color="red">タスクが1つ完了するごとに報告をしてください</font><br>
-          </p>
-          <p class="chattext">
-            ・受信トレイに迷惑メールがあれば、ゴミ箱に移してください<br><br>
-            ・ブックマークに登録している「株価サイト」、「ニュースサイト」を閲覧してください<br><br>
-            ・会議アプリで会議用のURLを作成して、projectXX.m-list@shinba.comへ送信してください<br><br>
-            ・メールアプリ、チャットアプリのパスワードを任意のパスワードに変更してください
+            それでは、初めの作業を６つ指示します<br>
+            作業の順番はないので、好きな順番で行ってください<br>
+            <font color="red">タスクが1つ完了するごとに報告をしてください</font><br><br>
+            ーーーーーーーーーーーー<br><br>
+            ・受信トレイに迷惑メールがあれば、ゴミ箱に移してください<br>（特別指示がない限りは返信不要です）<br>
+            <a href="./mlist.html" target="_blank">メール画面</a><br><br>
+
+            ・株式会社ウォルトエンジンからきたメール「北野海道様からのご紹介 株式会社ウォルトエンジン 遊園 大地」を確認し、「12/10に説明会をお願いします」という文言を含めた返信メールを送ってください<br>
+            (マニュアルにあるテンプレートを用いて下さい)<br>
+            <a href="./mlist.html" target="_blank">メール画面</a><br><br>
+        
+            ・資料「projectXX」に任意のパスワードを設定してください"<br>
+            <a href="./filelist.html" target="_blank">ファイル画面</a><br><br>
+
+            ・ブックマークに登録している「株価サイト」、「ニュースサイト」を閲覧してください<br>
+            <a href="./bookmark.html" target="_blank">ブックマーク画面</a><br><br>
+
+            ・会議アプリで会議用のURLを作成して、会議用URLを記載したメールをprojectXX.m-list@shinba.comへ送信してください<br>
+            (マニュアルにあるテンプレートを用いて下さい)<br>
+            <a href="./meeting.html" target="_blank">会議アプリ画面</a><br>
+            <a href="./mlist.html" target="_blank">メール画面</a><br><br>
+
+            ・メールアプリ、チャットアプリに任意のパスワードに変更してください<br>
+            <a href="./mlist.html" target="_blank">メール画面</a><br>
+            <a href="./chat.html" target="_blank">チャット画面</a>
           </p>
         </div>
         
       </div>
       <div class="lock">
         <a href="./set.html"><img src="../../material/image/p/gear.png" alt="設定" height="90" width="90"></a>
-        <input type="button" class="bbb" value="完了しました" onclick="addmychat('完了しました'); addhistory('a'); check();">
+        <input type="button" class="bbb" value="完了しました" onclick="addmychat('完了しました'); addhistory('a'); check();down();">
+        <input type="button" class = "bbb" value="現在のタスクを確認させてください" onclick="addmychat('現在のタスクを確認させてください'); returntask(); down();">
+        <input type="button" class = "bbb" value="下へ" onclick=" down();">
+        <input type="button" class = "bbb" value="上へ" onclick="document.getElementById('move').scrollTo(0, 0);">
       </div>
     </div>
   </body>

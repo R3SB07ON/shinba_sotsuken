@@ -17,7 +17,7 @@ function setState() {
     //最終報告タスク数
     localStorage.setItem('t_last',0);
     for (let index = 0; index < taskList.length; index++) {
-      if(taskList[index] == "A" || taskList[index] =="B" || taskList[index] =="C" || taskList[index] =="X"){
+      if(taskList[index] == "A" || taskList[index] == "A-1" || taskList[index] == "A-2" || taskList[index] =="B" || taskList[index] =="C" || taskList[index] =="X"){
         localStorage.setItem(taskList[index],stateList[1]);
       }else{
         localStorage.setItem(taskList[index],stateList[0]);
@@ -43,8 +43,19 @@ function t_collLast(){
       t_achieve += 1;
     }
   }
-  //[タスク完了数、タスク失敗数]
+  //タスク完了数
   return t_achieve;
+}
+
+//未完了表示
+function t_collNone(){
+  let t_none = "";
+  for (let index = 0; index < taskList.length; index++) {
+    if(localStorage.getItem(taskList[index]) == "未完了"){
+      t_none += String(index);
+    }
+  }
+  return t_none;
 }
 
 //失敗表示

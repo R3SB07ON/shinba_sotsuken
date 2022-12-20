@@ -54,9 +54,6 @@ function onLoad() {
                 addchat("確認しました");
             }else if(history.charAt(index) == "c"){
                 addchat("作業を終えてから報告してください");
-            }else if(history.charAt(index) == "d"){
-                index += 1;
-                addchat("作業が失敗しています<br><br><font color='red'>＜失敗したタスク＞</font><br>" + text[index]);
             }else{
                 addchat(text[history.charAt(index)]);
             }
@@ -69,17 +66,16 @@ function onLoad() {
 //画面読み込み時にローカルストレージと配列要素でチャット状況を復元
 
 //チャット保存
-//※※※※※<br><font>を活かせていない※※※※
-let text = new Array("受信トレイに迷惑メールがあれば、ゴミ箱に移してください",
-                    "株式会社ウォルトエンジンからきたメールを確認し、「12/10に説明会をお願いします」という文言を含めた返信メールを送ってください",
-                    "資料「projectXX」に任意のパスワードを設定してください",
-                    "資料「projectXX」を添付して、BCCにstockmoney株式会社を設定し、aiupro株式会社へ送信してください<br>また、設定したパスワードを先方にメールで伝えてください",
-                    "ブックマークに登録している「株価サイト」、「ニュースサイト」を閲覧してください",
-                    "検索エンジンから「株価サイト」を検索し、「日経平均.米ドル/円.TOPIX.NYダウ.上海総合.ユーロ円」レートの金額を資料「ExchangeRate」に全てしてください",
-                    "検索エンジンから「ニュースサイト」を検索し、来週のイベント調査を行い、10月のイベントを資料「10_Company」に書き込んでください",
-                    "会議アプリで会議用のURLを作成して、projectXX.m-list@shinba.comへ送信してください",
-                    "メールアプリ、チャットアプリのパスワードを任意のパスワードに変更してください",
-                    "朝の作業はこれで以上になります。デスクトップ画面からPCをシャットダウンしてください",
+let text = new Array('受信トレイに迷惑メールがあれば、ゴミ箱に移してください<br>（特別指示がない限りは返信不要です）<br><a href="./mlist.html" target="_blank">メール画面</a>',
+                    '株式会社ウォルトエンジンからきたメール「北野海道様からのご紹介 株式会社ウォルトエンジン 遊園 大地」を確認し、「12/10に説明会をお願いします」という文言を含めた返信メールを送ってください<br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./mlist.html" target="_blank">メール画面</a>',
+                    '資料「projectXX」に任意のパスワードを設定してください<br><a href="./filelist.html" target="_blank">ファイル画面</a><br><br>',
+                    '資料「projectXX」を添付して、BCCにstockmoney株式会社を設定し、aiupro株式会社へ送信してください<br>また、設定したパスワードを先方にメールで伝えてください<br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./mlist.html" target="_blank">メール画面</a>',
+                    'ブックマークに登録している「株価サイト」、「ニュースサイト」を閲覧してください<br><a href="./bookmark.html" target="_blank">ブックマーク画面</a>',
+                    '検索エンジンから「株価サイト」を検索し、「日経平均.米ドル/円.TOPIX.NYダウ.上海総合.ユーロ円」レートの金額を資料「ExchangeRate」に全てしてください<br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./filelist.html" target="_blank">ファイル画面</a>',
+                    '検索エンジンから「ニュースサイト」を検索し、来週のイベント調査を行い、10月のイベントを資料「10_Company」に書き込んでください<br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./filelist.html" target="_blank">ファイル画面</a>',
+                    '会議アプリで会議用のURLを作成して、会議用URLを記載したメールをprojectXX.m-list@shinba.comへ送信してください<br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./meeting.html" target="_blank">会議アプリ画面</a><br><a href="./mlist.html" target="_blank">メール画面</a>',
+                    'メールアプリ、チャットアプリに任意のパスワードに変更してください<br><a href="./mlist.html" target="_blank">メール画面</a><br><a href="./chat.html" target="_blank">チャット画面</a>',
+                    '朝の作業はこれで以上になります。デスクトップ画面からPCをシャットダウンしてください<br><a href="./desktop.html" target="_blank">デスクトップ画面</a>'
                     );
 
 //------------------------------------------------------
@@ -110,6 +106,7 @@ function addmychat(chattext){
 //------------------------------------------------------
 //履歴追記
 
+//現在のタスク状況確認と失敗内容の表示は履歴に残さない
 function addhistory(num){
     localStorage.setItem("c_history",localStorage.getItem("c_history") + num);
 }
@@ -123,13 +120,15 @@ function new_task() {
         stateChange(3,1);
         addchat(text[3]);
         addhistory("3");
-    }else if(stateCheck(0) == "完了" && stateCheck(1) == "未発生"){
-        stateChange(1,1);
-        stateChange(2,1);
-        addchat(text[1]);
-        addchat(text[2]);
-        addhistory("12");
     }
+    //仕様変更により依存消去
+    // else if(stateCheck(0) == "完了" && stateCheck(1) == "未発生"){
+    //     stateChange(1,1);
+    //     stateChange(2,1);
+    //     addchat(text[1]);
+    //     addchat(text[2]);
+    //     addhistory("12");
+    // }
     //B系統
     if(stateCheck(4) == "完了" && stateCheck(5) == "未発生"){
         stateChange(5,1);
@@ -144,6 +143,39 @@ function new_task() {
         addhistory("9");
     }
 }
+
+//------------------------------------------------------
+//現在未完了、失敗のタスクを表示
+function returntask(){
+    let nonetask = t_collNone();
+    let misstask = t_collMiss();
+    t_collLast();
+    let returntext = "【未完了のタスク】<br>";
+    if(nonetask != ""){
+        for (let index = 0; index < nonetask.length; index++) {
+            returntext += text[nonetask.charAt(index)] + "<br><br>";
+        }
+    }else{
+        returntext += "なし<br><br>"
+    }
+
+    returntext += "【失敗のタスク】<br>"
+    if(misstask != ""){
+        for (let index = 0; index < misstask.length; index++) {
+            returntext += text[misstask.charAt(index)] + "<br><br>";
+        }
+    }else{
+        returntext += "なし<br><br>"
+    }
+
+    if(t_achieve - localStorage.getItem("t_last") > 0){
+        returntext += "【未報告の完了済みタスク】<br>あり"
+    }else{
+        returntext += "【未報告の完了済みタスク】<br>なし"
+    }
+    addchat(returntext);
+}
+
 
 //------------------------------------------------------
 //報告ボタン押下時、最終報告タスク数と現在の完了タスク数の差分チェック
@@ -175,11 +207,16 @@ function check() {
     if(misstask != ""){
         for (let index = 0; index < misstask.length; index++) {
             addchat("作業が失敗しています<br><br><font color='red'>＜失敗したタスク＞</font><br>" + text[misstask.charAt(index)]);
-            addhistory("d" + misstask.charAt(index));
         }
     }
     
 }
+
+function down(){
+    const el = document.getElementById('move');
+    el.scrollTo(0, el.scrollHeight);
+}
+
 
 //タスク追加（時間経過）
 //凍結中
