@@ -4,7 +4,7 @@ let moveflag = true;
 //タイマー初期設定
 function setTime() {
     if(localStorage.getItem("time") == null){
-        localStorage.setItem("time", "600000"); 
+        localStorage.setItem("time", "900000"); 
     }
 }
 
@@ -12,12 +12,12 @@ setTime();
 
         
 //------------------------------------------------------
-//10分後画面遷移
+//15分後画面遷移
 let fin = function finish() {
     moveflag = false;
     window.location.href = "../c/result.html?game1"
 }
-let time2 = 600000;
+let time2 = 900000;
 setTimeout(fin,time2)
 
 //------------------------------------------------------
