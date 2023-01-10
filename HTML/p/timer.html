@@ -12,9 +12,13 @@
     <title>時間管理</title>
 </head>
 <body>
-    <p id="timeText">900</p>
-    <h1><font color = "red">15分後、結果画面に移行します。決して閉じないでください</font></h1>
+    <p id="timeText">1200</p>
+    
+    <!-- <h1><font color = "red">15分後、結果画面に移行します。決して閉じないでください</font></h1> -->
     <h1><font color = "blue">チャット画面に戻ってください。タスクの指示が追記されています</font></h1>
     <a href="./browser.html" target="_blank">シミュレーション画面を閉じてしまった場合</a>
+    <br><br><br><br>
+    <!-- 下記を追加したため、other.js（一部画面以外の強制終了）は凍結 -->
+    <input type="button" value="監督者から指示があれば押してください" onclick="alert('誤クリックの場合次のアラートでキャンセルを選んでください'); location.href='../c/result.html?game1'; localStorage.setItem('timerfinish','true'); ">
 </body>
 </html>
