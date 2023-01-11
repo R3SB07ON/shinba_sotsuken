@@ -63,7 +63,7 @@
 
     function btnpush(){
         if(t_collLast() == t_total){
-            location("desktopfinish","true");
+            localStorage.setItem("desktopfinish","true");
             location.href = "../c/result.html?game1";
         }else{
             Z_unfinished_shutdown();
