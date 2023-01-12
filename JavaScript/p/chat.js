@@ -66,15 +66,15 @@ function onLoad() {
 //画面読み込み時にローカルストレージと配列要素でチャット状況を復元
 
 //チャット保存
-let text = new Array('受信トレイに<span class="uline">迷惑メール</span>があれば、ゴミ箱に移してください<br>（特別指示がない限りは返信不要です）<br><a href="./mlist.html" target="_blank">メール画面</a>',
-                    '株式会社ウォルトエンジンからきたメール「北野海道様からのご紹介 株式会社ウォルトエンジン 遊園 大地」を確認し、「12/10に説明会をお願いします」という文言を含めた<span class="uline">返信メールを送ってください</span><br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./mlist.html" target="_blank">メール画面</a>',
-                    '資料「projectXX」に任意の<span class="uline">パスワードを設定</span>してください<br><a href="./filelist.html" target="_blank">ファイル画面</a><br><br>',
-                    '<span class="uline">資料「projectXX」を添付</span>して、BCCにstockmoney株式会社を設定し、<span class="uline">aiupro株式会社へ送信</span>してください<br>また、設定したパスワードを先方にメールで伝えてください<br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./mlist.html" target="_blank">メール画面</a><br><a href="./filelist.html" target="_blank">ファイル画面</a>',
-                    'ブックマークに登録している<span class="uline">「株価サイト」、「ニュースサイト」を閲覧</span>してください<br><a href="./bookmark.html" target="_blank">ブックマーク画面</a>',
-                    '検索エンジンから「株価サイト」を検索し、「日経平均.米ドル/円.TOPIX.NYダウ.上海総合.ユーロ円」レートの金額を<span class="uline">資料「ExchangeRate」に全て書き写してください</span><br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./filelist.html" target="_blank">ファイル画面</a>',
-                    '検索エンジンから「ニュースサイト」を検索し、来週のイベント調査を行い、10月のイベントを<span class="uline">資料「10_Company」に書き込んでください</span><br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./filelist.html" target="_blank">ファイル画面</a>',
-                    '会議アプリで会議用のURLを作成して、<span class="uline">会議用URLを記載したメールをprojectXX.m-list@shinba.comへ送信</span>してください<br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./meeting.html" target="_blank">会議アプリ画面</a><br><a href="./mlist.html" target="_blank">メール画面</a>',
-                    'メールアプリ、チャットアプリに<span class="uline">任意のパスワード</span>に変更してください<br><a href="./mlist.html" target="_blank">メール画面</a><br><a href="./chat.html" target="_blank">チャット画面</a>',
+let text = new Array('・受信トレイに<span class="uline">迷惑メール</span>があれば、ゴミ箱に移してください<br>（特別指示がない限りは返信不要です）<br><a href="./mlist.html" target="_blank">メール画面</a>',
+                    '・株式会社ウォルトエンジンからきたメールを確認し、「12/10に説明会をお願いします」という文言を含めた<span class="uline">返信メールを送ってください</span><br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./mlist.html" target="_blank">メール画面</a>',
+                    '・資料「projectXX」に任意の<span class="uline">パスワードを設定</span>してください<br><a href="./filelist.html" target="_blank">ファイル画面</a>',
+                    '・<span class="uline">aiupro株式会社に、資料「projectXX」を添付したメールを送信</span>してください<br>また、設定したパスワードはメール本文に記載し、BCCにはstockmoney株式会社を入れてください<br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./mlist.html" target="_blank">メール画面</a><br><a href="./filelist.html" target="_blank">ファイル画面</a>',
+                    '・ブックマークに登録している<span class="uline">「株価サイト」、「ニュースサイト」を閲覧</span>してください<br><a href="./bookmark.html" target="_blank">ブックマーク画面</a>',
+                    '・検索エンジンから「株価サイト」を検索し、「日経平均.米ドル/円.TOPIX.NYダウ.上海総合.ユーロ円」レートの金額を<span class="uline">資料「ExchangeRate」に全て書き写してください</span><br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./filelist.html" target="_blank">ファイル画面</a>',
+                    '・検索エンジンから「ニュースサイト」を検索し、来週のイベント調査を行い、10月のイベントを<span class="uline">資料「10_Company」に書き込んでください</span><br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./filelist.html" target="_blank">ファイル画面</a>',
+                    '・会議アプリで会議用のURLを作成して、<span class="uline">会議用URLを記載したメールをprojectXX.m-list@shinba.comへ送信</span>してください<br>(マニュアルにあるテンプレートを用いて下さい)<br><a href="./meeting.html" target="_blank">会議アプリ画面</a><br><a href="./mlist.html" target="_blank">メール画面</a>',
+                    '・メールアプリ、チャットアプリに<span class="uline">任意のパスワード</span>を設定してください<br><a href="./mlist.html" target="_blank">メール画面</a><br><a href="./chat.html" target="_blank">チャット画面</a>',
                     '朝の作業はこれで以上になります。デスクトップ画面からPCを<span class="uline">シャットダウン</span>してください<br><a href="./desktop.html" target="_blank">デスクトップ画面</a>'
                     );
 

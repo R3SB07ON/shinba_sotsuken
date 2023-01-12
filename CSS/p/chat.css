@@ -16,14 +16,24 @@ body{
     background-color: aliceblue;
 }
 
+/*随時追加する用*/
 .chattext{
     font-size: 32px;
     word-break: break-word; /*改行*/
     border: solid 5pt greenyellow;
     background-color: greenyellow;
-    width: 500px;
-     
+    width: 750px;
 }
+
+/*初期表示用*/
+.chattext_default{
+    font-size: 32px;
+    word-break: break-word; /*改行*/
+    border: solid 5pt greenyellow;
+    background-color: greenyellow;
+    width: 750px;
+}
+
 .mytext{
     font-size: 32px;
     word-break: break-word; /*改行*/
@@ -69,4 +79,16 @@ body{
 
 .uline{
     text-decoration: underline red;
+}
+
+/*最新のチャットを強調表示*/
+.chattext:last-child {
+    border: solid 5pt #203744;
+}
+
+.chattext:last-child::before{
+    white-space: pre;
+    content: "[NEW]\A";
+    color:#FFFFFF;
+    background-color: #FF0000;
 }
