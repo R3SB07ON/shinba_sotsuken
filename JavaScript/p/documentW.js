@@ -6,7 +6,7 @@ let moveflag = true;
 
 function move(){  
     url = "./documentR.html" + location.search;
-    window.location.href = url;    
+    window.location.href = url;
 }
 
 function save() {
