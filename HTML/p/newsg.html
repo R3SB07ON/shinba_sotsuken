@@ -12,11 +12,39 @@
         <button onclick="history.back()" style="background-color: cadetblue;">×</button>
     </div>
 
-    <h1>ニュースサイト</h1>
+    <h1>ニュースサイト<button onclick="copyToClipboard()">コピー</button></h1>
 
     <div class="news">
 
         <img src="../../material/image/p/news.png" alt="画像">
     </div>
-</body>
 
+<div id="copydiv" style="display: none;">
+    <input id="copyTarget" type="text" value="{＜10/17＞}{◆８月鉱工業生産確報値◆米10月NY連銀製造業景気指数◆決算：バンク・オブ・アメリカ（BAC）}
+    {10/18（火）}{◆中7～9月四半期国内総生産（GDP）◆中9月小売売上高◆独10月ZEW景況感調査◆米9月鉱工業生産◆決算：GS、NFLX}
+    {＜１０月１９日（Wed）＞}{◆SBIシーリングサービス（5834）東証グロース上場◆英9月消費者物価指数（CPI）◆英9月小売物価指数(RPI)◆欧9月消費者物価指数（HICP）改定値◆米9月住宅着工件数◆米地区連銀経済報告（ベージュブック）◆決算：IBM（IBM）、ラムリサーチ（LRCX）、ﾌﾟﾛｸﾀｰ・ｱﾝﾄﾞ・ｷﾞｬﾝﾌﾞﾙ（PG）}" readonly >
+</div>
+</body>
+ <!-- bodyタグ内の下部に以下を入力する  -->
+ <script>
+    
+    function copyToClipboard() {
+
+        let copydiv = document.getElementById("copydiv");
+        copydiv.style = "display:block;";
+        // コピー対象をJavaScript上で変数として定義する
+        let copyTarget = document.getElementById("copyTarget");
+
+        // コピー対象のテキストを選択する
+        copyTarget.select();
+
+        // 選択しているテキストをクリップボードにコピーする
+        document.execCommand("Copy");
+
+        copydiv.style = "display:none;";
+
+        // コピーをお知らせする
+        alert("コピーしました");
+
+    }
+</script>

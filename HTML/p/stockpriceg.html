@@ -13,10 +13,40 @@
         <button onclick="history.back()" style="background-color: cadetblue;">×</button>
     </div>
     
-    <h1>株価サイト</h1>
+    <h1>株価サイト<button onclick="copyToClipboard()">コピー</button></h1>
+ 
 
     <div class="news">
         <img class=stockt src="../../material/image/p/stockprice.png" alt="画像">
     </div>
+
+    <div id="copydiv" style="display: none;">
+        <input id="copyTarget" type="text" value="＜日経平均株価25937.21＞＜USD＄/JPY￥144.72＞＜TOPIX1835.94＞＜ニューヨークダウ28725.51＞＜上海総合指数3024.39＞＜EUR€/JPY￥141.84＞" readonly >
+    </div>
 </body>
+
+    <!-- bodyタグ内の下部に以下を入力する  -->
+    <script>
+    
+    function copyToClipboard() {
+
+        let copydiv = document.getElementById("copydiv");
+        copydiv.style = "display:block;";
+        // コピー対象をJavaScript上で変数として定義する
+        let copyTarget = document.getElementById("copyTarget");
+
+        // コピー対象のテキストを選択する
+        copyTarget.select();
+
+        // 選択しているテキストをクリップボードにコピーする
+        document.execCommand("Copy");
+
+        copydiv.style = "display:none;";
+
+        // コピーをお知らせする
+        alert("コピーしました");
+
+    }
+</script>
+
 </html>
