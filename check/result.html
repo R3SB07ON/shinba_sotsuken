@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>結果分析</title>
+</head>
+<body>
+    <style>
+        div{
+            border: solid;
+        }
+        .contents {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 30px 0;
+            padding-top: 30px;
+        }
+        .item {
+            width: calc(100% / 5 - 30px);
+            margin-bottom: 30px;
+            padding: 50px 10px;
+            text-align: center;
+        }
+        .item2 {
+            width: calc(100% / 3 - 30px);
+            margin-bottom: 30px;
+            padding: 100px 10px;
+            text-align: center;
+        }
+    </style>
+    <textarea name="" id="data" cols="100" rows="10" placeholder="結果文字列に改行があるとうまく動かない可能性あり。改行削除のwebサイトを利用する"></textarea>
+    <input type="button" onclick="output();" value="適応">
+    <div class="contents">
+        <div id="param" class="item"><h1><font color="red">パラメータ</font></h1></div>
+        <div id="task" class="item"><h1><font color="red">タスク状況</font></h1></div>
+        <div id="search" class="item"><h1><font color="red">検索系統</font></h1></div>
+        <div id="pass" class="item"><h1><font color="red">パスワード</font></h1></div>
+        <div id="other" class="item"><h1><font color="red">その他</font></h1></div>
+        <div id="chat" class="item2"><h1><font color="red">チャット履歴</font></h1></div>
+        <div id="mail" class="item2"><h1><font color="red">メール</font></h1><div id="mailin"></div></div>
+        <div id="file" class="item2"><h1><font color="red">資料</font></h1></div>
+        
+    </div>
+    
+
+    <script src="./data.js"></script>
+    <script src="./user.js"></script>
+    <script>
+        
+        //タスク
+        let t_last;
+        let taskarray = new Array(9);
+
+        //チャット
+        let c_history;
+        
+        //メール
+        let mailarray;
+        let after_send, A_OK_mail, f_mail;
+        let sendarray;
+
+        //検索系統
+        let f_searchstr, f_click;
+
+        //パスワード
+        let p_chat, p_mail;
+        let p_filearray;
+
+        //ファイルの中身
+        let file_array;
+
+        //その他
+        let timeover, f_update, timerfinish, desktopfinish;
+function output(){
+//結果文字列
+let ls = [document.getElementById("data").value];
+        let lsarray =ls[0].split(",");
+
+        for (let i = 0; i < 12; i++) {
+            for (let j = 0; j < lsarray.length; j++) {
+                if(!lsarray[j].indexOf(i+":")){
+                    let aaa = lsarray[j].split(":");
+                    document.getElementById("param").innerHTML += paramList[i] + ":" + aaa[1] + "<br>";
+                    if(i != 0) break;
+                }
+                if(i == 0){
+                    //タスク
+                    if(!lsarray[j].indexOf("t_last:")){
+                        t_last = lsarray[j];
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("A:")){
+                        taskarray[0] = lsarray[j];
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("A-1:")){
+                        taskarray[1] = lsarray[j];
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("A-2:")){
+                        taskarray[2] = lsarray[j];
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("A-2-1:")){
+                        taskarray[3] = lsarray[j];
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("B:")){
+                        taskarray[4] = lsarray[j];
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("B-1:")){
+                        taskarray[5] = lsarray[j];
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("B-2:")){
+                        taskarray[6] = lsarray[j];
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("C:")){
+                        taskarray[7] = lsarray[j];
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("X:")){
+                        taskarray[8] = lsarray[j];
+                        continue;
+                    }
+
+                    //チャット
+                    if(!lsarray[j].indexOf("c_h")){
+                        c_history = lsarray[j].split(":")[1];
+                        continue;
+                    }
+
+                    //メール
+                    if(lsarray[j].endsWith(":inbox") || lsarray[j].endsWith(":trash")){
+                        document.getElementById("mailin").innerHTML += lsarray[j] + "<br>";
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("aft")){
+                        document.getElementById("mail").innerHTML += "時差送信:あり<br>";
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("A_OK")){
+                        document.getElementById("mail").innerHTML += "良いメールの削除回数：" + lsarray[j] + "<br>";
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("f_mfile")){
+                        f_mail = lsarray[j].split(":")[1];
+                        let str = f_mail.split("+");
+                        let mf0 = 0,mf2 = 0,mf7 = 0,mf11 = 0,mf12 = 0;
+                        for (let index = 0; index < str.length - 1; index++) {
+                            if(str[index] == 0)   mf0 += 1;
+                            if(str[index] == 2)   mf2 += 1;
+                            if(str[index] == 7)   mf7 += 1;
+                            if(str[index] == 11)   mf11 += 1;
+                            if(str[index] == 12)   mf12 += 1;
+                        }
+                        
+                        document.getElementById("mail").innerHTML += "添付クリック：<br>";
+                        document.getElementById("mail").innerHTML += file[0] + ":" + mf0 + "<br>";
+                        document.getElementById("mail").innerHTML += file[2] + ":" + mf2 + "<br>";
+                        document.getElementById("mail").innerHTML += file[7] + ":" + mf7 + "<br>";
+                        document.getElementById("mail").innerHTML += file[11] + ":" + mf11 + "<br>";
+                        document.getElementById("mail").innerHTML += file[12] + ":" + mf12 + "<br>";
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("send")){
+                        document.getElementById("mail").innerHTML += "送信メール：" + lsarray[j] + "<br>";
+                        continue;
+                    }
+
+                    //検索系統
+                    if(!lsarray[j].indexOf("f_sea")){
+                        document.getElementById("search").innerHTML += "検索文字列：" + lsarray[j].split(":")[1] + "<br>";
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("f_cli")){
+                        f_click = lsarray[j];
+                        continue;
+                    }
+
+                    //パスワード
+                    if(!lsarray[j].indexOf("p_mail")){
+                        document.getElementById("pass").innerHTML += "メールパスワード：" + lsarray[j].substring(7) + "<br>";
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("p_c")){
+                        document.getElementById("pass").innerHTML += "チャットパスワード：" + lsarray[j].substring(7) + "<br>";
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("p_f")){
+                        p_filearray = lsarray[j].split(":") 
+                        document.getElementById("pass").innerHTML += p_filearray[0].substring(7) + "：" + p_filearray[1] + "<br>";
+                        continue;
+                    }
+
+                    //ファイル
+                    if(!lsarray[j].indexOf("file_Ex")){
+                        document.getElementById("file").innerHTML += lsarray[j] + lsarray[j+1]+lsarray[j+2]+"<br>";
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("file_10")){
+                        document.getElementById("file").innerHTML += lsarray[j] + "<br>";
+                        continue;
+                    }
+
+                    //その他
+                    if(!lsarray[j].indexOf("timeover")){
+                        document.getElementById("other").innerHTML += "時間切れ：あり<br>";
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("f_up")){
+                        
+                        if(lsarray[j].charAt(9) == "t") document.getElementById("other").innerHTML += "アップデート：あり<br>";
+                        if(lsarray[j].charAt(9) == "f") document.getElementById("other").innerHTML += "アップデート：なし<br>";
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("timerfin")){
+                        document.getElementById("other").innerHTML += "終了タイプ：時間管理画面<br>";
+                        continue;
+                    }
+                    if(!lsarray[j].indexOf("desktop")){
+                        document.getElementById("other").innerHTML += "終了タイプ：デスクトップ<br>";
+                        continue;
+                    }
+                }
+            }
+        }
+
+        document.getElementById("task").innerHTML += "最終報告済み達成タスク数" + ":" + t_last + "<br>";
+        for (let i = 0; i < taskarray.length; i++) {
+            document.getElementById("task").innerHTML += taskarray[i] + "<br>";
+        }
+
+
+        for (let index = 0; index < c_history.length; index++) {
+            if(c_history.charAt(index) == "a"){
+                document.getElementById("chat").innerHTML += "完了しました<br>";
+            }else if(c_history.charAt(index) == "b"){
+                document.getElementById("chat").innerHTML += "確認しました<br>";
+            }else if(c_history.charAt(index) == "c"){
+                document.getElementById("chat").innerHTML += "作業を終えてから報告してください<br>";
+            }else{
+                document.getElementById("chat").innerHTML +=  text[c_history.charAt(index)] + "<br>";
+            }
+        }
+        
+        f_click = f_click.split(":")[1];
+        f_click = f_click.split("+");
+        for (let index = 0; index < f_click.length; index++) {
+            document.getElementById("search").innerHTML += sitetitle[f_click[index]] + "<br>";
+            
+        }
+        console.log(lsarray)
+}
+        
+    </script>
+</body>
+</html>
