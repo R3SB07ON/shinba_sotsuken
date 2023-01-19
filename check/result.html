@@ -32,7 +32,8 @@
         }
     </style>
     <textarea name="" id="data" cols="100" rows="10" placeholder="結果文字列に改行があるとうまく動かない可能性あり。改行削除のwebサイトを利用する"></textarea>
-    <input type="button" onclick="output();" value="適応">
+    <input type="button" onclick="output(',');" value="適応(,)">
+    <input type="button" onclick="output('*,*');" value="適応(*,*)">
     <div class="contents">
         <div id="param" class="item"><h1><font color="red">パラメータ</font></h1></div>
         <div id="task" class="item"><h1><font color="red">タスク状況</font></h1></div>
@@ -74,10 +75,10 @@
 
         //その他
         let timeover, f_update, timerfinish, desktopfinish;
-function output(){
+function output(splitStr){
 //結果文字列
 let ls = [document.getElementById("data").value];
-        let lsarray =ls[0].split(",");
+        let lsarray =ls[0].split(splitStr);
 
         for (let i = 0; i < 12; i++) {
             for (let j = 0; j < lsarray.length; j++) {
@@ -219,11 +220,11 @@ let ls = [document.getElementById("data").value];
                         if(lsarray[j].charAt(9) == "f") document.getElementById("other").innerHTML += "アップデート：なし<br>";
                         continue;
                     }
-                    if(!lsarray[j].indexOf("timerfin")){
+                    if(!lsarray[j].indexOf("timerfinish:t")){
                         document.getElementById("other").innerHTML += "終了タイプ：時間管理画面<br>";
                         continue;
                     }
-                    if(!lsarray[j].indexOf("desktop")){
+                    if(!lsarray[j].indexOf("desktopfinish:t")){
                         document.getElementById("other").innerHTML += "終了タイプ：デスクトップ<br>";
                         continue;
                     }

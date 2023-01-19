@@ -26,7 +26,8 @@
         }
     </style>
     <textarea name="" id="data" cols="100" rows="10" placeholder="結果文字列に改行があるとうまく動かない可能性あり。改行削除のwebサイトを利用する"></textarea>
-    <input type="button" onclick="output();" value="適応">
+    <input type="button" onclick="output();" value="適応(,)">
+    <input type="button" onclick="output2();" value="適応(*,*)">
     <div class="contents">
         <div id="name" class="item"></div>
         <div id="select" class="item">start<br>↓<br></div>
@@ -37,12 +38,35 @@
                                     "危険予測","倫理","洞察",
                                     "知識","好奇心","事前","事後")
 
-        let select = {"2AA":"全ファイルゴミ箱へ","2AB":"ハードディスクの初期化","2AC":"物理的に破壊","1A":"ゲーム運営に連絡","1B":"別サイトの登録情報を確認","1C":"ゲームのパスワード変更","1D":"クレカ停止","3A":"無視","3BA":"電話で教える","3BB":"電話で教えない","4A":"できるだけ長いパスワード","4B":"複雑なパスワード","5A":"身代金払う","5BA":"自力で複号","5BB":"バックアップから復旧","7A":"USBにパスワード","7B":"受け渡し後にデータ削除","7C":"業者に運搬","7D":"データ取り扱いルールを厳しく","7E":"USBでなくネットワーク","61A":"調査","61B":"公表","61C":"隠蔽","62A":"機密情報にアクセスできたこと","62B":"退職者のアカウントが残っていたこと","63A":"情報資産に適切なアクセス権","63B":"物理的に運べない","64A":"監視強化","64B":"コンプラ強化"}
+        let select = {"2AA":"全ファイルゴミ箱へ","2AB":"ハードディスクの初期化","2AC":"物理的に破壊","2B":"詳しい人に頼む","1A":"ゲーム運営に連絡","1B":"別サイトの登録情報を確認","1C":"ゲームのパスワード変更","1D":"クレカ停止","3A":"無視","3BA":"電話で教える","3BB":"電話で教えない","4A":"できるだけ長いパスワード","4B":"複雑なパスワード","5A":"身代金払う","5BA":"自力で複号","5BB":"バックアップから復旧","7A":"USBにパスワード","7B":"受け渡し後にデータ削除","7C":"業者に運搬","7D":"データ取り扱いルールを厳しく","7E":"USBでなくネットワーク","61A":"調査","61B":"公表","61C":"隠蔽","62A":"機密情報にアクセスできたこと","62B":"退職者のアカウントが残っていたこと","63A":"情報資産に適切なアクセス権","63B":"物理的に運べない","64A":"監視強化","64B":"コンプラ強化"}
         let q = ["HDDの初期化","不正ログイン","不審電話","パスワード設定方針","ランサムウエア","情報漏洩１","情報漏洩２","情報漏洩３","内部不正","問題点","対策","再発防止"]
         
         function output(){
             let ls=[document.getElementById("data").value]
         let lsarray =ls[0].split(",");
+
+            for (let i = 0; i < 14; i++) {
+                for (let j = 0; j < lsarray.length; j++) {
+                    if(!lsarray[j].indexOf(i)){
+                        let aaa = lsarray[j].split(":");
+                        document.getElementById("name").innerHTML += paramList[i] + ":" + aaa[1] + "<br>";
+                        if(i != 0) break;
+                    }
+                    if(i == 0){
+                        if(!lsarray[j].indexOf("r_")){
+                            let aaa = lsarray[j].split("+");
+                            for (let index = 2; index < aaa.length; index++) {
+                                document.getElementById("select").innerHTML += q[index -2] + ":" + select[aaa[index]] + "<br>↓<br>";
+                            }
+                            document.getElementById("select").innerHTML +=  "finish"           
+                        }    
+                    }
+                }
+            }
+        }
+        function output2(){
+            let ls=[document.getElementById("data").value]
+        let lsarray =ls[0].split("*,*");
 
             for (let i = 0; i < 14; i++) {
                 for (let j = 0; j < lsarray.length; j++) {
